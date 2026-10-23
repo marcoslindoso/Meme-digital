@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:wordpress": "node scripts/export-wordpress.mjs && node scripts/export-static-snapshots.mjs",
+    "sync:snapshots": "node scripts/export-static-snapshots.mjs"
   },
   "dependencies": {
     "next": "16.4.2",

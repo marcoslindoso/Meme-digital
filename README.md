@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meme Digital — Next.js
 
-## Getting Started
+Migração fiel do frontend WordPress para Next.js 16 com App Router e
+TypeScript. A saída visual original é preservada por snapshots locais dos
+templates do Elementor, incluindo cabeçalho, rodapé, estilos e animações.
 
-First, run the development server:
+## Desenvolvimento
 
-```bash
+O projeto funciona sem PHP, banco de dados ou WordPress em execução:
+
+```powershell
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O Next.js abre em `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Produção e Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```powershell
+npm run build
+npm run start
+```
 
-## Learn More
+Os assets utilizados ficam versionados em `public/wp-content` e
+`public/wp-includes`. O build e o deploy não acessam `localhost:8080` nem a
+instalação WordPress.
 
-To learn more about Next.js, take a look at the following resources:
+URLs internas do domínio público são normalizadas para caminhos locais. A
+navegação permanece no Next.js e não abre o site original.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Na Vercel, importe a pasta `next-site` como raiz do projeto. Não é necessário
+configurar `WORDPRESS_URL` nem outras variáveis para o frontend atual.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Atualizar a partir do backup
 
-## Deploy on Vercel
+Somente quando quiser importar mudanças futuras do WordPress, inicie o backup
+local em `http://localhost:8080` e execute:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```powershell
+npm run sync:wordpress
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Esse comando atualiza os conteúdos, os snapshots visuais e somente os assets
+necessários. Ele não é executado durante o build ou na Vercel.
+
+## Tipografia
+
+- Títulos: Rubik, servida localmente em `public/fonts`.
+- Corpo: `-apple-system`, com fallbacks nativos do sistema.

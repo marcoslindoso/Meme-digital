@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Third-party WordPress frontend bundles copied as immutable public assets.
+    "public/wp-content/**",
+    "public/wp-includes/**",
   ]),
 ]);
 
