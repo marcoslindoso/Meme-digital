@@ -2,6 +2,26 @@
   display: contents;
 }
 
+/* Elementor normally calculates these values in WordPress. Keep the mega menu
+   aligned to the viewport when a snapshot is rendered or reached by Next navigation. */
+.wp-snapshot-root .elementor-widget-n-menu .e-n-menu:not([data-layout="dropdown"]) .e-n-menu-content {
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+
+.wp-snapshot-root .elementor-widget-n-menu .e-n-menu-content.e-active {
+  z-index: 2147483620;
+}
+
+.wp-snapshot-root .elementor-widget-n-menu .next-menu-open > .e-n-menu-content > .e-con {
+  display: flex;
+}
+
+.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-816f5ba,
+.wp-snapshot-root .elementor-627 .elementor-element.elementor-element-2f38855 {
+  background-image: url("/wp-content/uploads/2024/03/Retangulo-197.png") !important;
+}
+
 .elementor-element-aa667bb,
 .elementor-element-aa667bb > .elementor-widget-container,
 .elementor-element-aa667bb .elementor-shortcode,

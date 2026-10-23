@@ -111,6 +111,133 @@ export function SiteIntegrations() {
     };
   }, []);
 
+  useEffect(() => {
+    const menuSelector = ".e-n-menu-item";
+    let resizeFrame = 0;
+
+    const getDropdown = (item: Element) =>
+      item.querySelector<HTMLElement>(":scope > .e-n-menu-content");
+
+    const setOpen = (item: HTMLElement, open: boolean) => {
+      const dropdown = getDropdown(item);
+      if (!dropdown) return;
+
+      dropdown.classList.toggle("e-active", open);
+      dropdown.querySelector<HTMLElement>(":scope > .e-con")?.classList.toggle("e-active", open);
+      item.classList.toggle("next-menu-open", open);
+      item
+        .querySelector<HTMLElement>(":scope > .e-n-menu-title .e-n-menu-dropdown-icon")
+        ?.setAttribute("aria-expanded", String(open));
+    };
+
+    const closeAll = (except?: HTMLElement) => {
+      document.querySelectorAll<HTMLElement>(menuSelector).forEach((item) => {
+        if (item !== except && getDropdown(item)) setOpen(item, false);
+      });
+    };
+
+    const syncMenuPositions = () => {
+      const viewportWidth = document.documentElement.clientWidth;
+      document.querySelectorAll<HTMLElement>(".elementor-widget-n-menu .e-n-menu").forEach((menu) => {
+        if (menu.dataset.layout === "dropdown") return;
+        const rect = menu.getBoundingClientRect();
+        menu.style.setProperty("--stretch-left", `${-rect.left}px`);
+        menu.style.setProperty("--stretch-right", "auto");
+        menu.style.setProperty("--stretch-width", `${viewportWidth}px`);
+      });
+    };
+
+    const schedulePositionSync = () => {
+      window.cancelAnimationFrame(resizeFrame);
+      resizeFrame = window.requestAnimationFrame(syncMenuPositions);
+    };
+
+    const onMouseOver = (event: MouseEvent) => {
+      const targetElement = event.target instanceof Element ? event.target : null;
+      const item = targetElement?.closest<HTMLElement>(menuSelector);
+      if (!item || !getDropdown(item)) return;
+      if (event.relatedTarget instanceof Node && item.contains(event.relatedTarget)) return;
+
+      syncMenuPositions();
+      closeAll(item);
+      setOpen(item, true);
+    };
+
+    const onMouseOut = (event: MouseEvent) => {
+      const targetElement = event.target instanceof Element ? event.target : null;
+      const item = targetElement?.closest<HTMLElement>(menuSelector);
+      if (!item || !getDropdown(item)) return;
+      if (event.relatedTarget instanceof Node && item.contains(event.relatedTarget)) return;
+      setOpen(item, false);
+    };
+
+    const onClick = (event: MouseEvent) => {
+      const targetElement = event.target instanceof Element ? event.target : null;
+      if (!targetElement) return;
+
+      const trigger = targetElement.closest<HTMLElement>(
+        ".e-n-menu-title-container[href='#'], .e-n-menu-dropdown-icon",
+      );
+      if (!trigger) {
+        if (!targetElement.closest(".e-n-menu-content")) closeAll();
+        return;
+      }
+
+      const item = trigger.closest<HTMLElement>(menuSelector);
+      const dropdown = item ? getDropdown(item) : null;
+      if (!item || !dropdown) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      syncMenuPositions();
+      const hasHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      const shouldOpen = hasHover || !dropdown.classList.contains("e-active");
+      closeAll(item);
+      setOpen(item, shouldOpen);
+    };
+
+    const onFocusIn = (event: FocusEvent) => {
+      const targetElement = event.target instanceof Element ? event.target : null;
+      const item = targetElement?.closest<HTMLElement>(menuSelector);
+      if (!item || !getDropdown(item)) return;
+      syncMenuPositions();
+      closeAll(item);
+      setOpen(item, true);
+    };
+
+    const onFocusOut = (event: FocusEvent) => {
+      const targetElement = event.target instanceof Element ? event.target : null;
+      const item = targetElement?.closest<HTMLElement>(menuSelector);
+      if (!item || !getDropdown(item)) return;
+      if (event.relatedTarget instanceof Node && item.contains(event.relatedTarget)) return;
+      setOpen(item, false);
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeAll();
+    };
+
+    syncMenuPositions();
+    window.addEventListener("resize", schedulePositionSync);
+    document.addEventListener("mouseover", onMouseOver, true);
+    document.addEventListener("mouseout", onMouseOut, true);
+    document.addEventListener("click", onClick, true);
+    document.addEventListener("focusin", onFocusIn, true);
+    document.addEventListener("focusout", onFocusOut, true);
+    document.addEventListener("keydown", onKeyDown, true);
+
+    return () => {
+      window.cancelAnimationFrame(resizeFrame);
+      window.removeEventListener("resize", schedulePositionSync);
+      document.removeEventListener("mouseover", onMouseOver, true);
+      document.removeEventListener("mouseout", onMouseOut, true);
+      document.removeEventListener("click", onClick, true);
+      document.removeEventListener("focusin", onFocusIn, true);
+      document.removeEventListener("focusout", onFocusOut, true);
+      document.removeEventListener("keydown", onKeyDown, true);
+    };
+  }, []);
+
   return (
     <>
       {target ? createPortal(<Testimonials />, target) : null}
