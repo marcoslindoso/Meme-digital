@@ -84,8 +84,12 @@ function Testimonials() {
   );
 }
 
-export function SiteIntegrations() {
+export function SiteIntegrations({ bodyClass }: { bodyClass?: string }) {
   const [target, setTarget] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (bodyClass !== undefined) document.body.className = bodyClass;
+  }, [bodyClass]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
