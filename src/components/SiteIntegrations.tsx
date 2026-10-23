@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -34,6 +35,15 @@ const reviews = [
     photo: "https://lh3.googleusercontent.com/a-/ALV-UjXl89GVy4mvpfbFAtGsUzkAyQCQdhzASin5eMZPELxPlLjeYDVV=s120-c-rp-mo-br100",
     text: "Ótima prestação de serviço! Muito bem qualificados e dispostos a atender as demandas do cliente. Super indico!",
   },
+];
+
+const mobileServices = [
+  ["Agência", "/solucoes/agencia/"],
+  ["Tech & Web", "/solucoes/agencia-2/"],
+  ["Design", "/solucoes/design/"],
+  ["Performance Ads", "/solucoes/performance-ads/"],
+  ["Produtos Digitais", "/solucoes/produtos-digitais/"],
+  ["Metaverso", "/solucoes/metaverso/"],
 ];
 
 function GoogleMark() {
@@ -84,11 +94,48 @@ function Testimonials() {
   );
 }
 
-export function SiteIntegrations() {
+function MobileNavigation({ open, onClose }: { open: boolean; onClose: () => void }) {
+  return (
+    <div className={`next-mobile-nav${open ? " is-open" : ""}`} aria-hidden={!open}>
+      <button className="next-mobile-nav-backdrop" type="button" aria-label="Fechar menu" onClick={onClose} />
+      <div className="next-mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <header>
+          {/* This is the original local brand asset from the WordPress snapshot. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <Link href="/" aria-label="Meme Digital — página inicial" onClick={onClose}><img src="/wp-content/uploads/2024/07/logotipo-completo-1-2.png" alt="Meme Digital" /></Link>
+          <button type="button" onClick={onClose} aria-label="Fechar menu"><span /><span /></button>
+        </header>
+        <nav aria-label="Navegação móvel">
+          <small>Soluções Martech</small>
+          <div className="next-mobile-service-list">
+            {mobileServices.map(([label, href], index) => (
+              <Link href={href} onClick={onClose} key={href}><b>{String(index + 1).padStart(2, "0")}</b><span>{label}</span><i aria-hidden>→</i></Link>
+            ))}
+          </div>
+          <div className="next-mobile-main-links">
+            <Link href="/cases/" onClick={onClose}>Cases</Link>
+            <Link href="/insights/" onClick={onClose}>Insights</Link>
+            <Link href="/institucional/" onClick={onClose}>Institucional</Link>
+          </div>
+          <Link className="next-mobile-contact" href="/#contato" onClick={onClose}>Fale com um especialista <span>→</span></Link>
+        </nav>
+      </div>
+    </div>
+  );
+}
+
+export function SiteIntegrations({ bodyClass, pageTitle }: { bodyClass: string; pageTitle: string }) {
   const [target, setTarget] = useState<HTMLElement | null>(null);
+  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    document.body.className = bodyClass;
+    document.title = pageTitle;
+
     const frame = window.requestAnimationFrame(() => {
+      document.title = pageTitle;
+      setPortalTarget(document.body);
       const testimonialsRoot = document.getElementById("next-testimonials-root");
       setTarget(testimonialsRoot);
 
@@ -109,7 +156,99 @@ export function SiteIntegrations() {
     return () => {
       window.cancelAnimationFrame(frame);
     };
+  }, [bodyClass, pageTitle]);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        '.wp-snapshot-root [data-elementor-type="wp-page"] > .e-con.e-parent, .wp-snapshot-root .elementor-widget-posts article',
+      ),
+    ).filter((element) => element.getBoundingClientRect().height > 0);
+
+    document.querySelectorAll<HTMLElement>(".wp-snapshot-root .elementor-invisible").forEach((element) => {
+      element.classList.remove("elementor-invisible");
+    });
+
+    revealItems.forEach((element, index) => {
+      element.classList.add("next-reveal");
+      element.style.setProperty("--next-delay", `${Math.min(index % 4, 3) * 70}ms`);
+    });
+
+    let observer: IntersectionObserver | undefined;
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      revealItems.forEach((element) => element.classList.add("is-visible"));
+    } else {
+      observer = new IntersectionObserver(
+        (entries) => entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer?.unobserve(entry.target);
+        }),
+        { threshold: 0.08, rootMargin: "0px 0px -36px" },
+      );
+      revealItems.forEach((element) => observer?.observe(element));
+    }
+
+    const hero = document.querySelector<HTMLElement>("body.page-id-15 .elementor-element-0e16491");
+    const onPointerMove = (event: PointerEvent) => {
+      if (!hero || reducedMotion) return;
+      const rect = hero.getBoundingClientRect();
+      hero.style.setProperty("--next-pointer-x", `${event.clientX - rect.left}px`);
+      hero.style.setProperty("--next-pointer-y", `${event.clientY - rect.top}px`);
+    };
+    hero?.addEventListener("pointermove", onPointerMove, { passive: true });
+
+    const martechParagraph = Array.from(hero?.querySelectorAll("p") ?? []).find((paragraph) =>
+      paragraph.textContent?.includes("MARTECH"),
+    );
+    if (martechParagraph && !martechParagraph.querySelector(".next-martech-word")) {
+      martechParagraph.innerHTML = martechParagraph.innerHTML.replace(
+        "MARTECH",
+        '<span class="next-martech-word">MARTECH</span>',
+      );
+    }
+
+    const onScroll = () => document.body.classList.toggle("next-header-scrolled", window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer?.disconnect();
+      hero?.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [bodyClass]);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const element = event.target instanceof Element ? event.target : null;
+      const trigger = element?.closest<HTMLElement>(
+        'header[data-elementor-type="header"] a[href*="elementor-action"][href*="popup"]',
+      );
+      if (!trigger) return;
+      event.preventDefault();
+      setMobileMenuOpen(true);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+
+    document.addEventListener("click", onClick, true);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      document.removeEventListener("keydown", onKeyDown);
+    };
   }, []);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    if (mobileMenuOpen) document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const menuSelector = ".e-n-menu-item";
@@ -241,6 +380,7 @@ export function SiteIntegrations() {
   return (
     <>
       {target ? createPortal(<Testimonials />, target) : null}
+      {portalTarget ? createPortal(<MobileNavigation open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />, portalTarget) : null}
     </>
   );
 }

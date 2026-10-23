@@ -17,9 +17,13 @@
   display: flex;
 }
 
-.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-816f5ba,
-.wp-snapshot-root .elementor-627 .elementor-element.elementor-element-2f38855 {
+.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-816f5ba {
   background-image: url("/wp-content/uploads/2024/03/Retangulo-197.png") !important;
+}
+
+.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-1742523,
+.wp-snapshot-root .elementor-627 .elementor-element.elementor-element-2f38855 {
+  background-image: url("/wp-content/uploads/2024/04/Retangulo-197.png") !important;
 }
 
 .elementor-element-aa667bb,
@@ -122,4 +126,296 @@
   .standalone-header { padding-inline: 20px; }
   .standalone-header nav { gap: 14px; font-size: 13px; }
   .standalone-article { padding-top: 48px; }
+}
+
+/* Progressive visual refinement for the preserved WordPress layouts. */
+:root {
+  --next-pink: #ff1e5b;
+  --next-violet: #6864f9;
+  --next-ink: #4f4f58;
+  --next-line: rgba(92, 92, 92, .12);
+  --next-shadow: 0 22px 60px rgba(44, 37, 80, .12);
+}
+
+html { scroll-behavior: smooth; }
+body { background: #fff; }
+::selection { background: rgba(255, 30, 91, .18); color: #2f2f36; }
+
+.wp-snapshot-root a,
+.wp-snapshot-root button,
+.wp-snapshot-root img { transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease, opacity .25s ease; }
+
+.wp-snapshot-root :focus-visible {
+  outline: 3px solid rgba(104, 100, 249, .45) !important;
+  outline-offset: 3px;
+}
+
+.wp-snapshot-root .elementor-invisible { visibility: visible !important; }
+
+/* Header: same composition, with a lighter and more stable sticky treatment. */
+.wp-snapshot-root header[data-elementor-type="header"] {
+  position: sticky;
+  z-index: 2147483000;
+  top: 0;
+  background: rgba(255, 255, 255, .92);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+body.next-header-scrolled .wp-snapshot-root header[data-elementor-type="header"] {
+  border-bottom-color: var(--next-line);
+  box-shadow: 0 12px 34px rgba(35, 29, 61, .08);
+}
+
+.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-e721dc9 {
+  --padding-top: 1.2em;
+  --padding-bottom: 1em;
+  background: transparent !important;
+}
+
+.wp-snapshot-root .elementor-widget-n-menu .e-n-menu-title-container {
+  position: relative;
+}
+
+.wp-snapshot-root .elementor-widget-n-menu .e-n-menu-title-container::after {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  left: 0;
+  height: 2px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--next-pink), var(--next-violet));
+  content: "";
+  opacity: 0;
+  transform: scaleX(.35);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.wp-snapshot-root .elementor-widget-n-menu .e-n-menu-title:hover .e-n-menu-title-container::after,
+.wp-snapshot-root .elementor-widget-n-menu .next-menu-open > .e-n-menu-title .e-n-menu-title-container::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.wp-snapshot-root .elementor-button {
+  overflow: hidden;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 24px rgba(104, 100, 249, .15);
+}
+
+.wp-snapshot-root .elementor-button:hover {
+  box-shadow: 0 16px 30px rgba(104, 100, 249, .25);
+  transform: translateY(-2px);
+}
+
+/* Mega menus: restore both original images and refine the opening motion. */
+.wp-snapshot-root .elementor-widget-n-menu .e-n-menu-content.e-active > .e-con {
+  overflow: hidden;
+  border: 1px solid var(--next-line);
+  border-radius: 25px !important;
+  box-shadow: var(--next-shadow);
+  animation: next-menu-in .3s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-816f5ba,
+.wp-snapshot-root .elementor-36 .elementor-element.elementor-element-1742523,
+.wp-snapshot-root .elementor-627 .elementor-element.elementor-element-2f38855 {
+  min-height: 500px;
+  background-position: center bottom !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.wp-snapshot-root .e-n-menu-content .elementor-widget-icon-box .elementor-icon-box-wrapper {
+  padding: 7px 9px;
+  border-radius: 10px;
+  transition: background-color .22s ease, transform .22s ease;
+}
+
+.wp-snapshot-root .e-n-menu-content .elementor-widget-icon-box:hover .elementor-icon-box-wrapper {
+  background: rgba(104, 100, 249, .07);
+  transform: translateX(5px);
+}
+
+.wp-snapshot-root .e-n-menu-content .elementor-widget-icon-box:hover svg { transform: scale(1.08) rotate(-3deg); }
+
+@keyframes next-menu-in {
+  from { opacity: 0; transform: translateY(-10px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Home: preserve the original hero while making Martech more explicit. */
+body.page-id-15 .wp-snapshot-root .elementor-element-0e16491 {
+  --next-pointer-x: 70%;
+  --next-pointer-y: 40%;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+body.page-id-15 .wp-snapshot-root .elementor-element-0e16491::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(circle 320px at var(--next-pointer-x) var(--next-pointer-y), rgba(104, 100, 249, .10), transparent 70%),
+    radial-gradient(circle 240px at 9% 12%, rgba(255, 30, 91, .08), transparent 72%);
+  content: "";
+  pointer-events: none;
+  transition: background-position .18s ease;
+}
+
+.next-martech-word {
+  color: var(--next-pink);
+  font-weight: 750;
+  letter-spacing: .02em;
+}
+
+body.page-id-15 .wp-snapshot-root .elementor-element-0e16491 .elementor-widget-image img {
+  border-radius: 24px;
+}
+
+body.page-id-15 .wp-snapshot-root .elementor-element-0e16491 .elementor-widget-image:hover img {
+  transform: translateY(-3px);
+}
+
+/* Scroll reveals are added only after hydration, so content remains available without JS. */
+.next-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s cubic-bezier(.2, .75, .2, 1), transform .7s cubic-bezier(.2, .75, .2, 1);
+  transition-delay: var(--next-delay, 0ms);
+}
+
+.next-reveal.is-visible { opacity: 1; transform: none; }
+
+/* Insights: compact cards, consistent imagery and readable content. */
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-posts-container {
+  align-items: start !important;
+  gap: 28px !important;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 article.elementor-post {
+  align-self: start;
+  height: auto !important;
+  overflow: hidden;
+  border: 1px solid var(--next-line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(41, 35, 67, .08);
+  transition: box-shadow .28s ease, transform .28s ease;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 article.elementor-post:hover {
+  box-shadow: 0 20px 46px rgba(41, 35, 67, .15);
+  transform: translateY(-6px);
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__thumbnail__link {
+  height: 190px !important;
+  margin: 0 !important;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__thumbnail {
+  height: 100% !important;
+  padding-bottom: 0 !important;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__thumbnail img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 article:hover .elementor-post__thumbnail img { transform: scale(1.045); }
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__text {
+  height: auto !important;
+  padding: 24px !important;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__title {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-bottom: 10px !important;
+  font-size: clamp(17px, 1.35vw, 20px) !important;
+  line-height: 1.3 !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__meta-data {
+  margin-bottom: 14px !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
+
+body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__excerpt {
+  display: -webkit-box;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden;
+  color: #66636d;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+/* Testimonials keep the original Google-review structure, now as compact cards. */
+.next-reviews-rail { gap: 18px; }
+.next-review-card {
+  flex-basis: 252px;
+  min-height: 174px;
+  padding: 18px;
+  border: 1px solid var(--next-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(41, 35, 67, .06);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.next-review-card:hover { box-shadow: 0 16px 34px rgba(41, 35, 67, .12); transform: translateY(-4px); }
+.next-review-card p { min-height: 0; }
+.next-review-arrow { transition: color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.next-review-arrow:hover { color: var(--next-pink); box-shadow: 0 8px 20px rgba(41, 35, 67, .16); }
+
+/* Functional mobile navigation for the static Elementor header. */
+.next-mobile-nav { position: fixed; z-index: 2147483646; inset: 0; visibility: hidden; pointer-events: none; }
+.next-mobile-nav.is-open { visibility: visible; pointer-events: auto; }
+.next-mobile-nav-backdrop { position: absolute; inset: 0; width: 100%; border: 0; background: rgba(26, 23, 37, .38); opacity: 0; backdrop-filter: blur(4px); transition: opacity .25s ease; }
+.next-mobile-nav.is-open .next-mobile-nav-backdrop { opacity: 1; }
+.next-mobile-nav-panel { position: absolute; top: 0; right: 0; width: min(92vw, 430px); height: 100%; overflow-y: auto; padding: 24px; background: #fff; box-shadow: -24px 0 64px rgba(31, 26, 53, .22); transform: translateX(102%); transition: transform .32s cubic-bezier(.2, .8, .2, 1); }
+.next-mobile-nav.is-open .next-mobile-nav-panel { transform: none; }
+.next-mobile-nav-panel header { position: static; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border: 0; box-shadow: none; backdrop-filter: none; }
+.next-mobile-nav-panel header img { display: block; width: 132px; height: auto; }
+.next-mobile-nav-panel header button { position: relative; width: 42px; height: 42px; padding: 0; border: 1px solid var(--next-line); border-radius: 50%; background: #fff; }
+.next-mobile-nav-panel header button span { position: absolute; top: 20px; left: 11px; width: 20px; height: 2px; background: var(--next-ink); transform: rotate(45deg); }
+.next-mobile-nav-panel header button span:last-child { transform: rotate(-45deg); }
+.next-mobile-nav-panel nav > small { display: block; margin-bottom: 10px; color: var(--next-pink); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.next-mobile-service-list { border-top: 1px solid var(--next-line); }
+.next-mobile-service-list a { display: grid; grid-template-columns: 34px 1fr auto; gap: 8px; align-items: center; padding: 14px 2px; border-bottom: 1px solid var(--next-line); color: var(--next-ink); text-decoration: none; }
+.next-mobile-service-list a b { color: var(--next-violet); font-size: 10px; }
+.next-mobile-service-list a span { font-weight: 650; }
+.next-mobile-service-list a i { color: var(--next-pink); font-style: normal; }
+.next-mobile-main-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 22px 0; }
+.next-mobile-main-links a { padding: 11px 8px; border-radius: 9px; background: #f6f5f9; color: var(--next-ink); text-align: center; text-decoration: none; font-size: 13px; font-weight: 650; }
+.next-mobile-contact { display: flex; justify-content: space-between; padding: 16px 18px; border-radius: 12px; background: linear-gradient(110deg, var(--next-violet), #7d61ff); color: #fff; text-decoration: none; font-weight: 700; box-shadow: 0 14px 30px rgba(104, 100, 249, .25); }
+
+@media (max-width: 1024px) {
+  body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__thumbnail__link { height: 180px !important; }
+}
+
+@media (max-width: 767px) {
+  .wp-snapshot-root header[data-elementor-type="header"] { position: sticky; }
+  body.page-id-15 .wp-snapshot-root .elementor-element-0e16491::before { background: radial-gradient(circle 240px at 50% 15%, rgba(255, 30, 91, .08), transparent 72%); }
+  body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__thumbnail__link { height: 220px !important; }
+  body.page-id-486 .wp-snapshot-root .elementor-element-13c6e23 .elementor-post__text { padding: 21px !important; }
+  .next-review-card { flex-basis: 86%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .next-reveal { opacity: 1; transform: none; }
 }

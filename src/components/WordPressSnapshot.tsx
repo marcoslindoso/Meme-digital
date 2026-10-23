@@ -45,6 +45,10 @@ body .elementor-widget-heading .elementor-heading-title {
 
 export function WordPressSnapshot({ snapshot }: { snapshot: Snapshot }) {
   const setBodyClass = `document.body.className=${JSON.stringify(snapshot.bodyClass)};`;
+  const safeHeadHtml = snapshot.headHtml.replace(
+    /<div\s+id=(["'])next-testimonials-root\1><\/div>/gi,
+    "",
+  );
 
   return (
     <>
@@ -52,9 +56,9 @@ export function WordPressSnapshot({ snapshot }: { snapshot: Snapshot }) {
       <div
         className="wp-snapshot-root"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: `${snapshot.headHtml}${typography}${snapshot.bodyHtml}` }}
+        dangerouslySetInnerHTML={{ __html: `${safeHeadHtml}${typography}${snapshot.bodyHtml}` }}
       />
-      <SiteIntegrations />
+      <SiteIntegrations bodyClass={snapshot.bodyClass} pageTitle={snapshot.title} />
     </>
   );
 }
