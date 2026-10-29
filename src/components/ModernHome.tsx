@@ -2,22 +2,30 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ModernEffects } from "@/components/ModernEffects";
+import { AwardsSlider } from "@/components/AwardsSlider";
+import { LogoCarousel } from "@/components/LogoCarousel";
 import { ModernFooter } from "@/components/ModernFooter";
+import { ModernGallery } from "@/components/ModernGallery";
 import { ModernHeader } from "@/components/ModernHeader";
 
 const services = [
-  { number: "01", title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"] },
-  { number: "02", title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"] },
-  { number: "03", title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"] },
-  { number: "04", title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"] },
-  { number: "05", title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"] },
-  { number: "06", title: "Experiências", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"] },
+  { number: "01", title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" },
+  { number: "02", title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=85" },
+  { number: "03", title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85" },
+  { number: "04", title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85" },
+  { number: "05", title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85" },
+  { number: "06", title: "Experiências", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/logos/Retangulo-33-4.png" },
 ];
 
 const testimonials = [
-  { initials: "LF", name: "Luiz Filipe", text: "Excelentes profissionais, extremamente competentes. Atendimento incrível. Recomendo." },
-  { initials: "FM", name: "Felipe Moraes", text: "Compromisso e respeito com o cliente. Visão de mercado incrível." },
-  { initials: "RI", name: "Raifran Índio", text: "A Meme Digital é séria e comprometida com seus clientes. Uma equipe super profissional." },
+  { name: "Luiz Filipe", age: "5 anos atrás", photo: "https://lh3.googleusercontent.com/a-/ALV-UjX1mYXw0d0fUdAmT3YZMPZasjLJ0sQoqFbi_1K5kOJoXUxNWR_MqQ=s120-c-rp-mo-ba3-br100", text: "Excelentes profissionais, extremamente competentes. Atendimento incrível. Recomendo." },
+  { name: "Felipe Moraes", age: "7 anos atrás", photo: "https://lh3.googleusercontent.com/a-/ALV-UjUHXrz4MhDW8pgaCO5XSNC6NyZ4RoRXShY3nSo6Ozs831R1os-Q=s120-c-rp-mo-br100", text: "Compromisso com e respeito com o cliente. Visão de mercado incrível." },
+  { name: "Raifran Índio", age: "7 anos atrás", photo: "https://lh3.googleusercontent.com/a-/ALV-UjUCGCnXGrujLsqjuNU7x39tsajwv0MVgpZ2PbFh1EdLlykXQpgu=s120-c-rp-mo-br100", text: "A empresa Meme Digital é séria e comprometida com seus clientes. Tive o privilégio de conhecer uma equipe super profissional." },
+  { name: "Caroline Costa", age: "7 anos atrás", photo: "https://lh3.googleusercontent.com/a-/ALV-UjXl89GVy4mvpfbFAtGsUzkAyQCQdhzASin5eMZPELxPlLjeYDVV=s120-c-rp-mo-br100", text: "Ótima prestação de serviço! Muito bem qualificados e dispostos a atender as demandas do cliente. Super indico!" },
+];
+
+const clientLogos = [
+  "Background-2-2.jpg", "Background-3-2.jpg", "Background-4-2.jpg", "Background-5-2.jpg", "Background-6-2.jpg", "Background-7-2.jpg", "Background-8-2.jpg", "Background-9-2.jpg", "Background-10-2.jpg", "Background-11-2.jpg", "Background-12-2.jpg", "Background-13-2.jpg", "Background-14-2.jpg", "Background-15-2.jpg", "Background-16-2.jpg", "Background-17-2.jpg", "Background-18-2.jpg", "Background-19-1.jpg", "Background-20-1.jpg", "Background-21-1.jpg", "Background-22-1.jpg", "Background-23-1.jpg", "Background-24-1.jpg", "Background-25-1.jpg", "Background-26-1.jpg", "Background-27-1.jpg", "Background-28-1.jpg",
 ];
 
 const insights = [
@@ -35,9 +43,9 @@ export function ModernHome() {
           <div className="mh-hero-glow" aria-hidden />
           <div className="mh-shell mh-hero-grid">
             <div className="mh-hero-copy">
-              <div className="mh-kicker"><span /> Agência Martech · Campinas + São Paulo</div>
-              <h1>Marketing que <em>move.</em><br />Tecnologia que <em>escala.</em></h1>
-              <p>Estratégia, design e desenvolvimento conectados para criar experiências digitais que aproximam marcas, pessoas e resultados.</p>
+              <div className="mh-kicker"><span /> Agência de Marketing Digital em Campinas e São Paulo</div>
+              <h1>Conectando pessoas e <em>lugares</em> de forma eficiente.</h1>
+              <p>Somos uma agência MARTECH de marketing digital e tecnologia dedicada a proporcionar boas experiências de usuário e impulsionar altas taxas de conversão no B2B e B2C.</p>
               <div className="mh-hero-actions">
                 <a className="mh-button mh-button-primary" href="#contato">Fale com um especialista <span>↗</span></a>
                 <a className="mh-button mh-button-quiet" href="#solucoes">Explorar soluções <span>↓</span></a>
@@ -51,7 +59,7 @@ export function ModernHome() {
 
             <div className="mh-hero-visual" aria-label="Marketing e tecnologia feitos por pessoas">
               <div className="mh-hero-frame">
-                <Image src="/assets/hero.webp" alt="Pessoa em um ambiente visual contemporâneo" width={1016} height={859} priority />
+                <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=85" alt="Profissional de marketing em ambiente de trabalho" width={1200} height={900} priority />
               </div>
               <div className="mh-float-card mh-float-card-top"><span className="mh-live-dot" /> Estratégia em movimento</div>
               <div className="mh-float-card mh-float-card-bottom"><small>Uma equipe, ponta a ponta</small><strong>Marketing + Tech</strong></div>
@@ -61,10 +69,8 @@ export function ModernHome() {
         </section>
 
         <section className="mh-client-strip" aria-label="Algumas marcas atendidas">
-          <div className="mh-shell mh-client-row">
-            <span>Marcas que já caminharam com a Meme</span>
-            <div className="mh-client-list"><b>ECOVIS</b><b>ÓTICAS IPANEMA</b><b>MEDALI</b><b>VOLUTA</b><b>NORTEL</b><b>BRONTË</b></div>
-          </div>
+          <div className="mh-shell mh-client-heading"><span>Marcas que já caminharam com a Meme</span></div>
+          <LogoCarousel logos={clientLogos} />
         </section>
 
         <section className="mh-section mh-services" id="solucoes">
@@ -73,12 +79,18 @@ export function ModernHome() {
               <div><span className="mh-eyebrow">O que fazemos</span><h2>Um ecossistema para<br /><em>fazer acontecer.</em></h2></div>
               <p>Do primeiro insight à última linha de código, reunimos disciplinas que trabalham juntas — sem silos, sem ruído e com intenção.</p>
             </header>
+            <div className="mh-service-tabs" aria-label="Frentes de atuação">
+              {services.map((service) => <span key={service.title}>{service.title}</span>)}
+            </div>
             <div className="mh-service-grid">
               {services.map((service, index) => (
                 <Link className="mh-service-card mh-reveal" style={{ "--delay": `${index * 70}ms` } as CSSProperties} href={service.href} key={service.title}>
-                  <div className="mh-service-top"><span>{service.number}</span><i aria-hidden>↗</i></div>
-                  <h3>{service.title}</h3><p>{service.text}</p>
-                  <div className="mh-tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                    <Image className="mh-service-image" src={service.image} alt={`Imagem de apoio para ${service.title}`} fill sizes="(max-width: 900px) 100vw, 33vw" />
+                    <div className="mh-service-content">
+                      <div className="mh-service-icon" aria-hidden>{service.icon}</div><i aria-hidden>↗</i>
+                      <div><h3>{service.title}</h3><p>{service.text}</p></div>
+                      <div className="mh-tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                    </div>
                 </Link>
               ))}
             </div>
@@ -89,40 +101,33 @@ export function ModernHome() {
           <div className="mh-shell mh-feature-grid">
             <div className="mh-feature-media mh-reveal">
               <div className="mh-feature-gradient" aria-hidden />
-              <Image src="/assets/technology.png" alt="Projeto de comércio digital exibido em um computador" width={828} height={757} />
-              <div className="mh-feature-chip"><span>●</span> Produto, conteúdo e performance conectados</div>
+              <Image src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=85" alt="Atendimento em uma experiência de compra" width={1200} height={900} />
+              <div className="mh-feature-chip"><span>●</span> E-commerce, tecnologia e performance</div>
             </div>
             <div className="mh-feature-copy mh-reveal">
-              <span className="mh-eyebrow">Martech de verdade</span>
-              <h2>Estratégia encontra execução. <em>E não se perde no caminho.</em></h2>
-              <p>Negócios digitais crescem quando marca, mídia, produto e tecnologia falam a mesma língua. É por isso que nosso trabalho começa no contexto e termina em uma experiência que funciona.</p>
+              <span className="mh-eyebrow">Estratégia de e-commerce</span>
+              <h2>Venda no e-commerce e alcance <em>ganhos escaláveis.</em></h2>
+              <p>Transforme sua loja online em uma potência de e-commerce e leve sua operação para um novo nível de resultados, conversão e recorrência.</p>
               <ul>
-                <li><span>01</span><div><strong>Diagnóstico antes da ferramenta</strong><small>Entendemos o desafio, a jornada e o dado que realmente importa.</small></div></li>
-                <li><span>02</span><div><strong>Times multidisciplinares</strong><small>Estratégia, criação e desenvolvimento trabalhando lado a lado.</small></div></li>
-                <li><span>03</span><div><strong>Evolução contínua</strong><small>Publicamos, medimos e melhoramos com clareza e velocidade.</small></div></li>
+                <li><span>01</span><div><strong>Comércio de alto desempenho</strong><small>UX, tecnologia e estratégia que aproximam a marca de quem compra.</small></div></li>
+                <li><span>02</span><div><strong>Dados que orientam decisões</strong><small>SEO, mídia e comportamento do usuário trabalhando juntos.</small></div></li>
+                <li><span>03</span><div><strong>Evolução contínua</strong><small>Publicamos, medimos e aprimoramos a experiência com clareza.</small></div></li>
               </ul>
               <Link className="mh-text-link" href="/institucional/">Conheça a Meme <span>↗</span></Link>
             </div>
           </div>
         </section>
 
-        <section className="mh-section mh-work">
+        <section className="mh-section mh-work mh-stories">
           <div className="mh-shell">
-            <header className="mh-section-head mh-reveal">
-              <div><span className="mh-eyebrow">Ideias em prática</span><h2>Digital bonito.<br /><em>Negócio bem resolvido.</em></h2></div>
-              <p>Cada entrega nasce de uma pergunta real e ganha forma com estratégia, tecnologia e uma dose saudável de inquietação.</p>
-            </header>
-            <div className="mh-work-grid">
-              <article className="mh-work-card mh-work-card-wide mh-reveal">
-                <div className="mh-work-image"><Image src="/assets/ecommerce.webp" alt="Experiência de e-commerce" fill sizes="(max-width: 800px) 100vw, 65vw" /></div>
-                <div className="mh-work-copy"><span>E-commerce · UX · Performance</span><h3>Lojas digitais pensadas para transformar navegação em compra.</h3></div>
-              </article>
-              <article className="mh-work-card mh-reveal">
-                <div className="mh-work-image"><Image src="/assets/digital-products.webp" alt="Produtos digitais e conteúdo" fill sizes="(max-width: 800px) 100vw, 35vw" /></div>
-                <div className="mh-work-copy"><span>Conteúdo · Lançamento</span><h3>Produtos que encontram sua audiência.</h3></div>
-              </article>
-            </div>
-            <div className="mh-center-action mh-reveal"><Link className="mh-button mh-button-dark" href="/cases/">Conheça nossos cases <span>↗</span></Link></div>
+            <article className="mh-story mh-reveal">
+              <div className="mh-story-media"><Image src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1300&q=85" alt="Profissionais construindo uma experiência digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Estratégia, dados e criação</span></div>
+              <div className="mh-story-copy"><span className="mh-eyebrow">Tecnologia com propósito</span><h2>Produtos digitais que transformam <em>boas ideias em ação.</em></h2><p>Unimos pesquisa, design e desenvolvimento para criar jornadas simples de usar e preparadas para escalar.</p><Link className="mh-text-link" href="/solucoes/tech-web/">Conheça Tech & Web <span>↗</span></Link></div>
+            </article>
+            <article className="mh-story mh-story-reversed mh-reveal">
+              <div className="mh-story-media"><Image src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1300&q=85" alt="Equipe trabalhando em uma campanha digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Performance que evolui</span></div>
+              <div className="mh-story-copy"><span className="mh-eyebrow">Crescimento contínuo</span><h2>Campanhas que aprendem, otimizam e <em>movem negócios.</em></h2><p>Com dados claros e criatividade aplicada, aproximamos marcas das pessoas certas em cada etapa da decisão.</p><Link className="mh-text-link" href="/solucoes/performance-ads/">Explorar Performance Ads <span>↗</span></Link></div>
+            </article>
           </div>
         </section>
 
@@ -134,18 +139,21 @@ export function ModernHome() {
               <p>Projetos da Meme foram reconhecidos em design, web e branding nos principais festivais do interior paulista.</p>
               <div className="mh-award-years"><div><strong>2018</strong><span>Branding · Bronze</span></div><div><strong>2019</strong><span>Web · Troféu</span></div><div><strong>2022</strong><span>Design · Ouro</span></div></div>
             </div>
-            <div className="mh-awards-photo mh-reveal"><Image src="/assets/awards/2022-premios-home.webp" alt="Equipe Meme Digital recebendo o Prêmio Recall 2022" width={1600} height={1066} /><span>Prêmio Recall · 2022</span></div>
+            <AwardsSlider />
           </div>
         </section>
+
+        <ModernGallery />
 
         <section className="mh-section mh-testimonials">
           <div className="mh-shell">
             <header className="mh-testimonial-head mh-reveal"><div><span className="mh-eyebrow">Quem recomenda</span><h2>Boas relações deixam <em>boas histórias.</em></h2></div><div className="mh-rating"><strong>5.0</strong><span>★★★★★</span><small>com base em avaliações do Google</small></div></header>
             <div className="mh-testimonial-grid">
               {testimonials.map((testimonial, index) => (
-                <blockquote className="mh-quote mh-reveal" style={{ "--delay": `${index * 80}ms` } as CSSProperties} key={testimonial.name}>
-                  <div className="mh-quote-mark">“</div><p>{testimonial.text}</p><footer><span>{testimonial.initials}</span><div><strong>{testimonial.name}</strong><small>Avaliação no Google</small></div></footer>
-                </blockquote>
+                <article className="mh-google-review mh-reveal" style={{ "--delay": `${index * 80}ms` } as CSSProperties} key={testimonial.name}>
+                  <header><Image className="mh-review-avatar" src={testimonial.photo} alt={`Foto de ${testimonial.name}`} width={42} height={42} /><div><strong>{testimonial.name}</strong><small>{testimonial.age} · Google</small></div><b className="mh-google-mark" aria-label="Google">G</b></header>
+                  <div className="mh-review-stars" aria-label="5 estrelas">★★★★★</div><p>{testimonial.text}</p>
+                </article>
               ))}
             </div>
           </div>

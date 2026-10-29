@@ -1,0 +1,43 @@
+/* Controles e fallback seguro da galeria de cases. */
+.case-scroll-head { height: 18%; }
+
+.case-scroll-actions {
+  height: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.case-scroll-actions span { color: #66807a; font-size: 10px; font-weight: 700; letter-spacing: .025em; }
+.case-scroll-actions > div { display: flex; gap: 8px; }
+.case-scroll-actions button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #b8ccc5;
+  border-radius: 50%;
+  background: transparent;
+  color: #29413e;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.case-scroll-actions button:hover { background: #4e3ff0; color: #fff; transform: translateY(-2px); }
+.case-scroll-viewport { height: 76%; }
+
+@media (max-width: 900px) {
+  .case-scroll-actions { display: none; }
+  .case-scroll-head { height: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 901px) {
+  .case-scroll { height: auto; padding: 76px 0; overflow: visible; }
+  .case-scroll-head { height: auto; margin-bottom: 24px; }
+  .case-scroll-actions { display: none; }
+  .case-scroll-viewport { height: auto; }
+  .case-scroll-track { width: auto; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .case-scroll-card, .case-scroll-card:nth-child(even) { width: auto; padding-top: 0; }
+  .case-scroll-image { height: 330px; }
+  .case-scroll-image b { opacity: 1; transform: none; }
+}

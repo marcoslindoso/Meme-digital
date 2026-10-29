@@ -44,8 +44,15 @@ const typography = `<style id="next-site-typography">
 }
 </style>`;
 
+function withoutLegacyChrome(html: string) {
+  return html
+    .replace(/<header\b[\s\S]*?<\/header>/gi, "")
+    .replace(/<footer\b[\s\S]*?<\/footer>/gi, "");
+}
+
 export function WordPressSnapshot({ snapshot }: { snapshot: Snapshot }) {
   const setBodyClass = `document.body.className=${JSON.stringify(snapshot.bodyClass)};`;
+  const pageBody = withoutLegacyChrome(snapshot.bodyHtml);
 
   return (
     <div className="modern-site modern-site-legacy">
@@ -55,7 +62,7 @@ export function WordPressSnapshot({ snapshot }: { snapshot: Snapshot }) {
         id="conteudo"
         className="wp-snapshot-root"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: `${snapshot.headHtml}${typography}${snapshot.bodyHtml}` }}
+        dangerouslySetInnerHTML={{ __html: `${snapshot.headHtml}${typography}${pageBody}` }}
       />
       <ModernFooter />
       <SiteIntegrations bodyClass={snapshot.bodyClass} />

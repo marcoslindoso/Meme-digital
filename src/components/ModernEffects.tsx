@@ -28,15 +28,6 @@ export function ModernEffects() {
       elements.forEach((element) => observer?.observe(element));
     }
 
-    const hero = document.querySelector<HTMLElement>(".mh-hero");
-    const onPointerMove = (event: PointerEvent) => {
-      if (!hero || reducedMotion) return;
-      const rect = hero.getBoundingClientRect();
-      hero.style.setProperty("--pointer-x", `${event.clientX - rect.left}px`);
-      hero.style.setProperty("--pointer-y", `${event.clientY - rect.top}px`);
-    };
-    hero?.addEventListener("pointermove", onPointerMove, { passive: true });
-
     if (!document.querySelector('script[src*="cdn.leadster.com.br/neurolead"]')) {
       window.neuroleadId = "45pZEB7bj5x7KYoPVWdocmSxR";
       const script = document.createElement("script");
@@ -48,7 +39,6 @@ export function ModernEffects() {
 
     return () => {
       observer?.disconnect();
-      hero?.removeEventListener("pointermove", onPointerMove);
     };
   }, []);
 

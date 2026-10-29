@@ -56,11 +56,7 @@ export function ModernHeader() {
         </Link>
 
         <nav className="mh-desktop-nav" aria-label="Navegação principal">
-          <div
-            className="mh-services-trigger"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
+          <div className="mh-services-trigger">
             <button
               type="button"
               aria-expanded={servicesOpen}
