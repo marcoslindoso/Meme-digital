@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./modern.css";
 import "./cases-scroller.css";
+import "./home-refine.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://meme-digital.vercel.app"),

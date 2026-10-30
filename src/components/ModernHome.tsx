@@ -9,12 +9,12 @@ import { ModernGallery } from "@/components/ModernGallery";
 import { ModernHeader } from "@/components/ModernHeader";
 
 const services = [
-  { number: "01", title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" },
-  { number: "02", title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=85" },
-  { number: "03", title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85" },
-  { number: "04", title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85" },
-  { number: "05", title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85" },
-  { number: "06", title: "Experiências", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/logos/Retangulo-33-4.png" },
+  { title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/wp-content/uploads/2024/03/agencia.png" },
+  { title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "/wp-content/uploads/2024/04/techweb.png" },
+  { title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "/wp-content/uploads/2024/04/design.png" },
+  { title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "/wp-content/uploads/2024/04/performance.png" },
+  { title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "/wp-content/uploads/2024/04/produtosdigitais.png" },
+  { title: "Metaverso", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/wp-content/uploads/2024/04/metaverso.png" },
 ];
 
 const testimonials = [
@@ -29,9 +29,9 @@ const clientLogos = [
 ];
 
 const insights = [
-  { tag: "Tecnologia", title: "Falha de segurança no PHP: o que muda para empresas e sites", href: "/falha-de-seguranca-no-php-2026/" },
-  { tag: "Mídia & IA", title: "GPT Ads: como a publicidade no ChatGPT entra na estratégia", href: "/gpt-ads-o-que-e-como-funciona-e-por-que-sua-empresa-deve-anunciar-no-chatgpt-em-2026/" },
-  { tag: "Conversão", title: "Landing pages de alta conversão não dependem de sorte", href: "/criacao-de-landing-pages-alta-conversao/" },
+  { tag: "Tecnologia", title: "Falha de segurança no PHP: o que muda para empresas e sites", href: "/falha-de-seguranca-no-php-2026/", image: "/wp-content/uploads/2026/10/falha-de-seguranca-no-php-20026.png" },
+  { tag: "Mídia & IA", title: "GPT Ads: como a publicidade no ChatGPT entra na estratégia", href: "/gpt-ads-o-que-e-como-funciona-e-por-que-sua-empresa-deve-anunciar-no-chatgpt-em-2026/", image: "/wp-content/uploads/2026/09/GPT-Ads-O-que-e-como-funciona-e-por-que-sua-empresa-deve-anunciar-no-ChatGPT-em-2026.webp" },
+  { tag: "Conversão", title: "Landing pages de alta conversão não dependem de sorte", href: "/criacao-de-landing-pages-alta-conversao/", image: "/wp-content/uploads/2026/08/criacao-landing-pages-caminho-conversao-scaled.jpg" },
 ];
 
 export function ModernHome() {
@@ -59,7 +59,7 @@ export function ModernHome() {
 
             <div className="mh-hero-visual" aria-label="Marketing e tecnologia feitos por pessoas">
               <div className="mh-hero-frame">
-                <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=85" alt="Profissional de marketing em ambiente de trabalho" width={1200} height={900} priority />
+                <Image src="/wp-content/uploads/2024/03/agencia.png" alt="Profissional de marketing e tecnologia" width={998} height={923} priority />
               </div>
               <div className="mh-float-card mh-float-card-top"><span className="mh-live-dot" /> Estratégia em movimento</div>
               <div className="mh-float-card mh-float-card-bottom"><small>Uma equipe, ponta a ponta</small><strong>Marketing + Tech</strong></div>
@@ -101,7 +101,7 @@ export function ModernHome() {
           <div className="mh-shell mh-feature-grid">
             <div className="mh-feature-media mh-reveal">
               <div className="mh-feature-gradient" aria-hidden />
-              <Image src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1200&q=85" alt="Atendimento em uma experiência de compra" width={1200} height={900} />
+              <Image src="/wp-content/uploads/2024/04/woman-shopping-online-inserting-credit-card-number-2023-11-27-05-04-13-utc-2048x1365.jpg" alt="Compra online em uma experiência de e-commerce" width={2048} height={1365} />
               <div className="mh-feature-chip"><span>●</span> E-commerce, tecnologia e performance</div>
             </div>
             <div className="mh-feature-copy mh-reveal">
@@ -109,9 +109,9 @@ export function ModernHome() {
               <h2>Venda no e-commerce e alcance <em>ganhos escaláveis.</em></h2>
               <p>Transforme sua loja online em uma potência de e-commerce e leve sua operação para um novo nível de resultados, conversão e recorrência.</p>
               <ul>
-                <li><span>01</span><div><strong>Comércio de alto desempenho</strong><small>UX, tecnologia e estratégia que aproximam a marca de quem compra.</small></div></li>
-                <li><span>02</span><div><strong>Dados que orientam decisões</strong><small>SEO, mídia e comportamento do usuário trabalhando juntos.</small></div></li>
-                <li><span>03</span><div><strong>Evolução contínua</strong><small>Publicamos, medimos e aprimoramos a experiência com clareza.</small></div></li>
+                <li><span className="mh-feature-icon" aria-hidden>↗</span><div><strong>Comércio de alto desempenho</strong><small>UX, tecnologia e estratégia que aproximam a marca de quem compra.</small></div></li>
+                <li><span className="mh-feature-icon" aria-hidden>◎</span><div><strong>Dados que orientam decisões</strong><small>SEO, mídia e comportamento do usuário trabalhando juntos.</small></div></li>
+                <li><span className="mh-feature-icon" aria-hidden>✦</span><div><strong>Evolução contínua</strong><small>Publicamos, medimos e aprimoramos a experiência com clareza.</small></div></li>
               </ul>
               <Link className="mh-text-link" href="/institucional/">Conheça a Meme <span>↗</span></Link>
             </div>
@@ -165,7 +165,7 @@ export function ModernHome() {
             <div className="mh-insight-grid">
               {insights.map((insight, index) => (
                 <Link className="mh-insight-card mh-reveal" style={{ "--delay": `${index * 70}ms` } as CSSProperties} href={insight.href} key={insight.title}>
-                  <div className={`mh-insight-art art-${index + 1}`}><span>{String(index + 1).padStart(2, "0")}</span></div>
+                  <div className={`mh-insight-art art-${index + 1}`}><Image src={insight.image} alt="" fill sizes="(max-width: 900px) 100vw, 33vw" /></div>
                   <small>{insight.tag}</small><h3>{insight.title}</h3><span className="mh-read-more">Ler artigo <b>↗</b></span>
                 </Link>
               ))}

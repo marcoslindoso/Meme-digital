@@ -1,43 +1,50 @@
-/* Controles e fallback seguro da galeria de cases. */
-.case-scroll-head { height: 18%; }
+/* Grade estável de cases: todos os projetos ficam acessíveis sem scripts de rolagem. */
+.case-scroll {
+  padding: clamp(76px, 9vw, 128px) 0;
+  background: #f5f4fb;
+  color: var(--mh-ink);
+}
 
-.case-scroll-actions {
-  height: 6%;
+.case-scroll-head {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
+  margin-bottom: 48px;
 }
 
-.case-scroll-actions span { color: #66807a; font-size: 10px; font-weight: 700; letter-spacing: .025em; }
-.case-scroll-actions > div { display: flex; gap: 8px; }
-.case-scroll-actions button {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #b8ccc5;
-  border-radius: 50%;
-  background: transparent;
-  color: #29413e;
-  cursor: pointer;
-  font-size: 18px;
+.case-scroll-head h2 {
+  margin: 14px 0 0;
+  font-size: clamp(42px, 5vw, 70px);
+  letter-spacing: -.065em;
   line-height: 1;
-  transition: background .2s ease, color .2s ease, transform .2s ease;
 }
 
-.case-scroll-actions button:hover { background: #4e3ff0; color: #fff; transform: translateY(-2px); }
-.case-scroll-viewport { height: 76%; }
+.case-scroll-head h2 em { color: var(--mh-pink); font-style: normal; }
+.case-scroll-head p { margin: 0 0 6px; color: var(--mh-muted); font-size: 11px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+
+.case-scroll-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px 18px; }
+.case-scroll-card { display: block; min-width: 0; color: var(--mh-ink); }
+.case-scroll-image { position: relative; height: clamp(240px, 27vw, 390px); overflow: hidden; background: #e5e8ef; }
+.case-scroll-image img { object-fit: cover; transition: transform .55s ease, filter .35s ease; }
+.case-scroll-card:hover .case-scroll-image img { filter: saturate(1.06); transform: scale(1.045); }
+.case-scroll-image::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(24,56,91,.58)); content: ""; opacity: 0; transition: opacity .25s ease; }
+.case-scroll-card:hover .case-scroll-image::after { opacity: 1; }
+.case-scroll-image span { position: absolute; z-index: 1; top: 16px; left: 16px; display: grid; width: 34px; height: 34px; border-radius: 50%; place-items: center; background: rgba(255,255,255,.9); color: var(--mh-ink); font-size: 10px; }
+.case-scroll-image b { position: absolute; z-index: 1; right: 16px; bottom: 16px; padding: 11px 14px; border-radius: 999px; background: var(--mh-purple); color: #fff; font-size: 10px; opacity: 0; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease; }
+.case-scroll-card:hover .case-scroll-image b { opacity: 1; transform: translateY(0); }
+.case-scroll-card small { display: block; margin-top: 15px; color: var(--mh-pink); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.case-scroll-card h3 { margin: 8px 0; font-size: clamp(21px, 2vw, 29px); letter-spacing: -.045em; }
+.case-scroll-card p { margin: 0; color: var(--mh-muted); font-size: 12px; line-height: 1.65; }
 
 @media (max-width: 900px) {
-  .case-scroll-actions { display: none; }
-  .case-scroll-head { height: auto; }
+  .case-scroll { padding: 76px 0; }
+  .case-scroll-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-scroll-image { height: 320px; }
 }
 
-@media (prefers-reduced-motion: reduce) and (min-width: 901px) {
-  .case-scroll { height: auto; padding: 76px 0; overflow: visible; }
-  .case-scroll-head { height: auto; margin-bottom: 24px; }
-  .case-scroll-actions { display: none; }
-  .case-scroll-viewport { height: auto; }
-  .case-scroll-track { width: auto; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .case-scroll-card, .case-scroll-card:nth-child(even) { width: auto; padding-top: 0; }
-  .case-scroll-image { height: 330px; }
+@media (max-width: 580px) {
+  .case-scroll-head { align-items: flex-start; flex-direction: column; gap: 13px; margin-bottom: 32px; }
+  .case-scroll-grid { grid-template-columns: 1fr; gap: 34px; }
+  .case-scroll-image { height: 280px; }
   .case-scroll-image b { opacity: 1; transform: none; }
 }
