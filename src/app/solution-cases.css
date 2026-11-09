@@ -23,8 +23,6 @@
 .solution-case:hover .solution-case-caption,.solution-case:focus-within .solution-case-caption{padding-right:42px;background:#fff}
 .solution-case:hover .solution-case-caption b,.solution-case:focus-within .solution-case-caption b{transform:translate(5px,-5px)}
 .solution-cases-controls{display:flex;align-items:center;gap:30px;margin-top:28px}
-.solution-cases-count{flex:none;font-size:.83rem;color:#708198;letter-spacing:.1em}
-.solution-cases-count strong{color:#19385b}
 .solution-cases-progress{height:2px;flex:1;background:#cad3e0}
 .solution-cases-progress span{display:block;height:100%;background:#ff2361;transition:width .35s}
 .solution-cases-buttons{display:flex;gap:8px}

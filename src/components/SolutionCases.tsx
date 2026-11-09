@@ -62,7 +62,6 @@ export function SolutionCases() {
         })}
       </div>
       <div className="mh-shell solution-cases-controls">
-        <div className="solution-cases-count"><strong>{String(active + 1).padStart(2, "0")}</strong><span> / {String(items.length).padStart(2, "0")}</span></div>
         <div className="solution-cases-progress" aria-hidden="true"><span style={{ width: `${((active + 1) / items.length) * 100}%` }} /></div>
         <div className="solution-cases-buttons"><button type="button" onClick={() => goTo(active - 1)} disabled={active === 0} aria-label="Case anterior">←</button><button type="button" onClick={() => goTo(active + 1)} disabled={active === items.length - 1} aria-label="Próximo case">→</button></div>
       </div>

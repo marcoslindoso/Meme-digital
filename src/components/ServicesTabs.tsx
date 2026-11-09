@@ -23,7 +23,7 @@ export function ServicesTabs() {
         ))}
       </div>
       <div className="service-content" role="tabpanel">
-        <div><span className="service-index">0{active + 1}</span><h3>{service.label}</h3></div>
+        <div><h3>{service.label}</h3></div>
         <p>{service.body}</p>
         <ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul>
       </div>

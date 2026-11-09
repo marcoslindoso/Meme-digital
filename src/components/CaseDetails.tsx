@@ -77,14 +77,14 @@ export function CaseDetails({ project, previous, next }: { project: CaseProject;
       </section>
       <section className="site-case-overview"><div className="mh-shell">
         <div className="site-case-meta"><span>Cliente <strong>{story.client}</strong></span><span>Projeto <strong>{project.project}</strong></span><span>Escopo <strong>{story.scope}</strong></span><span>Site <strong>{domain}</strong></span></div>
-        <article className="case-detail-story"><span>01 / O desafio</span><h2>{story.challengeTitle}</h2><p>{story.challenge}</p></article>
+        <article className="case-detail-story"><span>O desafio</span><h2>{story.challengeTitle}</h2><p>{story.challenge}</p></article>
       </div></section>
       <section className="site-case-gallery" aria-label={`Versões do site ${project.title}`}><div className="mh-shell">
-        <div className="site-case-gallery-label"><span>02 / O projeto</span><p>Uma experiência em cada tela.</p></div>
+        <div className="site-case-gallery-label"><span>O projeto</span><p>Uma experiência em cada tela.</p></div>
         <div className="site-case-screens"><div className="site-case-desktop"><div className="site-case-browser"><i /><i /><i /><span>{domain}</span></div><Image src={project.image} alt={`Versão desktop do site ${project.title}`} width={1440} height={900} sizes="(max-width: 800px) 100vw, 72vw" unoptimized /></div><div className="site-case-mobile"><div className="site-case-phone-top" /><Image src={project.mobileImage} alt={`Versão mobile do site ${project.title}`} width={390} height={844} sizes="(max-width: 800px) 65vw, 24vw" unoptimized /></div></div>
       </div></section>
       <section className="site-case-outcome"><div className="mh-shell">
-        <article className="case-detail-story"><span>03 / A solução</span><h2>{story.solutionTitle}</h2><div><p>{story.solution}</p><p>{story.outcome}</p></div></article>
+        <article className="case-detail-story"><span>A solução</span><h2>{story.solutionTitle}</h2><div><p>{story.solution}</p><p>{story.outcome}</p></div></article>
         <div className="site-case-credits"><div><span>Cliente</span><strong>{story.client}</strong></div><div><span>Créditos</span><strong>{story.credit}</strong></div><a href={project.website} target="_blank" rel="noreferrer">Conhecer o site completo ↗</a></div>
       </div></section>
       <CaseNavigation previous={previous} next={next} />
@@ -96,9 +96,9 @@ export function CaseDetails({ project, previous, next }: { project: CaseProject;
     <section className="site-case-banner" aria-labelledby="case-title"><Image className="site-case-banner-image" src={project.image} alt="" fill priority sizes="100vw" /><div className="site-case-banner-shade" /><div className="mh-shell site-case-banner-content"><Link className="case-detail-back" href="/cases">← Todos os cases</Link><div><span className="mh-eyebrow">Case · {project.category}</span><h1 id="case-title">{project.title}</h1><p>{project.intro}</p></div></div></section>
     <section className="case-detail-body"><div className="mh-shell">
       <div className="case-detail-meta"><div><span>Cliente</span><strong>{project.title}</strong></div><div><span>Área</span><strong>{project.category}</strong></div><div><span>Projeto</span><strong>{project.project}</strong></div></div>
-      <article className="case-detail-story"><span>01 / O desafio</span><h2>Uma ideia com um propósito claro.</h2><p>{detail.challenge}</p></article>
+      <article className="case-detail-story"><span>O desafio</span><h2>Uma ideia com um propósito claro.</h2><p>{detail.challenge}</p></article>
       <div className="case-detail-images"><div><Image src={detail.images[0]} alt={`Detalhe do projeto ${project.title}`} fill sizes="(max-width: 700px) 100vw, 50vw" /></div><div><Image src={detail.images[1]} alt={`Aplicação do projeto ${project.title}`} fill sizes="(max-width: 700px) 100vw, 50vw" /></div></div>
-      <article className="case-detail-story case-detail-story-end"><span>02 / A solução</span><h2>Estratégia que ganha forma.</h2><p>{detail.approach}</p></article>
+      <article className="case-detail-story case-detail-story-end"><span>A solução</span><h2>Estratégia que ganha forma.</h2><p>{detail.approach}</p></article>
     </div></section>
     <CaseNavigation previous={previous} next={next} />
   </>;

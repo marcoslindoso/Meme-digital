@@ -27,7 +27,6 @@ export function ModernGallery() {
           <div><span className="mh-eyebrow">Em movimento</span><h2 id="galeria-titulo">Ideias que ganham <em>forma.</em></h2></div>
           <div className="mh-gallery-controls">
             <button type="button" onClick={() => goTo(current - 1)} aria-label="Foto anterior">←</button>
-            <span>{String(current + 1).padStart(2, "0")} <i>/</i> {String(slides.length).padStart(2, "0")}</span>
             <button type="button" onClick={() => goTo(current + 1)} aria-label="Próxima foto">→</button>
           </div>
         </header>

@@ -25,6 +25,6 @@ export function AwardsSlider() {
         <figcaption>{slide.label}</figcaption>
       </figure>)}
     </div>
-    <div className="mh-awards-slider-nav"><span>0{active + 1} <i>/</i> 0{slides.length}</span><button type="button" onClick={() => setActive((active + slides.length - 1) % slides.length)} aria-label="Foto anterior">←</button><button type="button" onClick={() => setActive((active + 1) % slides.length)} aria-label="Próxima foto">→</button></div>
+    <div className="mh-awards-slider-nav"><button type="button" onClick={() => setActive((active + slides.length - 1) % slides.length)} aria-label="Foto anterior">←</button><button type="button" onClick={() => setActive((active + 1) % slides.length)} aria-label="Próxima foto">→</button></div>
   </div>;
 }
