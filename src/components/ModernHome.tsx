@@ -36,7 +36,7 @@ const insights = [
 
 export function ModernHome() {
   return (
-    <div className="modern-site">
+    <div className="modern-site mh-home">
       <ModernHeader />
       <main id="conteudo">
         <section className="mh-hero">
@@ -59,7 +59,7 @@ export function ModernHome() {
 
             <div className="mh-hero-visual" aria-label="Marketing e tecnologia feitos por pessoas">
               <div className="mh-hero-frame">
-                <Image src="/wp-content/uploads/2024/03/agencia.png" alt="Profissional de marketing e tecnologia" width={998} height={923} priority />
+                <Image src="/logos/hero-agencia-sem-valores.png" alt="Profissional de marketing e tecnologia" width={1303} height={1207} priority />
               </div>
               <div className="mh-float-card mh-float-card-top"><span className="mh-live-dot" /> Estratégia em movimento</div>
               <div className="mh-float-card mh-float-card-bottom"><small>Uma equipe, ponta a ponta</small><strong>Marketing + Tech</strong></div>
@@ -84,12 +84,21 @@ export function ModernHome() {
             </div>
             <div className="mh-service-grid">
               {services.map((service, index) => (
-                <Link className="mh-service-card mh-reveal" style={{ "--delay": `${index * 70}ms` } as CSSProperties} href={service.href} key={service.title}>
+                <Link className="mh-service-card mh-reveal" style={{ "--delay": `${index * 70}ms` } as CSSProperties} href={service.href.replace(/\/$/, "")} key={service.title}>
+                  <div className="mh-service-front">
                     <Image className="mh-service-image" src={service.image} alt={`Imagem de apoio para ${service.title}`} fill sizes="(max-width: 900px) 100vw, 33vw" />
                     <div className="mh-service-content">
                       <div className="mh-service-icon" aria-hidden>{service.icon}</div><i aria-hidden>↗</i>
                       <div><h3>{service.title}</h3><p>{service.text}</p></div>
                       <div className="mh-tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                    </div>
+                  </div>
+                    <div className="mh-service-slide" aria-hidden="true">
+                      <span className="mh-service-slide-icon">{service.icon}</span>
+                      <span className="mh-service-slide-label">Soluções Meme Digital</span>
+                      <strong>{service.title}</strong>
+                      <p>{service.text}</p>
+                      <span className="mh-service-slide-action">Conheça a solução <span>↗</span></span>
                     </div>
                 </Link>
               ))}

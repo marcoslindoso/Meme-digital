@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import { ModernEffects } from "@/components/ModernEffects";
 import { ModernFooter } from "@/components/ModernFooter";
 import { ModernHeader } from "@/components/ModernHeader";
+import type { OfferingIconName } from "@/components/OfferingIcon";
+import { InteractiveOfferings } from "@/components/InteractiveOfferings";
+import { SolutionSwitcher } from "@/components/SolutionSwitcher";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { CasesScroller } from "@/components/CasesScroller";
+import { getOfferingCopy } from "@/components/solution-copy";
+import { SolutionCases } from "@/components/SolutionCases";
+import { CaseDetails } from "@/components/CaseDetails";
+import { allCaseProjects, caseProjects, legacyCaseProjects } from "@/components/case-projects";
 
 const solutions = {
   agencia: { label: "Estratégia & growth", title: "Agência", summary: "Nossa agência é especializada em impulsionar a presença online com estratégias de marketing e tecnologia feitas para aumentar ROI e LTV.", image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1500&q=85", featureImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=85", featureTitle: "Growth with Meme", featureDescription: "Estratégia, criatividade e tecnologia trabalhando juntas para proporcionar boas experiências e altas taxas de conversão.", services: [{ title: "SEO", text: "Conteúdo, técnica e palavras-chave para conquistar visibilidade orgânica e tráfego qualificado." }, { title: "Performance", text: "Estratégias de mídia e conversão para transformar investimento em crescimento consistente." }, { title: "Growth Hacking", text: "Testes, inovação e escala para identificar as oportunidades que aceleram o negócio." }, { title: "Digital Planning", text: "Planejamento conectado à realidade da empresa, do primeiro insight à execução." }, { title: "Copywriter", text: "Mensagens claras que traduzem valor e aproximam sua marca das pessoas certas." }, { title: "Automação de Marketing", text: "Jornadas que organizam relacionamento, dados e oportunidades comerciais." }] },
@@ -17,9 +23,38 @@ const solutions = {
 } as const;
 
 const clientLogos = ["Background-2-2.jpg", "Background-3-2.jpg", "Background-4-2.jpg", "Background-5-2.jpg", "Background-6-2.jpg", "Background-7-2.jpg", "Background-8-2.jpg", "Background-9-2.jpg", "Background-10-2.jpg", "Background-11-2.jpg", "Background-12-2.jpg", "Background-13-2.jpg"];
-const offeringSymbols = ["✦", "◌", "⌘", "◉", "↗", "◎"];
-
 type SolutionSlug = keyof typeof solutions;
+
+const offeringIcons: Record<SolutionSlug, OfferingIconName[]> = {
+  agencia: ["seo", "performance", "growth", "planning", "copy", "automation"],
+  "tech-web": ["commerce", "app", "web", "automation"],
+  design: ["design", "web", "copy"],
+  "performance-ads": ["performance", "seo", "growth", "copy", "commerce"],
+  "produtos-digitais": ["launch", "commerce", "app"],
+  metaverso: ["vr", "design"],
+};
+
+const offeringImages: Record<SolutionSlug, string[]> = {
+  agencia: [],
+  "tech-web": [
+    "photo-1556742049-0cfed4f6a45d", "photo-1556656793-08538906a9f8",
+    "photo-1461749280684-dccba630e2f6", "photo-1581091226825-a6a2a5aee158",
+  ],
+  design: [
+    "photo-1558655146-9f40138edfeb", "photo-1561070791-2526d30994b5",
+    "photo-1545235617-9465d2a55698",
+  ],
+  "performance-ads": [
+    "photo-1460925895917-afdab827c52f", "photo-1551288049-bebda4e38f71",
+    "photo-1552664730-d307ca884978", "photo-1432888622747-4eb9a8efeb07",
+    "photo-1499951360447-b19be8fe80f5",
+  ],
+  "produtos-digitais": [
+    "photo-1556742049-0cfed4f6a45d", "photo-1516321318423-f06f85e504b3",
+    "photo-1522071820081-009f0129c71c",
+  ],
+  metaverso: ["photo-1593508512255-86ab42a8e620", "photo-1518770660439-4636190af475"],
+};
 
 export function isSolutionSlug(slug: string): slug is SolutionSlug {
   return slug in solutions;
@@ -28,7 +63,7 @@ export function isSolutionSlug(slug: string): slug is SolutionSlug {
 export function SolutionPage({ slug }: { slug: SolutionSlug }) {
   const solution = solutions[slug];
   return <div className="modern-site solution-page">
-    <ModernHeader />
+    <ModernHeader activeSolution={slug} />
     <main id="conteudo">
       <section className="sp-hero">
         <div className="mh-shell sp-hero-grid">
@@ -38,7 +73,23 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
       </section>
       <section className="sp-brand-rail"><LogoCarousel logos={clientLogos} /></section>
       <section className="sp-feature"><div className="mh-shell sp-feature-grid"><div className="sp-feature-image"><Image src={solution.featureImage} alt={`Contexto para ${solution.title}`} fill sizes="(max-width: 900px) 100vw, 50vw" /></div><div><span className="mh-eyebrow">Meme Digital</span><h2>{solution.featureTitle}</h2><p>{solution.featureDescription}</p><Link className="mh-text-link" href="/#contato">Saiba mais <span>↗</span></Link></div></div></section>
-      <section className="sp-offerings"><div className="mh-shell"><header className="mh-reveal"><span className="mh-eyebrow">Soluções à disposição</span><h2>Estratégia, marketing e tecnologia<br /><em>em um só time.</em></h2></header><div className="sp-offering-grid">{solution.services.map((service, index) => <article className="mh-reveal" style={{ "--delay": `${index * 70}ms` } as CSSProperties} key={service.title}><div className="sp-offering-top"><b>0{index + 1}</b><span className="sp-offering-icon" aria-hidden>{offeringSymbols[index % offeringSymbols.length]}</span></div><div className="sp-offering-spark" aria-hidden><i /><i /><i /></div><h3>{service.title}</h3><p>{service.text}</p><Link href="/#contato">Fale com um especialista <span>↗</span></Link></article>)}</div></div></section>
+      <section className="sp-offerings"><div className="mh-shell">
+        <header className="mh-reveal"><span className="mh-eyebrow">{solution.title} · Soluções à disposição</span><h2>Especialidades que trabalham<br /><em>em um só time.</em></h2></header>
+        <SolutionSwitcher active={slug} />
+        <InteractiveOfferings
+          solution={solution.title}
+          variant="generic"
+          items={solution.services.map((service, index) => ({
+            ...service,
+            text: getOfferingCopy(slug, service.title, service.text),
+            icon: offeringIcons[slug][index] ?? "growth",
+            image: offeringImages[slug][index]
+              ? `https://images.unsplash.com/${offeringImages[slug][index]}?auto=format&fit=crop&w=1100&q=82`
+              : solution.image,
+          }))}
+        />
+      </div></section>
+      <SolutionCases />
       <section className="sp-cta" id="contato"><div className="mh-shell"><span className="mh-eyebrow">Bora conversar?</span><h2>Seu próximo movimento começa com uma <em>boa estratégia.</em></h2><Link className="mh-button mh-button-light" href="/#contato">Falar com a Meme <span>↗</span></Link></div></section>
     </main>
     <ModernFooter />
@@ -47,23 +98,12 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
 }
 
 const hubs = {
-  cases: { label: "Cases", title: "Projetos com estratégia, criação e resultado.", description: "Em breve, esta área reunirá os cases da Meme Digital. Enquanto isso, conte com nosso time para conhecer histórias parecidas com seu desafio." },
+  cases: { label: "Cases", title: "Projetos que ganham vida na tela.", description: "Explore exemplos de sites e veja como cada projeto se apresenta nas versões desktop e mobile." },
   insights: { label: "Insights", title: "Ideias para o próximo movimento.", description: "Conteúdos sobre marketing, tecnologia, design e performance para ajudar negócios a tomar decisões melhores." },
   institucional: { label: "Institucional", title: "Uma agência martech para conectar pessoas e negócios.", description: "Somos uma equipe de estratégia, criação e tecnologia que trabalha de ponta a ponta para construir experiências digitais relevantes." },
 } as const;
 
-const caseCards = [
-  { slug: "aloia-aerospace", title: "Aloia Aerospace", category: "Aviação", project: "Projeto de Marketing para Aloia Aerospace", intro: "A Aloia Aerospace, referência em tecnologia e inovação aeroespacial, confiou à Meme Digital a renovação de sua presença online e redes sociais.", image: "https://memedigital.com.br/wp-content/uploads/2024/06/Retangulo-8.webp" },
-  { slug: "baralho-voluta-medical", title: "Voluta Medical - Baralho", category: "Saúde", project: "Projeto de material de divulgação", intro: "O Baralho Voluta levou exames médicos a um novo nível visual, alinhando informação e design de maneira lúdica e acessível.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-46-scaled.webp" },
-  { slug: "bronte-imoveis", title: "Bronte Imóveis", category: "Marketing", project: "Projeto de Marketing para Bronte Imóveis", intro: "Projeto de marketing desenvolvido para fortalecer a presença e a comunicação digital da Bronte Imóveis.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-8-1.webp" },
-  { slug: "cafe-cophi", title: "Café Cophi", category: "Branding", project: "Projeto de Branding para Café Cophi", intro: "Projeto de branding para o Café Cophi, com foco em uma identidade visual memorável e coerente.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-17-3.webp" },
-  { slug: "concept-lar", title: "Concept Lar", category: "Branding", project: "Projeto de Branding para Concept Lar", intro: "A Concept Lar é especialista em higienização e impermeabilização; o projeto traduziu confiança e cuidado com os ambientes.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-17-1.webp" },
-  { slug: "icaro-rocks", title: "Icaro Rocks", category: "Website", project: "Projeto de desenvolvimento de website para Icaro Rocks", intro: "Projeto de desenvolvimento de website para a Icaro Rocks.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-45-1024x576.webp" },
-  { slug: "neto-ensina", title: "Neto Ensina", category: "Website", project: "Projeto de desenvolvimento de website para a startup Neto Ensina", intro: "Neto Ensina é um guia para tornar a tecnologia mais simples e acessível no dia a dia.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-17.webp" },
-  { slug: "nur-eventos", title: "NUR Eventos", category: "Branding", project: "Projeto de branding para NUR Eventos", intro: "Projeto de branding criado para comunicar a identidade e as experiências da NUR Eventos.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-17-2.webp" },
-  { slug: "oticas-ipanema-2", title: "Óticas Ipanema", category: "Website", project: "Projeto de desenvolvimento de website para a franqueadora Óticas Ipanema", intro: "Design, performance e comunicação para uma presença online que reflete qualidade e estilo.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Grupo-1.webp" },
-  { slug: "voluta-medical", title: "Voluta Medical", category: "Website & Marketing", project: "Projeto de desenvolvimento de Website e Marketing para Voluta Medical", intro: "Projeto de desenvolvimento de website e marketing para a Voluta Medical.", image: "https://memedigital.com.br/wp-content/uploads/2024/08/Retangulo-62.webp" },
-] as const;
+const caseCards = caseProjects;
 
 const insightCards = [
   "Quanto custa uma agência de marketing digital em SP? 2026",
@@ -75,7 +115,7 @@ const insightCards = [
 ];
 
 export function isHubSlug(slug: string): slug is keyof typeof hubs { return slug in hubs; }
-export function isCaseSlug(slug: string): boolean { return caseCards.some((item) => item.slug === slug); }
+export function isCaseSlug(slug: string): boolean { return allCaseProjects.some((item) => item.slug === slug); }
 
 export function HubPage({ slug }: { slug: keyof typeof hubs }) {
   const hub = hubs[slug];
@@ -88,12 +128,11 @@ export function HubPage({ slug }: { slug: keyof typeof hubs }) {
 }
 
 export function CasePage({ slug }: { slug: string }) {
-  const project = caseCards.find((item) => item.slug === slug);
-  if (!project) return null;
-  const moreCases = caseCards.filter((item) => item.slug !== slug).slice(0, 3);
-  return <div className="modern-site case-page"><ModernHeader /><main id="conteudo">
-    <section className="cp-hero"><div className="mh-shell cp-hero-grid"><div><span className="mh-eyebrow">{project.category} · {project.project}</span><h1>{project.title}</h1><p>{project.intro}</p><div className="cp-team"><span>Estratégia</span><span>Design</span><span>Tecnologia</span><span>Performance</span></div></div><div className="cp-hero-image"><Image src={project.image} alt={`Projeto ${project.title}`} fill priority sizes="(max-width: 900px) 100vw, 52vw" /></div></div></section>
-    <section className="cp-story"><div className="mh-shell cp-story-grid"><div><span className="mh-eyebrow">O projeto</span><h2>{project.project}</h2></div><p>{project.intro}</p></div></section>
-    <section className="cp-more"><div className="mh-shell"><header><span className="mh-eyebrow">Mais cases para ver</span><h2>Outros projetos da <em>Meme.</em></h2></header><div className="cp-more-grid">{moreCases.map((item) => <Link href={`/${item.slug}/`} key={item.slug}><div><Image src={item.image} alt={`Projeto ${item.title}`} fill sizes="(max-width: 700px) 100vw, 33vw" /></div><small>{item.category}</small><h3>{item.title}</h3></Link>)}</div></div></section>
-  </main><ModernFooter /><ModernEffects /></div>;
+  const projects = caseProjects.some((item) => item.slug === slug) ? caseProjects : legacyCaseProjects;
+  const index = projects.findIndex((item) => item.slug === slug);
+  if (index < 0) return null;
+  const project = projects[index];
+  const previous = projects[(index - 1 + projects.length) % projects.length];
+  const next = projects[(index + 1) % projects.length];
+  return <div className="modern-site case-page"><ModernHeader /><main id="conteudo"><CaseDetails project={project} previous={previous} next={next} /></main><ModernFooter /><ModernEffects /></div>;
 }

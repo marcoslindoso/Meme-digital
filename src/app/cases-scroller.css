@@ -22,10 +22,10 @@
 .case-scroll-head h2 em { color: var(--mh-pink); font-style: normal; }
 .case-scroll-head p { margin: 0 0 6px; color: var(--mh-muted); font-size: 11px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
 
-.case-scroll-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px 18px; }
+.case-scroll-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 22px; }
 .case-scroll-card { display: block; min-width: 0; color: var(--mh-ink); }
-.case-scroll-image { position: relative; height: clamp(240px, 27vw, 390px); overflow: hidden; background: #e5e8ef; }
-.case-scroll-image img { object-fit: cover; transition: transform .55s ease, filter .35s ease; }
+.case-scroll-image { position: relative; height: auto; aspect-ratio: 16 / 10; overflow: hidden; background: #e5e8ef; }
+.case-scroll-image img { object-fit: cover; object-position: center top; transition: transform .55s ease, filter .35s ease; }
 .case-scroll-card:hover .case-scroll-image img { filter: saturate(1.06); transform: scale(1.045); }
 .case-scroll-image::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(24,56,91,.58)); content: ""; opacity: 0; transition: opacity .25s ease; }
 .case-scroll-card:hover .case-scroll-image::after { opacity: 1; }
@@ -39,12 +39,10 @@
 @media (max-width: 900px) {
   .case-scroll { padding: 76px 0; }
   .case-scroll-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .case-scroll-image { height: 320px; }
 }
 
 @media (max-width: 580px) {
   .case-scroll-head { align-items: flex-start; flex-direction: column; gap: 13px; margin-bottom: 32px; }
   .case-scroll-grid { grid-template-columns: 1fr; gap: 34px; }
-  .case-scroll-image { height: 280px; }
   .case-scroll-image b { opacity: 1; transform: none; }
 }

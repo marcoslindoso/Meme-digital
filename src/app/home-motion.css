@@ -1,0 +1,96 @@
+/* Motion on the home page, inspired by Xpovio's editorial reveals and portfolio transitions. */
+@media (prefers-reduced-motion: no-preference) {
+  .mh-home .mh-hero-copy h1 {
+    animation: mh-home-title-in .9s cubic-bezier(.22, 1, .36, 1) .08s both;
+  }
+
+  .mh-home .mh-hero-visual {
+    animation: mh-home-visual-in 1.05s cubic-bezier(.22, 1, .36, 1) .18s both;
+  }
+
+  .mh-home .mh-hero-visual .mh-hero-frame img {
+    animation: mh-home-image-in 1.15s cubic-bezier(.22, 1, .36, 1) .18s both;
+  }
+
+  .mh-home .mh-feature-media.mh-reveal > img,
+  .mh-home .mh-story.mh-reveal .mh-story-media img {
+    clip-path: inset(0 0 100% 0);
+    transform: scale(1.075);
+    transition: clip-path .9s cubic-bezier(.22, 1, .36, 1),
+      transform 1.15s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .mh-home .mh-feature-media.mh-reveal.is-visible > img,
+  .mh-home .mh-story.mh-reveal.is-visible .mh-story-media img {
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+  }
+
+  .mh-home .mh-feature-media.mh-reveal.is-visible:hover > img,
+  .mh-home .mh-story.mh-reveal.is-visible:hover .mh-story-media img {
+    transform: scale(1.035);
+  }
+
+  .mh-home .mh-service-card.mh-reveal,
+  .mh-home .mh-insight-card.mh-reveal {
+    transition: opacity .7s ease var(--delay, 0ms),
+      transform .7s cubic-bezier(.22, 1, .36, 1) var(--delay, 0ms),
+      border-color .3s ease, box-shadow .3s ease;
+  }
+
+  .mh-home .mh-service-card.mh-reveal:not(.is-visible),
+  .mh-home .mh-insight-card.mh-reveal:not(.is-visible) {
+    transform: translateY(34px) scale(.975);
+  }
+
+  .mh-home .mh-service-card.mh-reveal.is-visible:hover {
+    transform: translateY(-7px);
+  }
+
+  .mh-home .mh-service-card:hover .mh-service-icon,
+  .mh-home .mh-service-card:focus-visible .mh-service-icon {
+    transform: rotate(-12deg) scale(1.12);
+  }
+
+  .mh-home .mh-service-icon {
+    transition: transform .45s cubic-bezier(.22, 1.5, .36, 1);
+  }
+
+  .mh-home .mh-gallery-slide.is-active img {
+    animation: mh-home-gallery-in 1.05s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .mh-home .mh-gallery-slide.is-active figcaption {
+    animation: mh-home-caption-in .6s cubic-bezier(.22, 1, .36, 1) .28s both;
+  }
+}
+
+@keyframes mh-home-title-in {
+  from { opacity: 0; transform: translateY(28px); clip-path: inset(0 0 45% 0); }
+  to { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+}
+
+@keyframes mh-home-visual-in {
+  from { opacity: 0; transform: translateY(30px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes mh-home-image-in {
+  from { opacity: 0; transform: translateY(18px) scale(1.035); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes mh-home-gallery-in {
+  from { transform: scale(1.09); }
+  to { transform: scale(1); }
+}
+
+@keyframes mh-home-caption-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mh-home .mh-feature-media > img,
+  .mh-home .mh-story-media img { clip-path: none; transform: none; }
+}

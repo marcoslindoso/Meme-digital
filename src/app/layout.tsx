@@ -3,6 +3,11 @@ import "./globals.css";
 import "./modern.css";
 import "./cases-scroller.css";
 import "./home-refine.css";
+import "./agency.css";
+import "./home-motion.css";
+import "./solution-offerings.css";
+import "./solution-cases.css";
+import "./case-details.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://meme-digital.vercel.app"),

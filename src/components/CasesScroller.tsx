@@ -18,7 +18,7 @@ export function CasesScroller({ items }: { items: ReadonlyArray<CaseItem> }) {
     </div>
     <div className="case-scroll-grid mh-shell">
       {items.map((item, index) => <Link className="case-scroll-card" href={`/${item.slug}/`} key={item.slug}>
-        <div className="case-scroll-image"><Image src={item.image} alt={`Projeto ${item.title}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" /><span>{String(index + 1).padStart(2, "0")}</span><b>Ver projeto ↗</b></div>
+        <div className="case-scroll-image"><Image src={item.image} alt={`Projeto ${item.title}`} fill sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 50vw" unoptimized={item.image.startsWith("/cases/")} /><span>{String(index + 1).padStart(2, "0")}</span><b>Ver projeto ↗</b></div>
         <small>{item.category} · {item.project}</small><h3>{item.title}</h3><p>{item.intro}</p>
       </Link>)}
     </div>

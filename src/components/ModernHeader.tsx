@@ -2,21 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const services = [
-  { name: "Agência", detail: "Estratégia, SEO e growth", href: "/solucoes/agencia/", mark: "01" },
-  { name: "Tech & Web", detail: "Sites, apps e e-commerce", href: "/solucoes/tech-web/", mark: "02" },
-  { name: "Design", detail: "Branding, UX e interfaces", href: "/solucoes/design/", mark: "03" },
-  { name: "Performance Ads", detail: "Mídia, dados e conversão", href: "/solucoes/performance-ads/", mark: "04" },
-  { name: "Produtos Digitais", detail: "Lançamentos e infoprodutos", href: "/solucoes/produtos-digitais/", mark: "05" },
-  { name: "Metaverso", detail: "AR, VR e experiências", href: "/solucoes/metaverso/", mark: "06" },
+  { name: "Agência", detail: "Estratégia, SEO e growth", href: "/solucoes/agencia", icon: "agency" },
+  { name: "Tech & Web", detail: "Sites, apps e e-commerce", href: "/solucoes/tech-web", icon: "web" },
+  { name: "Design", detail: "Branding, UX e interfaces", href: "/solucoes/design", icon: "design" },
+  { name: "Performance Ads", detail: "Mídia, dados e conversão", href: "/solucoes/performance-ads", icon: "performance" },
+  { name: "Produtos Digitais", detail: "Lançamentos e infoprodutos", href: "/solucoes/produtos-digitais", icon: "products" },
+  { name: "Metaverso", detail: "AR, VR e experiências", href: "/solucoes/metaverso", icon: "metaverse" },
 ];
 
-export function ModernHeader() {
+function ServiceIcon({ icon }: { icon: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {icon === "agency" && <><path d="M5 11v4M8 9v8M11 7l8-3v16l-8-3z" /><path d="M8 17l1 4h3l-1-4M21 9v6" /></>}
+      {icon === "web" && <><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 8h18M8 21h8M12 18v3M8 12l-2 2 2 2M16 12l2 2-2 2" /></>}
+      {icon === "design" && <><path d="M12 3l8 8-8 10-8-10 8-8zM4 11h16M9 11l3 10 3-10M9 11l3-8 3 8" /></>}
+      {icon === "performance" && <><path d="M4 19h16M5 16l5-5 3 3 6-7M15 7h4v4" /><circle cx="5" cy="16" r="1" /></>}
+      {icon === "products" && <><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 7h6M9 11h6M9 15h4" /></>}
+      {icon === "metaverse" && <><path d="M4 9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-3l-2-2h-2l-2 2H6a2 2 0 0 1-2-2V9z" /><path d="M8 11h.01M16 11h.01M4 10H2M22 10h-2" /></>}
+    </svg>
+  );
+}
+
+export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
+  const router = useRouter();
+  const activeService = services.find((service) => service.href === `/solucoes/${activeSolution}`);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (servicesOpen || mobileOpen) services.forEach((service) => router.prefetch(service.href));
+  }, [router, servicesOpen, mobileOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -63,20 +83,18 @@ export function ModernHeader() {
               aria-controls="mh-services-menu"
               onClick={() => setServicesOpen((open) => !open)}
             >
-              Soluções <span aria-hidden>⌄</span>
+              Soluções {activeService && <strong className="mh-nav-current">{activeService.name}</strong>} <span aria-hidden>⌄</span>
             </button>
             <div id="mh-services-menu" className={`mh-mega-menu${servicesOpen ? " is-open" : ""}`}>
               <div className="mh-mega-intro">
-                <span className="mh-eyebrow">Ecossistema Meme</span>
-                <strong>Estratégia, criação e tecnologia em um só time.</strong>
-                <Link href="/#solucoes" onClick={closeMenus}>Ver todas as soluções <span>↗</span></Link>
+                <div className="mh-mega-photo"><Image src="/wp-content/uploads/2024/03/happy-creative-marketing-team-working-on-new-busin-2023-11-27-05-18-14-utc-768x512.jpg" alt="Equipe trabalhando em estratégia e criação" fill sizes="280px" /></div>
               </div>
               <div className="mh-mega-grid">
                 {services.map((service) => (
-                  <Link href={service.href} key={service.name} onClick={closeMenus}>
-                    <span>{service.mark}</span>
+                  <Link href={service.href} key={service.name} onClick={closeMenus} aria-current={service === activeService ? "page" : undefined} className={service === activeService ? "is-current" : undefined}>
+                    <span className="mh-mega-icon"><ServiceIcon icon={service.icon} /></span>
                     <div><strong>{service.name}</strong><small>{service.detail}</small></div>
-                    <i aria-hidden>↗</i>
+                    {service === activeService ? <em className="mh-menu-current">Atual</em> : <i aria-hidden>↗</i>}
                   </Link>
                 ))}
               </div>
@@ -101,10 +119,10 @@ export function ModernHeader() {
 
       <div className={`mh-mobile-panel${mobileOpen ? " is-open" : ""}`}>
         <nav aria-label="Navegação móvel">
-          <span className="mh-eyebrow">Soluções</span>
+          <span className="mh-eyebrow">Soluções{activeService ? ` · ${activeService.name}` : ""}</span>
           {services.map((service) => (
-            <Link href={service.href} key={service.name} onClick={closeMenus}>
-              <b>{service.mark}</b>{service.name}<span aria-hidden>↗</span>
+            <Link href={service.href} key={service.name} onClick={closeMenus} aria-current={service === activeService ? "page" : undefined} className={service === activeService ? "is-current" : undefined}>
+              <b className="mh-mobile-service-icon"><ServiceIcon icon={service.icon} /></b>{service.name}<span aria-hidden>↗</span>
             </Link>
           ))}
           <div className="mh-mobile-main-links">
