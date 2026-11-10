@@ -38,7 +38,7 @@ export function InstitutionalPage() {
         </div>
       </div></section>
 
-      <section className="ip-awards ip-section"><div className="mh-shell">
+      <section className="ip-awards ip-section" id="premios"><div className="mh-shell">
         <div className="ip-awards-layout"><div className="mh-reveal"><span className="mh-eyebrow">Prêmios & conquistas</span><h2>Reconhecimento que vem do <em>trabalho coletivo.</em></h2><p>Design, web e branding da Meme já receberam reconhecimento em festivais. Cada conquista representa uma equipe, um cliente e uma ideia levada até o fim.</p><div className="ip-award-years"><span>2018 <b>Branding</b></span><span>2019 <b>Web</b></span><span>2022 <b>Design</b></span></div></div><AwardsSlider /></div>
         <div className="ip-award-projects">{awardProjects.map((project) => <Link href={project.href} key={project.title}><small>{project.type}</small><strong>{project.title}</strong><span aria-hidden="true">↗</span></Link>)}</div>
       </div></section>
@@ -50,7 +50,7 @@ export function InstitutionalPage() {
 
       <InstitutionalShowcase />
 
-      <section className="ip-careers ip-section"><div className="mh-shell ip-careers-grid"><div className="mh-reveal"><span className="mh-eyebrow">Carreiras</span><h2>Seu próximo passo pode ser <em>com a gente.</em></h2></div><div className="mh-reveal"><p>Buscamos pessoas curiosas, proativas e apaixonadas pelo que fazem. Aqui, escritores, artistas, designers, desenvolvedores e especialistas em dados aprendem e crescem juntos.</p><a className="mh-button mh-button-light" href="mailto:contato@memedigital.com.br?subject=Quero%20ser%20um%20Memer" data-contact-trigger data-contact-topic="Carreiras">Quero ser um Memer <span>↗</span></a><Link className="ip-careers-culture" href="/cultura-meme/">Conheça a cultura da Meme <span>↗</span></Link></div></div></section>
+      <section className="ip-careers ip-section" id="carreiras"><div className="mh-shell ip-careers-grid"><div className="mh-reveal"><span className="mh-eyebrow">Carreiras</span><h2>Seu próximo passo pode ser <em>com a gente.</em></h2></div><div className="mh-reveal"><p>Buscamos pessoas curiosas, proativas e apaixonadas pelo que fazem. Aqui, escritores, artistas, designers, desenvolvedores e especialistas em dados aprendem e crescem juntos.</p><a className="mh-button mh-button-light" href="mailto:contato@memedigital.com.br?subject=Quero%20ser%20um%20Memer" data-contact-trigger data-contact-topic="Carreiras">Quero ser um Memer <span>↗</span></a><Link className="ip-careers-culture" href="/cultura-meme/">Conheça a cultura da Meme <span>↗</span></Link></div></div></section>
 
       <section className="ip-contact ip-section" id="contato"><div className="mh-shell"><span className="mh-eyebrow">Vamos criar juntos?</span><h2>Boas relações começam com uma <em>boa conversa.</em></h2><Link className="mh-button mh-button-primary" href="/#contato">Fale com a Meme <span>↗</span></Link></div></section>
     </main>

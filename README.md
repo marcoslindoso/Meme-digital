@@ -48,3 +48,13 @@ necessários. Ele não é executado durante o build ou na Vercel.
 
 - Títulos: Rubik, servida localmente em `public/fonts`.
 - Corpo: `-apple-system`, com fallbacks nativos do sistema.
+
+## Idiomas
+
+O seletor fixo oferece português (padrão), inglês e espanhol em todas as páginas,
+incluindo artigos e páginas herdadas do WordPress. A preferência fica salva no
+navegador; links com `?lang=en` ou `?lang=es` também abrem no idioma indicado.
+
+As traduções automáticas são carregadas depois da hidratação e guardadas no
+navegador para visitas seguintes. Elas dependem de acesso ao serviço de tradução
+do Google. O conteúdo original e os metadados de busca continuam em português.

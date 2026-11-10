@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OfferingIcon, type OfferingIconName } from "@/components/OfferingIcon";
 
 type Initiative = { title: string; text: string; image: string; icon: OfferingIconName };
@@ -37,12 +37,28 @@ export function InstitutionalShowcase() {
   const group = groups[groupIndex];
   const current = group.items[activeIndex];
 
+  useEffect(() => {
+    function syncFromHash() {
+      if (window.location.hash === "#startups") {
+        setGroupIndex(1);
+        setActiveIndex(0);
+      } else if (window.location.hash === "#meme-social") {
+        setGroupIndex(0);
+        setActiveIndex(0);
+      }
+    }
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
   function selectGroup(index: number) {
     setGroupIndex(index);
     setActiveIndex(0);
   }
 
   return <section className="ip-showcase ip-section" id="iniciativas">
+    <span id="meme-social" aria-hidden="true" /><span id="startups" aria-hidden="true" />
     <div className="mh-shell">
       <header className="ip-showcase-head mh-reveal"><span className="mh-eyebrow">Além dos projetos</span><h2>O que nos move também <em>ganha forma fora da agência.</em></h2></header>
       <div className="ip-showcase-tabs" role="tablist" aria-label="Iniciativas da Meme Digital">
