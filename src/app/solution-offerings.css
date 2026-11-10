@@ -184,6 +184,7 @@
   background: #18385b;
 }
 .interactive-offerings.is-compact .offering-preview-card { aspect-ratio: 4 / 3; max-height: 480px; }
+.interactive-offerings.is-short .offering-preview-card { aspect-ratio: 1.08; max-height: 520px; }
 .offering-preview-image {
   object-fit: cover;
   opacity: 0;
@@ -297,7 +298,8 @@
 @media (max-width: 700px) {
   .interactive-offerings { grid-template-columns: 1fr; }
   .offering-preview-card,
-  .interactive-offerings.is-compact .offering-preview-card { position: relative; top: auto; width: 100%; max-height: none; aspect-ratio: 4 / 3; }
+  .interactive-offerings.is-compact .offering-preview-card,
+  .interactive-offerings.is-short .offering-preview-card { position: relative; top: auto; width: 100%; max-height: none; aspect-ratio: 4 / 3; }
   .agency-services .interactive-offerings .agency-service-grid,
   .sp-offerings .interactive-offerings .sp-offering-grid,
   .sp-offerings .interactive-offerings .sp-offering-grid:has(> article:nth-child(3)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -316,4 +318,40 @@
 @media (prefers-reduced-motion: reduce) {
   .offering-preview-image,
   .interactive-offerings article { transition: none; }
+}
+
+/* Cards compactos como a vitrine de startups: imagem fixa e lista de soluções. */
+.agency-services .interactive-offerings .agency-service-grid,
+.sp-offerings .interactive-offerings .sp-offering-grid,
+.sp-offerings .interactive-offerings .sp-offering-grid:has(> article:nth-child(3)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.sp-offerings .interactive-offerings .sp-offering-grid > article:last-child:nth-child(odd) { grid-column: auto; }
+.agency-services .interactive-offerings .agency-service-card,
+.agency-services .interactive-offerings .agency-service-card:nth-child(1),
+.agency-services .interactive-offerings .agency-service-card:nth-child(2),
+.sp-offerings .interactive-offerings .sp-offering-grid article {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  column-gap: 18px;
+  align-content: center;
+  min-height: 150px;
+  padding: 18px 22px;
+}
+.interactive-offerings .agency-icon,
+.interactive-offerings .sp-offering-icon { grid-column: 1; grid-row: 1 / -1; align-self: start; }
+.agency-services .interactive-offerings .agency-service-card h3,
+.sp-offerings .interactive-offerings .sp-offering-grid h3 { grid-column: 2; margin: 0 0 5px; }
+.agency-services .interactive-offerings .agency-service-card p,
+.sp-offerings .interactive-offerings .sp-offering-grid p { grid-column: 2; min-height: 0; margin: 0 0 9px; }
+.interactive-offerings .agency-service-card small { grid-column: 2; margin: 0 0 8px; }
+.agency-services .interactive-offerings .agency-service-card a,
+.sp-offerings .interactive-offerings .sp-offering-grid a { grid-column: 2; margin-top: 0; align-self: auto; }
+.sp-offerings .interactive-offerings .sp-offering-grid article::after { display: none; }
+@media (max-width: 580px) {
+  .agency-services .interactive-offerings .agency-service-card,
+  .agency-services .interactive-offerings .agency-service-card:nth-child(1),
+  .agency-services .interactive-offerings .agency-service-card:nth-child(2),
+  .sp-offerings .interactive-offerings .sp-offering-grid article { min-height: 0; padding: 18px; column-gap: 13px; }
 }

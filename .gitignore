@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Original copies of startup images; deployed assets are in public/assets/startups.
+/fotos statups/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

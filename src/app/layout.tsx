@@ -8,6 +8,11 @@ import "./home-motion.css";
 import "./solution-offerings.css";
 import "./solution-cases.css";
 import "./case-details.css";
+import "./institutional.css";
+import "./contact-popup.css";
+import "./culture.css";
+import "./blog.css";
+import { ContactPopup } from "@/components/ContactPopup";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://meme-digital.vercel.app"),
@@ -22,5 +27,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR" suppressHydrationWarning><body suppressHydrationWarning>{children}</body></html>;
+  return <html lang="pt-BR" suppressHydrationWarning><body suppressHydrationWarning>{children}<ContactPopup /></body></html>;
 }

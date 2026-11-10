@@ -1,0 +1,74 @@
+.blog-page,.blog-article-page{--blog-ink:#19385b;--blog-muted:#657990;--blog-pink:#ff2361;--blog-line:#dbe3ed}
+.blog-page h1,.blog-page h2,.blog-page h3,.blog-article-page h1,.blog-article-page h2,.blog-article-page h3{letter-spacing:-.05em}
+.blog-page h1 em,.blog-page h2 em,.blog-article-page h2 em{color:var(--blog-pink);font-style:normal}
+.blog-hero{padding:78px 0 85px;background:linear-gradient(135deg,#f9faff 45%,#f0efff)}
+.blog-hero .mh-shell{position:relative}
+.blog-hero h1{max-width:900px;margin:22px 0 27px;font-size:clamp(56px,6vw,86px);line-height:1.02}
+.blog-hero p{max-width:650px;margin:0;color:var(--blog-muted);font-size:17px;line-height:1.75}
+.blog-hero-link,.blog-section-heading>a{display:inline-block;margin-top:30px;border-bottom:1px solid currentColor;padding-bottom:5px;color:var(--blog-ink);font-size:12px;font-weight:800}
+.blog-hero-link:hover,.blog-section-heading>a:hover{color:var(--blog-pink)}
+.blog-feature,.blog-archive,.blog-related{padding:100px 0}
+.blog-feature{background:#fff}
+.blog-section-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:38px}
+.blog-section-heading h2{max-width:760px;margin:14px 0 0;font-size:clamp(38px,4.6vw,64px);line-height:1.08}
+.blog-section-heading>p{max-width:350px;margin:0;color:var(--blog-muted);font-size:14px;line-height:1.7}
+.blog-section-heading>a{flex:none;margin:0 0 7px}
+.blog-feature-grid,.blog-archive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.blog-feature-card,.blog-archive-card{display:flex;min-width:0;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--blog-line);padding-bottom:23px;transition:border-color .25s ease}
+.blog-feature-card:hover,.blog-archive-card:hover{border-color:var(--blog-pink)}
+.blog-feature-image,.blog-archive-image{position:relative;width:100%;aspect-ratio:1.36;overflow:hidden;background:#e8edf5}
+.blog-feature-image img,.blog-archive-image img{object-fit:cover;transition:transform .65s cubic-bezier(.22,.8,.2,1)}
+.blog-feature-card:hover img,.blog-archive-card:hover img{transform:scale(1.045)}
+.blog-card-meta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:22px;color:var(--blog-muted);font-size:11px}
+.blog-card-meta span{border:1px solid #d8d7f8;border-radius:999px;padding:7px 11px;color:#5954d5;font-weight:800}
+.blog-feature-card h3,.blog-archive-card h3{margin:15px 0 11px;font-size:clamp(21px,2vw,29px);line-height:1.15}
+.blog-feature-card p,.blog-archive-card p{margin:0 0 24px;color:var(--blog-muted);font-size:13px;line-height:1.7}
+.blog-card-link{margin-top:auto;color:var(--blog-pink);font-size:11px;font-weight:800}
+.blog-card-link:after{display:inline-block;margin-left:6px;content:"→";transition:transform .25s}
+.blog-feature-card:hover .blog-card-link:after,.blog-archive-card:hover .blog-card-link:after{transform:translateX(4px)}
+.blog-archive{background:#f7f9fc}
+.blog-explorer-tools{display:flex;justify-content:space-between;gap:24px;align-items:center}
+.blog-filters{display:flex;flex-wrap:wrap;gap:7px}
+.blog-filters button{border:1px solid #d7e0ec;border-radius:999px;padding:9px 14px;background:#fff;color:var(--blog-ink);font:700 11px "Meme Rubik",sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.blog-filters button:hover{border-color:#8d8afb}
+.blog-filters button.is-active{border-color:#6864f9;background:#6864f9;color:#fff}
+.blog-search{position:relative;flex:none;width:min(255px,100%)}
+.blog-search .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.blog-search input{width:100%;height:43px;border:1px solid #d7e0ec;border-radius:999px;padding:0 42px 0 17px;background:#fff;color:var(--blog-ink);font:600 12px "Meme Montserrat",sans-serif}
+.blog-search input:focus-visible,.blog-filters button:focus-visible,.blog-load-more:focus-visible{outline:2px solid #6864f9;outline-offset:3px}
+.blog-search>span:last-child{position:absolute;right:15px;top:2px;color:#6864f9;font-size:27px;line-height:36px;pointer-events:none}
+.blog-results{margin:32px 0 22px;color:var(--blog-muted);font-size:11px;font-weight:700}
+.blog-archive-grid{row-gap:42px}
+.blog-archive-card{background:transparent}
+.blog-archive-image{aspect-ratio:1.45}
+.blog-archive-card h3{font-size:23px}
+.blog-empty{border:1px solid var(--blog-line);padding:35px;background:#fff}
+.blog-empty strong{font-size:20px}.blog-empty p{margin-bottom:0;color:var(--blog-muted)}
+.blog-load-more{display:block;min-height:48px;margin:48px auto 0;border:1px solid #6864f9;border-radius:999px;padding:0 28px;background:#fff;color:#5752e5;font:800 12px "Meme Rubik",sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.blog-load-more:hover{background:#6864f9;color:#fff}
+.blog-cta{padding:90px 0;background:linear-gradient(112deg,#6864f9,#8656d1 55%,#c53f9a);color:#fff}
+.blog-cta .mh-eyebrow{color:#ffd9e7}.blog-cta h2{max-width:850px;margin:16px 0 27px;font-size:clamp(38px,5vw,68px);line-height:1.05}.blog-cta h2 em{color:#ffe0ec}
+.blog-article-hero{padding:65px 0 64px;background:#f8faff}
+.blog-article-hero .mh-shell{max-width:980px}
+.blog-article-hero nav{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:55px;color:var(--blog-muted);font-size:11px;font-weight:700}
+.blog-article-hero nav a:hover{color:var(--blog-pink)}
+.blog-article-hero h1{max-width:980px;margin:18px 0 22px;font-size:clamp(44px,6vw,82px);line-height:1.04}
+.blog-article-hero p{max-width:780px;margin:0;color:var(--blog-muted);font-size:16px;line-height:1.8}
+.blog-article-byline{display:flex;flex-wrap:wrap;gap:10px;margin-top:35px;color:var(--blog-muted);font-size:12px;font-weight:700}
+.blog-article-cover{position:relative;height:clamp(330px,45vw,650px);margin-top:44px;overflow:hidden;background:#e7ecf2}
+.blog-article-cover img{object-fit:cover}
+.blog-reading{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(50px,8vw,120px);padding-block:88px 110px}
+.blog-reading aside{position:sticky;top:110px;align-self:start;display:flex;flex-direction:column;gap:16px;border-top:2px solid var(--blog-pink);padding-top:22px}
+.blog-reading aside strong{font-size:18px;line-height:1.35}.blog-reading aside a{align-self:start;border-bottom:1px solid currentColor;padding-bottom:4px;color:#6864f9;font-size:11px;font-weight:800}
+.blog-prose{min-width:0;max-width:760px;color:#324c69;font-size:16px;line-height:1.88;overflow-wrap:anywhere}
+.blog-prose>*:first-child{margin-top:0}.blog-prose p{margin:0 0 25px}.blog-prose h2,.blog-prose h3,.blog-prose h4{margin:48px 0 20px;color:var(--blog-ink);line-height:1.2}.blog-prose h2{font-size:clamp(29px,3vw,42px)}.blog-prose h3{font-size:26px}.blog-prose h4{font-size:20px}
+.blog-prose strong{color:var(--blog-ink)}.blog-prose a{color:#5d58e9;text-decoration:underline;text-underline-offset:3px}.blog-prose a:hover{color:var(--blog-pink)}
+.blog-prose ul,.blog-prose ol{margin:0 0 28px;padding-left:28px}.blog-prose li{margin-bottom:10px}
+.blog-prose img,.blog-prose video{display:block;max-width:100%;height:auto;margin:28px auto}.blog-prose figure{max-width:100%;margin:35px 0}.blog-prose figcaption{color:var(--blog-muted);font-size:12px;text-align:center}
+.blog-prose blockquote{margin:35px 0;border-left:3px solid var(--blog-pink);padding:5px 0 5px 25px;color:var(--blog-ink);font-size:21px;font-weight:650}
+.blog-prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}.blog-prose th,.blog-prose td{border:1px solid var(--blog-line);padding:10px 12px;text-align:left}
+.blog-prose .wp-block-columns{display:flex;flex-wrap:wrap;gap:20px}.blog-prose .wp-block-column{flex:1 1 250px}
+.blog-related{background:#f7f9fc}
+@media(max-width:900px){.blog-feature-grid,.blog-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.blog-reading{grid-template-columns:1fr;gap:35px}.blog-reading aside{position:static;max-width:500px}.blog-explorer-tools{align-items:flex-start;flex-direction:column}.blog-search{width:min(400px,100%)}}
+@media(max-width:650px){.blog-hero{padding:70px 0 75px}.blog-hero h1{font-size:clamp(48px,12vw,68px)}.blog-hero p{font-size:15px}.blog-feature,.blog-archive,.blog-related{padding:75px 0}.blog-section-heading{align-items:flex-start;flex-direction:column;gap:20px}.blog-section-heading h2{font-size:39px}.blog-feature-grid,.blog-archive-grid{grid-template-columns:1fr;gap:30px}.blog-feature-image,.blog-archive-image{aspect-ratio:1.45}.blog-article-hero{padding:38px 0 52px}.blog-article-hero nav{margin-bottom:40px}.blog-article-hero h1{font-size:clamp(40px,10vw,56px)}.blog-article-cover{width:calc(100% - 28px);height:280px;margin-top:28px}.blog-reading{padding-block:60px 80px}.blog-prose{font-size:15px}.blog-cta{padding:75px 0}.blog-cta h2{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.blog-feature-image img,.blog-archive-image img,.blog-card-link:after,.blog-filters button,.blog-load-more{transition:none}}

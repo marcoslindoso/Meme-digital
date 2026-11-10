@@ -21,7 +21,7 @@ export function InteractiveOfferings({ items, solution, variant }: {
   const [active, setActive] = useState(0);
   const current = items[active];
 
-  return <div className={`interactive-offerings interactive-offerings-${variant}${items.length <= 2 ? " is-compact" : ""}`}>
+  return <div className={`interactive-offerings interactive-offerings-${variant}${items.length <= 2 ? " is-compact" : items.length === 3 ? " is-short" : ""}`}>
     <div className="offering-preview-card" aria-label={`Imagem de ${current.title}`}>
       {items.map((item, index) => <Image
         key={item.title}
@@ -47,7 +47,7 @@ export function InteractiveOfferings({ items, solution, variant }: {
         <h3><button type="button" onClick={() => setActive(index)} aria-pressed={index === active}>{item.title}</button></h3>
         <p>{item.text}</p>
         {item.tags && <small>{item.tags}</small>}
-        <Link href="#contato">Fale com um especialista <span aria-hidden>↗</span></Link>
+        <Link href="#contato">Fale com um especialista</Link>
       </article>)}
     </div>
   </div>;

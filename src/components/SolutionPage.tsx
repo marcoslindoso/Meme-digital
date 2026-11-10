@@ -11,6 +11,7 @@ import { CasesScroller } from "@/components/CasesScroller";
 import { getOfferingCopy } from "@/components/solution-copy";
 import { SolutionCases } from "@/components/SolutionCases";
 import { CaseDetails } from "@/components/CaseDetails";
+import { InstitutionalPage } from "@/components/InstitutionalPage";
 import { allCaseProjects, caseProjects, legacyCaseProjects } from "@/components/case-projects";
 
 const solutions = {
@@ -118,12 +119,12 @@ export function isHubSlug(slug: string): slug is keyof typeof hubs { return slug
 export function isCaseSlug(slug: string): boolean { return allCaseProjects.some((item) => item.slug === slug); }
 
 export function HubPage({ slug }: { slug: keyof typeof hubs }) {
+  if (slug === "institucional") return <InstitutionalPage />;
   const hub = hubs[slug];
   return <div className="modern-site solution-page"><ModernHeader /><main id="conteudo">
     {slug !== "cases" && <section className="sp-hub"><div className="mh-shell"><span className="mh-eyebrow">{hub.label}</span><h1>{hub.title}</h1><p>{hub.description}</p><Link className="mh-button mh-button-primary" href="/#contato">Fale com um especialista <span>↗</span></Link></div></section>}
     {slug === "cases" && <><CasesScroller items={caseCards} /><section className="case-brand-section"><div className="mh-shell"><span className="mh-eyebrow">Marcas e caminhos</span><h2>Histórias diferentes.<br /><em>O mesmo cuidado em cada detalhe.</em></h2></div><LogoCarousel logos={clientLogos} /></section><section className="case-contact-section"><div className="mh-shell"><span className="mh-eyebrow">O próximo projeto</span><h2>Vamos construir o que vem <em>depois?</em></h2><Link className="mh-button mh-button-primary" href="/#contato">Fale com a Meme <span>↗</span></Link></div></section></>}
     {slug === "insights" && <section className="sp-archive sp-insights-archive"><div className="mh-shell"><header><span className="mh-eyebrow">Artigos</span><h2>Conteúdo para decidir o <em>próximo passo.</em></h2></header><div className="sp-insight-list">{insightCards.map((title) => <article key={title}><div><small>Meme Digital · Insights</small><h3>{title}</h3><p>Estratégias, tecnologia e marketing explicados de forma clara para apoiar decisões de negócio.</p></div><Link href="/#contato" aria-label={`Ler ${title}`}>↗</Link></article>)}</div></div></section>}
-    {slug === "institucional" && <section className="sp-archive sp-company"><div className="mh-shell"><div className="sp-company-intro"><div><span className="mh-eyebrow">Agência humana</span><h2>Juntos, somos um só. <em>Simples, atentos e humanos.</em></h2></div><p>Desde 2015, a Meme Digital une marketing digital e tecnologia para ampliar a presença online de empresas no Brasil e além.</p></div><div className="sp-company-grid"><article><b>Conectando</b><h3>Pessoas e lugares</h3><p>Criamos laços significativos entre marcas, pessoas e experiências digitais.</p></article><article><b>Numa boa</b><h3>& numa nice</h3><p>Uma equipe que combina criatividade, entusiasmo e compromisso com resultados.</p></article><article><b>The MEMER&apos;s</b><h3>Uma família de especialistas</h3><p>Designers, desenvolvedores, mídia, marketing e criação trabalhando juntos.</p></article></div></div></section>}
   </main><ModernFooter /><ModernEffects /></div>;
 }
 

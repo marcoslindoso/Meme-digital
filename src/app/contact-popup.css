@@ -1,0 +1,50 @@
+.contact-popup{width:min(890px,calc(100% - 32px));max-width:none;max-height:min(92vh,860px);border:1px solid #dce3ef;border-radius:16px;padding:0;overflow-y:auto;background:#fff;color:#19385b;font-family:"Meme Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 28px 90px rgba(18,33,62,.22)}
+.contact-popup::backdrop{background:rgba(13,27,49,.63);backdrop-filter:blur(6px)}
+.contact-popup[open]{animation:contact-popup-in .36s cubic-bezier(.2,.8,.2,1) both}
+@keyframes contact-popup-in{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.contact-popup *{box-sizing:border-box}
+.contact-popup-shell{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);min-height:640px}
+.contact-popup-aside{position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:38px 32px;background:linear-gradient(145deg,#18385d 0%,#615cf1 62%,#b943a2 100%);color:#fff}
+.contact-popup-aside:before,.contact-popup-aside:after{position:absolute;border:1px solid rgba(255,255,255,.22);border-radius:50%;content:"";pointer-events:none}
+.contact-popup-aside:before{width:360px;height:360px;right:-210px;top:20%}
+.contact-popup-aside:after{width:250px;height:250px;left:-165px;bottom:-75px}
+.contact-popup-kicker{position:relative;z-index:1;display:flex;align-items:center;gap:9px;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.contact-popup-kicker i{width:7px;height:7px;border-radius:50%;background:#ff618f}
+.contact-popup-aside-copy{position:relative;z-index:1}
+.contact-popup-spark{display:inline-block;margin-bottom:15px;color:#ffa4bf;font-size:37px}
+.contact-popup-aside h2{margin:0 0 20px;font-family:"Meme Rubik",sans-serif;font-size:clamp(35px,4vw,50px);line-height:1.06;letter-spacing:-.055em}
+.contact-popup-aside h2 em{color:#ffbad0;font-style:normal}
+.contact-popup-aside p{max-width:270px;margin:0;color:#e5eaff;font-size:13px;line-height:1.8}
+.contact-popup-signature{position:relative;z-index:1;display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.3);padding-top:16px;font-size:11px;font-weight:800;letter-spacing:.04em}
+.contact-popup-signature span{font-size:19px}
+.contact-popup-main{position:relative;padding:40px 38px 32px}
+.contact-popup-close{position:absolute;top:22px;right:22px;display:grid;place-items:center;width:36px;height:36px;border:1px solid #dce3ef;border-radius:50%;background:#fff;color:#19385b;font-size:26px;line-height:1;cursor:pointer;transition:background .2s,transform .2s}
+.contact-popup-close:hover{transform:rotate(90deg);background:#f3f4ff}
+.contact-popup-heading{padding-right:25px}
+.contact-popup-heading>span{color:#ff2361;font-size:10px;font-weight:800;letter-spacing:.13em}
+.contact-popup-heading h2{margin:10px 0 10px;font-family:"Meme Rubik",sans-serif;font-size:clamp(31px,3vw,40px);line-height:1.08;letter-spacing:-.055em}
+.contact-popup-heading h2 em{color:#ff2361;font-style:normal}
+.contact-popup-heading p{margin:0 0 14px;color:#63758d;font-size:12px;line-height:1.65}
+.contact-popup-context{display:inline-flex;gap:5px;margin-bottom:22px;border:1px solid #e2e2ff;border-radius:99px;padding:7px 11px;background:#f6f5ff;color:#64758c;font-size:10px}
+.contact-popup-context strong{color:#19385b}
+.contact-popup-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-popup-fields label{display:block;color:#19385b;font-size:11px;font-weight:800}
+.contact-popup-fields label b{color:#ff2361}
+.contact-popup-fields input,.contact-popup-fields select,.contact-popup-fields textarea{display:block;width:100%;min-width:0;margin-top:7px;border:1px solid #dce3ef;border-radius:7px;padding:11px 12px;background:#fafbfe;color:#19385b;font:500 12px "Meme Montserrat",sans-serif;outline:none;transition:border-color .2s,background .2s}
+.contact-popup-fields input:focus,.contact-popup-fields select:focus,.contact-popup-fields textarea:focus{border-color:#6864f9;background:#fff}
+.contact-popup-fields input::placeholder,.contact-popup-fields textarea::placeholder{color:#92a0b0}
+.contact-popup-fields textarea{resize:vertical;min-height:80px}
+.contact-popup-wide{grid-column:1/-1}
+.contact-popup-channels{display:flex;gap:10px;margin:20px 0 15px;border:0;padding:0}
+.contact-popup-channels legend{margin-bottom:9px;padding:0;font-size:11px;font-weight:800}
+.contact-popup-channels label{position:relative;display:flex;align-items:center;gap:8px;min-width:135px;border:1px solid #dce3ef;border-radius:8px;padding:10px 12px;color:#19385b;font-size:12px;cursor:pointer;transition:border-color .2s,background .2s}
+.contact-popup-channels label.is-selected{border-color:#6864f9;background:#f4f2ff}
+.contact-popup-channels input{accent-color:#6864f9}
+.contact-popup-channels label>span{color:#ff2361;font-size:18px;line-height:1}
+.contact-popup-submit{display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%;border:0;border-radius:8px;padding:14px 17px;background:#6864f9;color:#fff;font:800 12px "Meme Rubik",sans-serif;cursor:pointer;transition:background .2s,transform .2s}
+.contact-popup-submit:hover{transform:translateY(-2px);background:#514cf0}
+.contact-popup-submit span{font-size:18px}
+.contact-popup-note{margin:10px 0 0;color:#64758c;font-size:11px;line-height:1.5}
+@media(max-width:720px){.contact-popup{width:min(520px,calc(100% - 24px));max-height:94vh}.contact-popup-shell{grid-template-columns:1fr}.contact-popup-aside{min-height:190px;padding:22px 25px}.contact-popup-aside-copy{margin-top:22px}.contact-popup-aside h2{max-width:390px;margin-bottom:0;font-size:31px}.contact-popup-spark,.contact-popup-aside p,.contact-popup-signature{display:none}.contact-popup-main{padding:28px 25px 27px}.contact-popup-close{top:18px;right:18px}.contact-popup-heading h2{font-size:32px}}
+@media(max-width:480px){.contact-popup-fields{grid-template-columns:1fr;gap:12px}.contact-popup-wide{grid-column:auto}.contact-popup-channels label{min-width:0;flex:1;padding:9px}.contact-popup-aside{min-height:150px}.contact-popup-aside h2{font-size:26px}.contact-popup-main{padding:24px 19px}.contact-popup-heading h2{font-size:29px}}
+@media(prefers-reduced-motion:reduce){.contact-popup[open]{animation:none}.contact-popup-close,.contact-popup-submit{transition:none}}
