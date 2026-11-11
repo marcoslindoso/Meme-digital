@@ -27,7 +27,7 @@ export function CulturePage() {
     <main id="conteudo">
       <section className="cm-hero"><div className="mh-shell cm-hero-grid">
         <div className="cm-hero-copy mh-reveal"><span className="mh-eyebrow">Cultura Meme</span><h1>Juntos Somos <em>Um Só!</em></h1><p>Sonho que se sonha só, é só um sonho que se sonha só... Mas sonho que se sonha junto, é realidade!</p><div className="cm-hero-actions"><a className="mh-button mh-button-primary" href="#proposito">Conheça nosso jeito <span>↓</span></a><Link className="cm-text-link" href="/institucional/#o-time">Conheça os Memers</Link></div></div>
-        <div className="cm-hero-visual mh-reveal"><div className="cm-hero-image"><Image src="/wp-content/uploads/2024/05/IMG_6342.jpg" alt="Equipe Meme Digital reunida em um evento" fill priority sizes="(max-width: 900px) 100vw, 52vw" /></div><span className="cm-image-note">Pessoas reais. <strong>Conexões que movem.</strong></span></div>
+        <div className="cm-hero-visual mh-reveal"><div className="cm-hero-image"><Image src="/assets/equipe-evento.webp" alt="Equipe Meme Digital reunida em um evento" fill priority sizes="(max-width: 900px) 100vw, 52vw" /></div><span className="cm-image-note">Pessoas reais. <strong>Conexões que movem.</strong></span></div>
       </div></section>
 
       <section className="cm-purpose cm-section" id="proposito"><div className="mh-shell cm-purpose-grid">

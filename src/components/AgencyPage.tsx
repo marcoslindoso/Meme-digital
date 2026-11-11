@@ -21,12 +21,12 @@ const services = [
 ] as const;
 
 const serviceImages = [
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1100&q=82",
-  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1100&q=82",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1100&q=82",
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=82",
-  "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1100&q=82",
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1100&q=82",
+  "/assets/editorial/photo-1460925895917-afdab827c52f.webp",
+  "/assets/editorial/photo-1551288049-bebda4e38f71.webp",
+  "/assets/editorial/photo-1552664730-d307ca884978.webp",
+  "/assets/editorial/photo-1454165804606-c3d57bc86b40.webp",
+  "/assets/editorial/photo-1456324504439-367cee3b3c32.webp",
+  "/assets/editorial/photo-1518770660439-4636190af475.webp",
 ];
 
 const reviews = [

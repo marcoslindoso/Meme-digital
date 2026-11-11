@@ -13,8 +13,8 @@ const groups: { label: string; title: string; intro: string; items: Initiative[]
     title: "Criatividade que gera impacto.",
     intro: "Design e comunicação a serviço de iniciativas que aproximam pessoas e abrem caminhos.",
     items: [
-      { title: "Cidadão Pró Mundo", text: "Apoiamos a comunicação de uma organização que promove integração social pelo ensino de inglês.", image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=82", icon: "design" },
-      { title: "Instituto Padre Haroldo", text: "Contribuímos com projetos digitais ligados à transformação de pessoas em recuperação da dependência química.", image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=82", icon: "growth" },
+      { title: "Cidadão Pró Mundo", text: "Apoiamos a comunicação de uma organização que promove integração social pelo ensino de inglês.", image: "/assets/editorial/photo-1427504494785-3a9ca7044f45.webp", icon: "design" },
+      { title: "Instituto Padre Haroldo", text: "Contribuímos com projetos digitais ligados à transformação de pessoas em recuperação da dependência química.", image: "/assets/editorial/photo-1529156069898-49953e39b3ac.webp", icon: "growth" },
     ],
   },
   {

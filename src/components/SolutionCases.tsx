@@ -55,7 +55,7 @@ export function SolutionCases() {
       <div className="solution-cases-track" ref={trackRef} onScroll={updateActive} aria-label="Galeria de cases">
         {items.map((project, index) => {
           return <article className="solution-case" key={project.slug}>
-            <Image src={project.image} alt={`Projeto ${project.title}`} fill sizes="(max-width: 700px) 88vw, 72vw" unoptimized={project.image.startsWith("/cases/")} />
+            <Image src={project.image} alt={`Projeto ${project.title}`} fill sizes="(max-width: 700px) 88vw, 72vw" />
             <button className="solution-case-select" type="button" onClick={() => goTo(index === active ? active + 1 : index)} aria-label={`Selecionar case ${project.title}`} />
             <div className="solution-case-caption"><h3>{project.title}</h3><span>{project.category}</span><Link href={`/${project.slug}`} aria-label={`Ver projeto ${project.title}`}>Ver projeto <b aria-hidden="true">↗</b></Link></div>
           </article>;

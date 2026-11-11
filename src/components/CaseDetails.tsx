@@ -68,7 +68,7 @@ export function CaseDetails({ project, previous, next }: { project: CaseProject;
     const story = siteCaseStories[project.slug];
     return <>
       <section className="site-case-banner" aria-labelledby="case-title">
-        <Image className="site-case-banner-image" src={project.image} alt="" fill priority sizes="100vw" unoptimized />
+        <Image className="site-case-banner-image" src={project.image} alt="" fill priority sizes="100vw" />
         <div className="site-case-banner-shade" />
         <div className="mh-shell site-case-banner-content">
           <Link className="case-detail-back" href="/cases">← Todos os cases</Link>
@@ -81,7 +81,7 @@ export function CaseDetails({ project, previous, next }: { project: CaseProject;
       </div></section>
       <section className="site-case-gallery" aria-label={`Versões do site ${project.title}`}><div className="mh-shell">
         <div className="site-case-gallery-label"><span>O projeto</span><p>Uma experiência em cada tela.</p></div>
-        <div className="site-case-screens"><div className="site-case-desktop"><div className="site-case-browser"><i /><i /><i /><span>{domain}</span></div><Image src={project.image} alt={`Versão desktop do site ${project.title}`} width={1440} height={900} sizes="(max-width: 800px) 100vw, 72vw" unoptimized /></div><div className="site-case-mobile"><div className="site-case-phone-top" /><Image src={project.mobileImage} alt={`Versão mobile do site ${project.title}`} width={390} height={844} sizes="(max-width: 800px) 65vw, 24vw" unoptimized /></div></div>
+        <div className="site-case-screens"><div className="site-case-desktop"><div className="site-case-browser"><i /><i /><i /><span>{domain}</span></div><Image src={project.image} alt={`Versão desktop do site ${project.title}`} width={1440} height={900} sizes="(max-width: 800px) 100vw, 72vw" /></div><div className="site-case-mobile"><div className="site-case-phone-top" /><Image src={project.mobileImage} alt={`Versão mobile do site ${project.title}`} width={390} height={844} sizes="(max-width: 800px) 65vw, 24vw" /></div></div>
       </div></section>
       <section className="site-case-outcome"><div className="mh-shell">
         <article className="case-detail-story"><span>A solução</span><h2>{story.solutionTitle}</h2><div><p>{story.solution}</p><p>{story.outcome}</p></div></article>

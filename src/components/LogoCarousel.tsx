@@ -48,7 +48,7 @@ export function LogoCarousel({ logos }: LogoCarouselProps) {
       <div className="mh-logo-track">
         {[...logos, ...logos].map((logo, index) => (
           <span className="mh-logo-item" key={`${logo}-${index}`} aria-hidden={index >= logos.length}>
-            <Image src={`/logos/${logo}`} alt={index < logos.length ? "Marca parceira da Meme Digital" : ""} width={180} height={90} unoptimized />
+            <Image src={`/logos/${logo.replace(/\.jpg$/, ".webp")}`} alt={index < logos.length ? "Marca parceira da Meme Digital" : ""} width={180} height={90} loading="eager" unoptimized />
           </span>
         ))}
       </div>

@@ -1,40 +1,9 @@
-.site-language-switcher {
-  position: fixed;
-  z-index: 10010;
-  left: 18px;
-  bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  padding: 5px;
-  border: 1px solid #dce4ed;
-  border-radius: 999px;
-  background: rgba(255,255,255,.97);
-  box-shadow: 0 5px 18px rgba(24,56,91,.1);
-  color: #18385b;
-  font-family: "Meme Rubik", Arial, sans-serif;
-}
-.site-language-globe { display: grid; width: 24px; place-items: center; color: #ff1e5b; font-size: 23px; line-height: 1; }
-.site-language-switcher button {
-  min-width: 35px;
-  height: 28px;
-  padding: 0 6px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: #5f6f82;
-  cursor: pointer;
-  font: 700 10px "Meme Rubik", Arial, sans-serif;
-  transition: background .2s ease, color .2s ease;
-}
-.site-language-switcher button:hover { background: #f3f2ff; color: #18385b; }
-.site-language-switcher button[aria-current="true"] { background: #6864f9; color: #fff; }
-.site-language-switcher button:focus-visible { outline: 2px solid #ff1e5b; outline-offset: 2px; }
+.site-language-switcher { display: inline-flex; align-items: center; gap: 4px; flex: none; }
+.site-language-switcher button { display: grid; width: 27px; height: 25px; padding: 1px; place-items: center; border: 0; border-bottom: 2px solid transparent; background: none; cursor: pointer; opacity: .8; transition: opacity .2s ease, transform .2s ease, border-color .2s ease; }
+.site-language-switcher button img { display: block; width: 24px; height: 16px; object-fit: cover; }
+.site-language-switcher button:hover { opacity: 1; transform: translateY(-2px); }
+.site-language-switcher button[aria-current="true"] { border-bottom-color: #ff1e5b; opacity: 1; }
+.site-language-switcher button:focus-visible { outline: 2px solid #6864f9; outline-offset: 2px; }
 .site-language-status, .site-language-error { width: 15px; color: #6864f9; text-align: center; font-size: 13px; font-weight: 800; }
 .site-language-error { color: #e3124d; }
-@media (max-width: 580px) {
-  .site-language-switcher { left: 10px; bottom: 10px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .site-language-switcher button { transition: none; }
-}
+@media (prefers-reduced-motion: reduce) { .site-language-switcher button { transition: none; } }

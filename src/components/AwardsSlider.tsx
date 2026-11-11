@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const slides = [
-  { src: "/logos/2018-premios-home.webp", alt: "Equipe da Meme em premiação de 2018", label: "Prêmio App · 2018" },
-  { src: "/logos/2019-premios-home.webp", alt: "Equipe da Meme em premiação de 2019", label: "Prêmio Recall · 2019" },
-  { src: "/logos/2022-premios-home.webp", alt: "Equipe da Meme recebendo reconhecimento em 2022", label: "Prêmio Recall · Ouro 2022" },
-  { src: "/logos/2022-shortlist-premios-home.webp", alt: "Equipe da Meme entre os finalistas em 2022", label: "Shortlist · 2022" },
+  { src: "/assets/premio-2018.webp", alt: "Equipe da Meme em premiação de 2018", label: "Prêmio App · 2018" },
+  { src: "/assets/premio-2019.webp", alt: "Equipe da Meme em premiação de 2019", label: "Prêmio Recall · 2019" },
+  { src: "/assets/premio-2022.webp", alt: "Equipe da Meme recebendo reconhecimento em 2022", label: "Prêmio Recall · Ouro 2022" },
+  { src: "/assets/premio-shortlist-2022.webp", alt: "Equipe da Meme entre os finalistas em 2022", label: "Shortlist · 2022" },
 ];
 
 export function AwardsSlider() {

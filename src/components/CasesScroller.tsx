@@ -69,7 +69,7 @@ export function CasesScroller({ items }: { items: ReadonlyArray<CaseItem> }) {
             onDragStart={(event) => event.preventDefault()}
             aria-label={`Arraste para navegar ou clique para mostrar ${next.title}`}
           >
-            <Image src={current.image} alt={`Prévia do projeto ${current.title}`} fill priority sizes="(max-width: 700px) 100vw, 60vw" unoptimized={current.image.startsWith("/cases/")} />
+            <Image src={current.image} alt={`Prévia do projeto ${current.title}`} fill priority sizes="(max-width: 700px) 100vw, 60vw" />
           </button>
           <div className="case-carousel-next">
             <span className="case-carousel-category">{next.category}</span>

@@ -29,7 +29,7 @@
 .mh-footer-arrow { color: #6864f9; font-size: 13px; line-height: 1.4; opacity: 0; transform: translate(-4px, 4px); transition: opacity .25s ease, transform .25s ease; }
 .mh-footer-item:hover .mh-footer-arrow, .mh-footer-item:focus-visible .mh-footer-arrow { opacity: 1; transform: translate(0, 0); }
 .mh-footer a:focus-visible { outline: 2px solid #6864f9; outline-offset: 4px; border-radius: 2px; }
-.mh-footer-trust { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; min-height: 80px; border-top: 1px solid #dce4ed; border-bottom: 1px solid #dce4ed; }
+.mh-footer-trust { display: grid; grid-template-columns: auto 1fr auto 1fr; align-items: center; gap: 24px; min-height: 80px; border-top: 1px solid #dce4ed; border-bottom: 1px solid #dce4ed; }
 .mh-footer-payments, .mh-footer-partners, .mh-footer-social { display: flex; align-items: center; gap: 15px; }
 .mh-footer-payments > span:first-child { color: #607189; font-size: 12px; font-weight: 650; }
 .mh-footer-payments img { width: auto; height: 23px; filter: invert(35%) sepia(100%) saturate(1150%) hue-rotate(171deg) brightness(96%) contrast(93%); }
@@ -49,6 +49,8 @@
   .mh-footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 38px; padding-bottom: 52px; }
   .mh-footer-brand { grid-column: 1 / -1; }
   .mh-footer-brand p { max-width: 530px; }
+  .mh-footer-trust { grid-template-columns: auto 1fr auto; gap: 14px; }
+  .mh-footer-social { grid-column: 1 / -1; justify-content: center; padding-bottom: 12px; }
 }
 
 @media (max-width: 580px) {
@@ -60,7 +62,8 @@
   .mh-footer-item { grid-template-columns: 23px minmax(0, 1fr); gap: 8px; }
   .mh-footer-icon { width: 22px; height: 22px; }
   .mh-footer-arrow { display: none; }
-  .mh-footer-trust { grid-template-columns: 1fr; justify-items: center; gap: 16px; padding: 23px 0; }
+  .mh-footer-trust { grid-template-columns: 1fr 1fr; justify-items: center; gap: 16px; padding: 23px 0; }
+  .mh-footer-partners, .mh-footer-social { grid-column: 1 / -1; }
   .mh-footer-payments, .mh-footer-partners, .mh-footer-social { justify-content: center; }
   .mh-footer-bottom { align-items: center; flex-direction: column; gap: 8px; text-align: center; }
 }

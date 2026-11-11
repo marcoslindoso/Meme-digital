@@ -1,16 +1,17 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type Locale = "pt" | "en" | "es";
 type TranslationJob = { source: string; apply: (translated: string) => void };
 type TextState = { source: string; rendered: string };
 
-const languages: { code: Locale; label: string; name: string }[] = [
-  { code: "pt", label: "PT", name: "Português" },
-  { code: "en", label: "EN", name: "English" },
-  { code: "es", label: "ES", name: "Español" },
+const languages: { code: Locale; flag: string; name: string }[] = [
+  { code: "en", flag: "/assets/flags/en.svg", name: "English" },
+  { code: "pt", flag: "/assets/flags/pt.svg", name: "Português" },
+  { code: "es", flag: "/assets/flags/es.svg", name: "Español" },
 ];
 const cache = new Map<string, string>();
 const textStates = new WeakMap<Text, TextState>();
@@ -238,8 +239,7 @@ export function LanguageSwitcher() {
   }
 
   return <nav className="site-language-switcher" aria-label="Selecionar idioma" data-no-translate>
-    <span className="site-language-globe" aria-hidden="true">◎</span>
-    {languages.map((language) => <button key={language.code} type="button" lang={language.code} aria-label={language.name} aria-current={locale === language.code ? "true" : undefined} onClick={() => choose(language.code)}>{language.label}</button>)}
+    {languages.map((language) => <button key={language.code} type="button" lang={language.code} aria-label={language.name} aria-current={locale === language.code ? "true" : undefined} onClick={() => choose(language.code)} title={language.name}><Image src={language.flag} alt="" width={24} height={16} /></button>)}
     {busy && <span className="site-language-status" role="status" aria-label="Traduzindo">…</span>}
     {failed && <span className="site-language-error" role="status" title="Não foi possível traduzir todo o conteúdo. Tente novamente.">!</span>}
   </nav>;

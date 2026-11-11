@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { OfferingIcon, type OfferingIconName } from "@/components/OfferingIcon";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const solutions: { title: string; description: string; href: string; icon: OfferingIconName }[] = [
   { title: "Agência", description: "Estratégia digital, SEO e crescimento para sua marca.", href: "/solucoes/agencia", icon: "growth" },
@@ -57,6 +58,7 @@ export function ModernFooter() {
         <nav className="mh-footer-column" aria-label="Institucional no rodapé"><h2>Institucional</h2><FooterList items={institutional} /></nav>
       </div>
       <div className="mh-footer-trust">
+        <LanguageSwitcher />
         <div className="mh-footer-payments"><span>Aceitamos</span><Image src="/assets/brand-icons/bitcoin.svg" alt="Bitcoin" width={23} height={23} /><Image src="/assets/brand-icons/paypal.svg" alt="PayPal" width={21} height={23} /></div>
         <div className="mh-footer-partners" aria-label="Google e Meta"><Image src="/wp-content/uploads/2024/03/Google__G__logo.svg-1.png" alt="Google" width={35} height={35} /><span className="mh-footer-meta"><Image src="/wp-content/uploads/2024/03/Meta_Inc._logo.jpg" alt="Meta" width={128} height={72} /></span></div>
         <div className="mh-footer-social" aria-label="Redes sociais">{socials.map((social) => <a href={social.href} target="_blank" rel="noreferrer" aria-label={social.name} key={social.name}><Image src={social.icon} alt="" width={16} height={16} /></a>)}</div>

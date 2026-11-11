@@ -51,7 +51,7 @@ necessários. Ele não é executado durante o build ou na Vercel.
 
 ## Idiomas
 
-O seletor fixo oferece português (padrão), inglês e espanhol em todas as páginas,
+As bandeiras no rodapé oferecem português (padrão), inglês e espanhol em todas as páginas,
 incluindo artigos e páginas herdadas do WordPress. A preferência fica salva no
 navegador; links com `?lang=en` ou `?lang=es` também abrem no idioma indicado.
 

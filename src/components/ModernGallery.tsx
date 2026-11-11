@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const slides = [
-  { src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=85", alt: "Experiência de e-commerce", label: "E-commerce & conversão" },
-  { src: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1600&q=85", alt: "Projeto digital em um computador", label: "Tecnologia aplicada" },
-  { src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85", alt: "Produtos digitais em destaque", label: "Produtos digitais" },
-  { src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=85", alt: "Equipe celebrando uma conquista", label: "Reconhecimento" },
+  { src: "/assets/editorial/photo-1556742049-0cfed4f6a45d.webp", alt: "Experiência de e-commerce", label: "E-commerce & conversão" },
+  { src: "/assets/editorial/photo-1488590528505-98d2b5aba04b.webp", alt: "Projeto digital em um computador", label: "Tecnologia aplicada" },
+  { src: "/assets/editorial/photo-1516321318423-f06f85e504b3.webp", alt: "Produtos digitais em destaque", label: "Produtos digitais" },
+  { src: "/assets/editorial/photo-1529156069898-49953e39b3ac.webp", alt: "Equipe celebrando uma conquista", label: "Reconhecimento" },
 ];
 
 export function ModernGallery() {
@@ -34,7 +34,7 @@ export function ModernGallery() {
           <div className="mh-gallery-track" style={{ transform: `translateX(-${current * 100}%)` }}>
             {slides.map((slide, index) => (
               <figure className={`mh-gallery-slide${index === current ? " is-active" : ""}`} key={slide.src} aria-hidden={index !== current}>
-                <Image src={slide.src} alt={slide.alt} fill sizes="(max-width: 900px) 100vw, 1180px" priority={index === 0} />
+                <Image src={slide.src} alt={slide.alt} fill sizes="(max-width: 900px) 100vw, 1180px" />
                 <figcaption>{slide.label}</figcaption>
               </figure>
             ))}

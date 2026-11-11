@@ -26,7 +26,7 @@ export function InstitutionalPage() {
             <div className="ip-hero-actions"><a className="mh-button mh-button-primary" href="#o-time">Conheça os Memers <span>↗</span></a><a className="ip-text-link" href="#a-meme">Nossa história <span>↓</span></a></div>
             <div className="ip-hero-facts"><span><strong>Desde 2015</strong> criando no digital</span><span><strong>Sem fronteiras</strong> com equipes pelo Brasil</span></div>
           </div>
-          <div className="ip-hero-visual mh-reveal"><div className="ip-hero-photo"><Image src="/wp-content/uploads/2024/05/IMG_6342.jpg" alt="Integrantes da equipe Meme Digital em um evento de tecnologia" fill priority sizes="(max-width: 900px) 100vw, 52vw" /></div><span className="ip-photo-note">Pessoas reais.<br /><strong>Ideias em movimento.</strong></span></div>
+          <div className="ip-hero-visual mh-reveal"><div className="ip-hero-photo"><Image src="/assets/equipe-evento.webp" alt="Integrantes da equipe Meme Digital em um evento de tecnologia" fill priority sizes="(max-width: 900px) 100vw, 52vw" /></div><span className="ip-photo-note">Pessoas reais.<br /><strong>Ideias em movimento.</strong></span></div>
         </div>
       </section>
 

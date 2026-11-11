@@ -59,7 +59,7 @@ export function ModernHome() {
 
             <div className="mh-hero-visual" aria-label="Marketing e tecnologia feitos por pessoas">
               <div className="mh-hero-frame">
-                <Image src="/logos/hero-agencia-sem-valores.png" alt="Profissional de marketing e tecnologia" width={1303} height={1207} priority />
+                <Image src="/logos/hero-agencia-sem-valores.webp" alt="Profissional de marketing e tecnologia" width={1200} height={1112} sizes="(max-width: 900px) 100vw, 45vw" priority />
               </div>
               <div className="mh-float-card mh-float-card-top"><span className="mh-live-dot" /> Estratégia em movimento</div>
               <div className="mh-float-card mh-float-card-bottom"><small>Uma equipe, ponta a ponta</small><strong>Marketing + Tech</strong></div>
@@ -130,11 +130,11 @@ export function ModernHome() {
         <section className="mh-section mh-work mh-stories">
           <div className="mh-shell">
             <article className="mh-story mh-reveal">
-              <div className="mh-story-media"><Image src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1300&q=85" alt="Profissionais construindo uma experiência digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Estratégia, dados e criação</span></div>
+              <div className="mh-story-media"><Image src="/assets/editorial/photo-1516321318423-f06f85e504b3.webp" alt="Profissionais construindo uma experiência digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Estratégia, dados e criação</span></div>
               <div className="mh-story-copy"><span className="mh-eyebrow">Tecnologia com propósito</span><h2>Produtos digitais que transformam <em>boas ideias em ação.</em></h2><p>Unimos pesquisa, design e desenvolvimento para criar jornadas simples de usar e preparadas para escalar.</p><Link className="mh-text-link" href="/solucoes/tech-web/">Conheça Tech & Web <span>↗</span></Link></div>
             </article>
             <article className="mh-story mh-story-reversed mh-reveal">
-              <div className="mh-story-media"><Image src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1300&q=85" alt="Equipe trabalhando em uma campanha digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Performance que evolui</span></div>
+              <div className="mh-story-media"><Image src="/assets/editorial/photo-1531482615713-2afd69097998.webp" alt="Equipe trabalhando em uma campanha digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Performance que evolui</span></div>
               <div className="mh-story-copy"><span className="mh-eyebrow">Crescimento contínuo</span><h2>Campanhas que aprendem, otimizam e <em>movem negócios.</em></h2><p>Com dados claros e criatividade aplicada, aproximamos marcas das pessoas certas em cada etapa da decisão.</p><Link className="mh-text-link" href="/solucoes/performance-ads/">Explorar Performance Ads <span>↗</span></Link></div>
             </article>
           </div>
