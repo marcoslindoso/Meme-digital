@@ -34,7 +34,7 @@ export function ModernGallery() {
           <div className="mh-gallery-track" style={{ transform: `translateX(-${current * 100}%)` }}>
             {slides.map((slide, index) => (
               <figure className={`mh-gallery-slide${index === current ? " is-active" : ""}`} key={slide.src} aria-hidden={index !== current}>
-                <Image src={slide.src} alt={slide.alt} fill sizes="(max-width: 900px) 100vw, 1180px" />
+                <Image src={slide.src} alt={slide.alt} fill sizes="(max-width: 900px) 100vw, 1180px" loading="eager" fetchPriority="low" unoptimized />
                 <figcaption>{slide.label}</figcaption>
               </figure>
             ))}

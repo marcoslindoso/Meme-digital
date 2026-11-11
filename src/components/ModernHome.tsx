@@ -9,12 +9,12 @@ import { ModernGallery } from "@/components/ModernGallery";
 import { ModernHeader } from "@/components/ModernHeader";
 
 const services = [
-  { title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/wp-content/uploads/2024/03/agencia.png" },
-  { title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "/wp-content/uploads/2024/04/techweb.png" },
-  { title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "/wp-content/uploads/2024/04/design.png" },
-  { title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "/wp-content/uploads/2024/04/performance.png" },
-  { title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "/wp-content/uploads/2024/04/produtosdigitais.png" },
-  { title: "Metaverso", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/wp-content/uploads/2024/04/metaverso.png" },
+  { title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/assets/editorial/photo-1552664730-d307ca884978.webp" },
+  { title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "/assets/services/techweb.webp" },
+  { title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "/assets/services/design.webp" },
+  { title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "/assets/services/performance.webp" },
+  { title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "/assets/services/produtosdigitais.webp" },
+  { title: "Metaverso", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/assets/services/metaverso.webp" },
 ];
 
 const testimonials = [
@@ -86,7 +86,7 @@ export function ModernHome() {
               {services.map((service, index) => (
                 <Link className="mh-service-card mh-reveal" style={{ "--delay": `${index * 70}ms` } as CSSProperties} href={service.href.replace(/\/$/, "")} key={service.title}>
                   <div className="mh-service-front">
-                    <Image className="mh-service-image" src={service.image} alt={`Imagem de apoio para ${service.title}`} fill sizes="(max-width: 900px) 100vw, 33vw" />
+                    <Image className="mh-service-image" src={service.image} alt={`Imagem de apoio para ${service.title}`} fill sizes="(max-width: 900px) 100vw, 33vw" loading="eager" fetchPriority="low" unoptimized />
                     <div className="mh-service-content">
                       <div className="mh-service-icon" aria-hidden>{service.icon}</div><i aria-hidden>↗</i>
                       <div><h3>{service.title}</h3><p>{service.text}</p></div>
@@ -130,11 +130,11 @@ export function ModernHome() {
         <section className="mh-section mh-work mh-stories">
           <div className="mh-shell">
             <article className="mh-story mh-reveal">
-              <div className="mh-story-media"><Image src="/assets/editorial/photo-1516321318423-f06f85e504b3.webp" alt="Profissionais construindo uma experiência digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Estratégia, dados e criação</span></div>
+              <div className="mh-story-media"><Image src="/assets/editorial/photo-1516321318423-f06f85e504b3.webp" alt="Profissionais construindo uma experiência digital" fill sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchPriority="low" unoptimized /><span>Estratégia, dados e criação</span></div>
               <div className="mh-story-copy"><span className="mh-eyebrow">Tecnologia com propósito</span><h2>Produtos digitais que transformam <em>boas ideias em ação.</em></h2><p>Unimos pesquisa, design e desenvolvimento para criar jornadas simples de usar e preparadas para escalar.</p><Link className="mh-text-link" href="/solucoes/tech-web/">Conheça Tech & Web <span>↗</span></Link></div>
             </article>
             <article className="mh-story mh-story-reversed mh-reveal">
-              <div className="mh-story-media"><Image src="/assets/editorial/photo-1531482615713-2afd69097998.webp" alt="Equipe trabalhando em uma campanha digital" fill sizes="(max-width: 900px) 100vw, 50vw" /><span>Performance que evolui</span></div>
+              <div className="mh-story-media"><Image src="/assets/editorial/photo-1531482615713-2afd69097998.webp" alt="Equipe trabalhando em uma campanha digital" fill sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchPriority="low" unoptimized /><span>Performance que evolui</span></div>
               <div className="mh-story-copy"><span className="mh-eyebrow">Crescimento contínuo</span><h2>Campanhas que aprendem, otimizam e <em>movem negócios.</em></h2><p>Com dados claros e criatividade aplicada, aproximamos marcas das pessoas certas em cada etapa da decisão.</p><Link className="mh-text-link" href="/solucoes/performance-ads/">Explorar Performance Ads <span>↗</span></Link></div>
             </article>
           </div>

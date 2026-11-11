@@ -8,6 +8,8 @@
 .solution-cases-all span{font-size:1.2rem}
 .solution-cases-track{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding-inline:max(18px,calc((100vw - min(72vw,1100px))/2));padding-bottom:8px}
 .solution-cases-track::-webkit-scrollbar{display:none}
+.solution-cases-track.is-dragging{scroll-behavior:auto;scroll-snap-type:none;cursor:grabbing;user-select:none}
+.solution-cases-track.is-dragging .solution-case-select{cursor:grabbing}
 .solution-case{position:relative;flex:0 0 min(72vw,1100px);height:clamp(390px,48vw,680px);overflow:hidden;scroll-snap-align:center;background:#dfe5ee;color:#19385b;isolation:isolate}
 .solution-case::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.34));pointer-events:none}
 .solution-case img{object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
