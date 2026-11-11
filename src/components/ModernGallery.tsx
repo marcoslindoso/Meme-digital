@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 const slides = [
   { src: "/assets/editorial/photo-1556742049-0cfed4f6a45d.webp", alt: "Experiência de e-commerce", label: "E-commerce & conversão" },
-  { src: "/assets/editorial/photo-1488590528505-98d2b5aba04b.webp", alt: "Projeto digital em um computador", label: "Tecnologia aplicada" },
-  { src: "/assets/editorial/photo-1516321318423-f06f85e504b3.webp", alt: "Produtos digitais em destaque", label: "Produtos digitais" },
-  { src: "/assets/editorial/photo-1529156069898-49953e39b3ac.webp", alt: "Equipe celebrando uma conquista", label: "Reconhecimento" },
+  { src: "/assets/editorial/photo-1551434678-e076c223a692.webp", alt: "Profissionais desenvolvendo tecnologia em computadores", label: "Tecnologia aplicada" },
+  { src: "/assets/editorial/photo-1553877522-43269d4ea984.webp", alt: "Equipe trabalhando em interfaces digitais", label: "Produtos digitais" },
+  { src: "/assets/editorial/photo-1521737711867-e3b97375f902.webp", alt: "Equipe reunida em um projeto", label: "Trabalho em equipe" },
 ];
 
 export function ModernGallery() {
