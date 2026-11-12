@@ -83,7 +83,7 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
               aria-controls="mh-services-menu"
               onClick={() => setServicesOpen((open) => !open)}
             >
-              Soluções {activeService && <strong className="mh-nav-current">{activeService.name}</strong>} <span aria-hidden>⌄</span>
+              Soluções {activeService && <strong className="mh-nav-current">{activeService.name}</strong>} <svg className="mh-nav-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 3 5 5-5 5" /></svg>
             </button>
             <div id="mh-services-menu" className={`mh-mega-menu${servicesOpen ? " is-open" : ""}`}>
               <div className="mh-mega-intro">

@@ -21,6 +21,7 @@ export function CasesScroller({ items }: { items: ReadonlyArray<CaseItem> }) {
   const mouseStart = useRef<number | null>(null);
   const suppressClick = useRef(false);
   const current = items[index];
+  const previous = items[(index - 1 + items.length) % items.length];
   const next = items[(index + 1) % items.length];
 
   function go(direction: number) {
@@ -53,12 +54,12 @@ export function CasesScroller({ items }: { items: ReadonlyArray<CaseItem> }) {
         onTouchEnd={(event) => { if (touchStart.current === null) return; const delta = event.changedTouches[0].clientX - touchStart.current; touchStart.current = null; if (Math.abs(delta) > 45) go(delta < 0 ? 1 : -1); }}
       >
         <div className={`case-carousel-frame${dragOffset !== 0 ? " is-dragging" : ""}`} key={current.slug} style={{ "--case-enter-x": direction > 0 ? "70px" : "-70px", "--case-drag-x": `${dragOffset}px` } as CSSProperties}>
-          <div className="case-carousel-copy">
-            <span className="case-carousel-category">{current.category}</span>
-            <h2>{current.title}</h2>
-            <Link className="case-carousel-link" href={`/${current.slug}/`}><span className="case-carousel-link-icon">↗</span><span>Ver projeto</span></Link>
+          <div className="case-carousel-copy case-carousel-side">
+            <Image src={previous.image} alt="" fill sizes="22vw" loading="lazy" />
+            <span className="case-carousel-category">Anterior</span>
+            <button type="button" onClick={() => go(-1)} aria-label={`Selecionar case ${previous.title}`}><span className="case-carousel-next-title">{previous.title}</span></button>
           </div>
-          <button
+          <div className="case-carousel-center"><button
             className="case-carousel-media"
             type="button"
             onClick={() => { if (suppressClick.current) { suppressClick.current = false; return; } go(1); }}
@@ -70,11 +71,11 @@ export function CasesScroller({ items }: { items: ReadonlyArray<CaseItem> }) {
             aria-label={`Arraste para navegar ou clique para mostrar ${next.title}`}
           >
             <Image src={current.image} alt={`Prévia do projeto ${current.title}`} fill priority sizes="(max-width: 700px) 100vw, 60vw" />
-          </button>
-          <div className="case-carousel-next">
-            <span className="case-carousel-category">{next.category}</span>
+          </button><div className="case-carousel-current"><span className="case-carousel-category">{current.category}</span><h2>{current.title}</h2><Link className="case-carousel-link" href={`/${current.slug}/`}><span className="case-carousel-link-icon">↗</span><span>Ver projeto</span></Link></div></div>
+          <div className="case-carousel-next case-carousel-side">
+            <Image src={next.image} alt="" fill sizes="22vw" loading="lazy" />
+            <span className="case-carousel-category">Próximo</span>
             <button type="button" onClick={() => go(1)} aria-label={`Selecionar case ${next.title}`}><span className="case-carousel-next-title">{next.title}</span></button>
-            <Link className="case-carousel-link" href={`/${next.slug}/`}><span className="case-carousel-link-icon">↗</span><span>Ver projeto</span></Link>
           </div>
         </div>
       </div>

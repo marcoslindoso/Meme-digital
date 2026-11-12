@@ -1,0 +1,86 @@
+/* Ajustes de interação compartilhados, preservando o visual da Meme. */
+.mh-services-trigger>button{display:inline-flex;align-items:center;gap:5px}
+.mh-nav-chevron{width:14px;height:14px;flex:none;transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.mh-services-trigger>button[aria-expanded="true"] .mh-nav-chevron{transform:rotate(90deg)}
+@keyframes mh-menu-colors{0%,100%{color:#18385b}33%{color:#ff1e5b}66%{color:#6864f9}}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .mh-desktop-nav>a:hover,.mh-services-trigger>button:hover{animation:mh-menu-colors 3.4s ease-in-out infinite}
+}
+.mh-desktop-nav>a:focus-visible,.mh-services-trigger>button:focus-visible{color:var(--mh-pink);outline:2px solid var(--mh-purple);outline-offset:6px}
+
+/* Reflexo discreto e resposta física nos CTAs. */
+.modern-site .mh-button,.modern-site .mh-header-cta{position:relative;isolation:isolate;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .25s,border-color .25s,color .25s,box-shadow .35s}
+.modern-site .mh-button::before,.modern-site .mh-header-cta::before{position:absolute;z-index:1;inset:-70% auto -70% -45%;width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.47),transparent);transform:skewX(-22deg) translateX(0);content:"";pointer-events:none}
+.modern-site .mh-button:hover,.modern-site .mh-header-cta:hover{transform:translateY(-3px);box-shadow:0 9px 22px rgba(24,56,91,.14)}
+.modern-site .mh-button:hover::before,.modern-site .mh-header-cta:hover::before{animation:mh-cta-shine .8s ease-out both}
+.modern-site .mh-button>span,.modern-site .mh-header-cta>span{display:inline-block;transition:transform .3s ease}
+.modern-site .mh-button:hover>span,.modern-site .mh-header-cta:hover>span{transform:translate(3px,-3px)}
+.mh-service-slide-action{position:relative;display:inline-flex;align-items:center;overflow:hidden;transition:color .3s,border-color .3s}
+.mh-service-slide-action::after{position:absolute;top:0;bottom:0;left:-35%;width:28%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-22deg);content:"";pointer-events:none}
+.mh-service-card:hover .mh-service-slide-action::after,.mh-service-card:focus-visible .mh-service-slide-action::after{animation:mh-slide-shine .8s ease-out both}
+.mh-service-card:hover .mh-service-slide-action span,.mh-service-card:focus-visible .mh-service-slide-action span{transform:translate(3px,-3px)}
+.mh-service-slide-action span{transition:transform .3s ease}
+@keyframes mh-cta-shine{to{transform:skewX(-22deg) translateX(520%)}}
+@keyframes mh-slide-shine{to{left:120%}}
+
+/* Links editoriais também respondem ao mouse e ao foco. */
+.modern-site .mh-text-link,.modern-site .solution-cases-all{position:relative;gap:10px;padding-bottom:8px;border-bottom:0;transition:color .3s ease}
+.modern-site .mh-text-link::after,.modern-site .solution-cases-all::after{position:absolute;right:0;bottom:0;left:0;height:2px;background:linear-gradient(90deg,var(--mh-purple),var(--mh-pink));content:"";transform:scaleX(.38);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.modern-site .mh-text-link:hover,.modern-site .mh-text-link:focus-visible,.modern-site .solution-cases-all:hover,.modern-site .solution-cases-all:focus-visible{color:var(--mh-pink)}
+.modern-site .mh-text-link:hover::after,.modern-site .mh-text-link:focus-visible::after,.modern-site .solution-cases-all:hover::after,.modern-site .solution-cases-all:focus-visible::after{transform:scaleX(1)}
+.modern-site .mh-text-link span,.modern-site .solution-cases-all span{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.modern-site .mh-text-link:hover span,.modern-site .mh-text-link:focus-visible span,.modern-site .solution-cases-all:hover span,.modern-site .solution-cases-all:focus-visible span{transform:translate(4px,-4px)}
+.modern-site .mh-text-link:focus-visible,.modern-site .solution-cases-all:focus-visible{outline:2px solid var(--mh-purple);outline-offset:5px}
+
+/* Páginas internas aparecem prontas; a home mantém seus reveals próprios. */
+.modern-site:not(.mh-home) .mh-reveal{opacity:1;transform:none;transition:none}
+
+/* Formulário em etapas na penúltima seção da home. */
+.mh-contact-grid{grid-template-columns:.85fr 1.15fr;gap:clamp(38px,6vw,90px);align-items:center}
+.mh-contact-form{width:100%;padding:30px;border:1px solid rgba(255,255,255,.4);border-radius:16px;background:rgba(255,255,255,.97);color:var(--mh-ink);box-shadow:0 20px 55px rgba(8,21,42,.13)}
+.mh-contact-form-top{display:flex;justify-content:space-between;gap:12px;color:var(--mh-muted);font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.mh-contact-form-top span:first-child{color:var(--mh-pink)}
+.mh-contact-progress{height:3px;margin:14px 0 26px;border-radius:99px;background:#e9e9f7}
+.mh-contact-progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--mh-purple),var(--mh-pink));transition:width .35s ease}
+.mh-contact-step{display:grid;gap:15px;animation:mh-step-in .38s ease both}
+.mh-contact-step h3{margin:0;font-size:clamp(23px,2vw,30px);letter-spacing:-.04em}
+.mh-contact-step>p{margin:0 0 5px;color:var(--mh-muted);font-size:13px;line-height:1.6}
+.mh-contact-step label{display:grid;gap:7px;font-size:12px;font-weight:750}
+.mh-contact-step input:not([type=radio]),.mh-contact-step select,.mh-contact-step textarea{width:100%;min-height:45px;border:1px solid #d6deea;border-radius:8px;padding:11px 13px;background:#f9faff;color:var(--mh-ink);font:500 13px "Meme Montserrat",sans-serif;outline:none;transition:border-color .2s,background .2s}
+.mh-contact-step textarea{resize:vertical;min-height:94px}
+.mh-contact-step input:focus,.mh-contact-step select:focus,.mh-contact-step textarea:focus{border-color:var(--mh-purple);background:#fff}
+.mh-contact-step fieldset{display:flex;gap:10px;margin:0;padding:0;border:0}
+.mh-contact-step legend{margin-bottom:10px;font-size:12px;font-weight:750}
+.mh-contact-step fieldset label{display:flex;align-items:center;gap:8px;flex:1;padding:12px;border:1px solid #d6deea;border-radius:8px;cursor:pointer}
+.mh-contact-step fieldset label.is-selected{border-color:var(--mh-purple);background:#f2f0ff}
+.mh-contact-step input[type=radio]{accent-color:var(--mh-purple)}
+.mh-contact-summary{padding:15px;border:1px solid #e1e4ef;border-radius:8px;background:#fafbff}
+.mh-contact-summary strong,.mh-contact-summary span{display:block;font-size:12px}
+.mh-contact-summary span{margin-top:4px;color:var(--mh-pink)}
+.mh-contact-summary p{display:-webkit-box;overflow:hidden;margin:10px 0 0;color:var(--mh-muted);font-size:12px;line-height:1.5;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.mh-contact-form-actions{display:flex;justify-content:flex-end;align-items:center;gap:16px;margin-top:22px}
+.mh-contact-back{border:0;background:none;color:var(--mh-ink);font:750 12px "Meme Rubik",sans-serif;cursor:pointer}
+.mh-contact-back:hover{text-decoration:underline}
+.mh-contact-form .mh-button{min-height:46px;cursor:pointer}
+@keyframes mh-step-in{from{opacity:.4;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+
+/* Projetos vizinhos são prévias desfocadas; o case central fica nítido. */
+.case-carousel-frame{grid-template-columns:19vw 56vw 19vw;gap:2.5vw;margin-left:1vw}
+.case-carousel-side{position:relative;width:19vw;min-height:clamp(280px,31vw,480px);overflow:hidden;padding:25px;border:1px solid #dce3ed;border-radius:12px;background:#e9edf5;isolation:isolate}
+.case-carousel-side>img{z-index:-2;object-fit:cover;filter:blur(7px) saturate(.68);transform:scale(1.08)}
+.case-carousel-side::before{position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(13,31,54,.42),rgba(13,31,54,.74));content:""}
+.case-carousel-side .case-carousel-category{color:#ffd4e0}
+.case-carousel-side .case-carousel-next-title{margin:14px 0;color:#fff;-webkit-text-stroke:0;font-size:clamp(23px,2.4vw,38px);font-weight:650}
+.case-carousel-side>button{padding:0;border:0;background:none;text-align:left;cursor:pointer}
+.case-carousel-side>button:hover .case-carousel-next-title{color:#fff;text-decoration:underline;text-decoration-color:#ff8dae;text-underline-offset:6px}
+.case-carousel-center,.case-carousel-media{position:relative;width:56vw}
+.case-carousel-current{position:absolute;z-index:2;right:20px;bottom:20px;left:20px;display:flex;align-items:center;gap:18px;max-width:calc(100% - 40px);padding:16px 20px;border:1px solid rgba(255,255,255,.55);border-radius:10px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px)}
+.case-carousel-current h2{flex:1;margin:0;font-size:clamp(21px,2.1vw,34px);line-height:1.15}
+.case-carousel-current .case-carousel-category{font-size:10px}
+.case-carousel-current .case-carousel-link-icon{width:38px;height:38px;font-size:17px}
+.solution-case:not(.is-active)>img{filter:blur(6px) saturate(.68);transform:scale(1.025)}
+.solution-case.is-active>img{filter:none}
+.solution-case:not(.is-active) .solution-case-caption{opacity:.76}
+@media(max-width:900px){.mh-contact-grid{grid-template-columns:1fr}.mh-contact-form{max-width:650px}.case-carousel-side{min-height:280px}}
+@media(max-width:700px){.case-carousel-frame{display:block;width:calc(100% - 28px);margin-inline:auto}.case-carousel-side{display:none}.case-carousel-center,.case-carousel-media{width:100%}.case-carousel-current{position:relative;right:auto;bottom:auto;left:auto;max-width:none;flex-wrap:wrap;margin-top:12px;padding:0;border:0;background:none;backdrop-filter:none}.case-carousel-current h2{order:1;flex-basis:100%}.case-carousel-current .case-carousel-link{order:2}.mh-contact-form{padding:22px}.mh-contact{padding:80px 0}}
+@media(prefers-reduced-motion:reduce){.mh-nav-chevron,.modern-site .mh-button,.modern-site .mh-header-cta,.mh-service-slide-action,.mh-service-slide-action span,.mh-contact-progress span,.modern-site .mh-text-link,.modern-site .mh-text-link::after,.modern-site .mh-text-link span,.modern-site .solution-cases-all,.modern-site .solution-cases-all::after,.modern-site .solution-cases-all span{animation:none!important;transition:none!important}.mh-contact-step{animation:none}.modern-site .mh-button::before,.modern-site .mh-header-cta::before,.mh-service-slide-action::after{display:none}}

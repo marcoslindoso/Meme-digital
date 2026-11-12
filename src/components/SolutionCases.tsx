@@ -86,7 +86,7 @@ export function SolutionCases() {
         onPointerCancel={(event) => { dragRef.current = null; event.currentTarget.classList.remove("is-dragging"); }}
         onClickCapture={(event) => { if (suppressClick.current) { event.preventDefault(); event.stopPropagation(); suppressClick.current = false; } }}>
         {items.map((project, index) => {
-          return <article className="solution-case" key={project.slug}>
+          return <article className={`solution-case${index === active ? " is-active" : ""}`} key={project.slug} aria-current={index === active ? "true" : undefined}>
             <Image src={project.image} alt={`Projeto ${project.title}`} fill sizes="(max-width: 700px) 88vw, 72vw" loading={Math.abs(index - active) <= 1 ? "eager" : "lazy"} unoptimized={project.image.startsWith("/cases/")} />
             <button className="solution-case-select" type="button" onClick={() => goTo(index === active ? active + 1 : index)} aria-label={`Selecionar case ${project.title}`} />
             <div className="solution-case-caption"><h3>{project.title}</h3><span>{project.category}</span><Link href={`/${project.slug}`} aria-label={`Ver projeto ${project.title}`}>Ver projeto <b aria-hidden="true">↗</b></Link></div>

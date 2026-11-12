@@ -7,6 +7,7 @@ import { LogoCarousel } from "@/components/LogoCarousel";
 import { ModernFooter } from "@/components/ModernFooter";
 import { ModernGallery } from "@/components/ModernGallery";
 import { ModernHeader } from "@/components/ModernHeader";
+import { ContactSteps } from "@/components/ContactSteps";
 
 const services = [
   { title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/assets/editorial/photo-1552664730-d307ca884978.webp" },
@@ -186,11 +187,7 @@ export function ModernHome() {
           <div className="mh-contact-orb" aria-hidden />
           <div className="mh-shell mh-contact-grid">
             <div className="mh-reveal"><span className="mh-eyebrow">Bora crescer?</span><h2>Seu próximo grande projeto pode começar com uma <em>boa conversa.</em></h2></div>
-            <div className="mh-contact-actions mh-reveal">
-              <a className="mh-button mh-button-light" href="https://wa.me/5519997600063" target="_blank" rel="noreferrer">Conversar no WhatsApp <span>↗</span></a>
-              <a href="mailto:contato@memedigital.com.br">contato@memedigital.com.br</a>
-              <small>R. Luiz Otávio, 2565 · Parque Taquaral · Campinas/SP</small>
-            </div>
+            <ContactSteps />
           </div>
         </section>
       </main>

@@ -14,6 +14,7 @@ import "./culture.css";
 import "./blog.css";
 import "./footer.css";
 import "./language.css";
+import "./interaction-polish.css";
 import { ContactPopup } from "@/components/ContactPopup";
 
 export const metadata: Metadata = {
