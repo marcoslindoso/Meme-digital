@@ -10,23 +10,23 @@ type Initiative = { title: string; text: string; image: string; icon: OfferingIc
 const groups: { label: string; title: string; intro: string; items: Initiative[] }[] = [
   {
     label: "Meme Social",
-    title: "Criatividade que gera impacto.",
-    intro: "Design e comunicação a serviço de iniciativas que aproximam pessoas e abrem caminhos.",
+    title: "Descubra como a Meme faz a diferença na sociedade.",
+    intro: "Colaboramos em ações de design e comunicação para iniciativas que transformam vidas.",
     items: [
-      { title: "Cidadão Pró Mundo", text: "Apoiamos a comunicação de uma organização que promove integração social pelo ensino de inglês.", image: "/assets/editorial/photo-1427504494785-3a9ca7044f45.webp", icon: "design" },
-      { title: "Instituto Padre Haroldo", text: "Contribuímos com projetos digitais ligados à transformação de pessoas em recuperação da dependência química.", image: "/assets/editorial/photo-1529156069898-49953e39b3ac.webp", icon: "growth" },
+      { title: "Cidadão Pró Mundo", text: "Colaboramos em iniciativas de design e comunicação para a Cidadão Pró Mundo, que promove oportunidades de integração social no Brasil por meio do ensino de inglês.", image: "/assets/editorial/photo-1427504494785-3a9ca7044f45.webp", icon: "design" },
+      { title: "Instituto Padre Haroldo", text: "Engajamo-nos em projetos digitais para auxiliar o IPH em sua missão de transformar a vida de homens e mulheres que enfrentam a dependência química.", image: "/assets/editorial/photo-1529156069898-49953e39b3ac.webp", icon: "growth" },
     ],
   },
   {
     label: "Startups da Meme",
-    title: "Ideias que ganham vida própria.",
-    intro: "Também incubamos projetos que nascem da vontade de resolver problemas de um jeito novo.",
+    title: "Inovação de ponta a ponta.",
+    intro: "A Meme é inovação de ponta a ponta e incubamos várias startups que surgem aqui.",
     items: [
-      { title: "ME.post", text: "Gestão e compartilhamento de conteúdo em um fluxo mais simples.", image: "/assets/startups/Me.-Post-1024x853.webp", icon: "planning" },
-      { title: "CRMeme", text: "Métricas e resultados de campanhas reunidos para orientar decisões.", image: "/assets/startups/CR-Meme-1024x853.webp", icon: "performance" },
-      { title: "Matchpay", text: "Uma plataforma pensada para a venda de cursos e produtos digitais.", image: "/assets/startups/Match-Pay-1024x853.webp", icon: "commerce" },
-      { title: "Meme Ensina", text: "Conhecimento em marketing digital de ponta a ponta.", image: "/assets/startups/Meme-Ensina-1024x853.webp", icon: "copy" },
-      { title: "Neto Ensina", text: "Tecnologia explicada de um jeito acessível para todos.", image: "/assets/startups/Neto-Ensina-1024x853.webp", icon: "app" },
+      { title: "ME.post", text: "Simplifique a gestão de conteúdo com o Me.Post. Organize e compartilhe conteúdos com eficiência e rapidez. Em desenvolvimento.", image: "/assets/startups/Me.-Post-1024x853.webp", icon: "planning" },
+      { title: "CRMeme", text: "Uma startup dedicada a fornecer métricas e resultados de campanhas de tráfego pago, orgânico e análise de dados para os clientes. Ativo.", image: "/assets/startups/CR-Meme-1024x853.webp", icon: "performance" },
+      { title: "Matchpay", text: "A plataforma para vender cursos e produtos digitais de forma rápida, simples e segura. Em desenvolvimento.", image: "/assets/startups/Match-Pay-1024x853.webp", icon: "commerce" },
+      { title: "Meme Ensina", text: "Curso completo de marketing digital End to End, de branding a SEO e análise de dados, para levar seu conhecimento ao próximo nível.", image: "/assets/startups/Meme-Ensina-1024x853.webp", icon: "copy" },
+      { title: "Neto Ensina", text: "Um guia para desvendar o mundo da tecnologia, de contas digitais às configurações da TV, de forma simples e sem complicações.", image: "/assets/startups/Neto-Ensina-1024x853.webp", icon: "app" },
     ],
   },
 ];

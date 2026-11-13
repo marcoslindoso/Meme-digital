@@ -4,10 +4,10 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 
 const emailAddress = "contato@memedigital.com.br";
 const whatsappNumber = "5519997600063";
-const services = ["Agência", "Tech & Web", "Design", "Performance Ads", "Produtos Digitais", "Metaverso", "Outro assunto"];
+const services = ["Agência", "Tech & Web", "Design", "Performance Ads", "Produtos Digitais", "Metaverso", "IA e Engenharia de Harness", "Outro assunto"];
 const routeServices: Record<string, string> = {
   agencia: "Agência", "tech-web": "Tech & Web", design: "Design", "performance-ads": "Performance Ads",
-  "produtos-digitais": "Produtos Digitais", metaverso: "Metaverso",
+  "produtos-digitais": "Produtos Digitais", metaverso: "Metaverso", "ia-engenharia-de-harness": "IA e Engenharia de Harness",
 };
 
 type Fields = { name: string; email: string; phone: string; company: string; service: string; message: string };

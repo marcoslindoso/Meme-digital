@@ -1,4 +1,5 @@
 /* Motion on the home page, inspired by Xpovio's editorial reveals and portfolio transitions. */
+.mh-home .mh-reveal { opacity: 1; }
 @media (prefers-reduced-motion: no-preference) {
   .mh-home .mh-hero-copy h1 {
     animation: mh-home-title-in .9s cubic-bezier(.22, 1, .36, 1) .08s both;
@@ -14,15 +15,12 @@
 
   .mh-home .mh-feature-media.mh-reveal > img,
   .mh-home .mh-story.mh-reveal .mh-story-media img {
-    clip-path: inset(0 0 100% 0);
     transform: scale(1.075);
-    transition: clip-path .9s cubic-bezier(.22, 1, .36, 1),
-      transform 1.15s cubic-bezier(.22, 1, .36, 1);
+    transition: transform 1.15s cubic-bezier(.22, 1, .36, 1);
   }
 
   .mh-home .mh-feature-media.mh-reveal.is-visible > img,
   .mh-home .mh-story.mh-reveal.is-visible .mh-story-media img {
-    clip-path: inset(0 0 0 0);
     transform: scale(1);
   }
 

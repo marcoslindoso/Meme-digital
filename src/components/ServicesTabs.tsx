@@ -9,6 +9,7 @@ const services = [
   { title: "Performance Ads", label: "Mídia orientada por dados e margem.", body: "Operação de mídia com leitura contínua de funil, testes criativos e decisões baseadas no que realmente movimenta o negócio.", items: ["Google e Meta Ads", "Growth e CRO", "Dashboards e dados"] },
   { title: "Produtos Digitais", label: "Conhecimento transformado em escala.", body: "Estratégia, lançamento e evolução de infoprodutos com jornada, oferta e experiência desenhadas para conversão.", items: ["Estratégia de produto", "Lançamentos", "Automação e CRM"] },
   { title: "Metaverso", label: "Novas camadas para experiências de marca.", body: "Gamificação, realidade aumentada e experiências interativas para engajar públicos de um jeito útil e surpreendente.", items: ["Gamificação", "Realidade aumentada", "Ativações interativas"] },
+  { title: "IA e Engenharia de Harness", label: "Inteligência artificial preparada para trabalhar com sua equipe.", body: "Projetamos agentes e automações com contexto, ferramentas, limites de ação e avaliação contínua para processos do negócio.", items: ["Estratégia de IA", "Agentes e integrações", "Avaliação e melhoria"] },
 ];
 
 export function ServicesTabs() {

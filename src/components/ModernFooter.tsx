@@ -4,21 +4,22 @@ import { OfferingIcon, type OfferingIconName } from "@/components/OfferingIcon";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const solutions: { title: string; description: string; href: string; icon: OfferingIconName }[] = [
-  { title: "Agência", description: "Estratégia digital, SEO e crescimento para sua marca.", href: "/solucoes/agencia", icon: "growth" },
-  { title: "Tech & Web", description: "Sites, aplicativos e e-commerce para o seu negócio.", href: "/solucoes/tech-web", icon: "web" },
-  { title: "Design", description: "Marcas e interfaces que aproximam pessoas.", href: "/solucoes/design", icon: "design" },
-  { title: "Performance Ads", description: "Mídia e dados para gerar tráfego, leads e vendas.", href: "/solucoes/performance-ads", icon: "performance" },
-  { title: "Produtos Digitais", description: "Criação e lançamento de infoprodutos.", href: "/solucoes/produtos-digitais", icon: "launch" },
-  { title: "Metaverso", description: "Experiências com realidade aumentada e virtual.", href: "/solucoes/metaverso", icon: "vr" },
+  { title: "Agência", description: "desenvolvimento de estratégias digitais e otimização", href: "/solucoes/agencia", icon: "growth" },
+  { title: "Tech & Web", description: "especialistas em e-commerce, react native, node.js, flutterflow, java e mais.", href: "/solucoes/tech-web", icon: "web" },
+  { title: "Design", description: "forneça um nível superior de conexão com seus clientes", href: "/solucoes/design", icon: "design" },
+  { title: "Performance Ads", description: "mídia paga voltada para geração de tráfego, leads e vendas.", href: "/solucoes/performance-ads", icon: "performance" },
+  { title: "Produtos Digitais", description: "crie e lance seu infoproduto de maneira rápida, prática e descomplicada.", href: "/solucoes/produtos-digitais", icon: "launch" },
+  { title: "Metaverso", description: "novas oportunidades e experiências com realidade aumentada", href: "/solucoes/metaverso", icon: "vr" },
+  { title: "IA e Engenharia de Harness", description: "agentes de IA com contexto, ferramentas e avaliação", href: "/solucoes/ia-engenharia-de-harness", icon: "automation" },
 ];
 
 const institutional: { title: string; description: string; href: string; icon: OfferingIconName }[] = [
-  { title: "Prêmios", description: "Reconhecimento em design, web e branding.", href: "/institucional#premios", icon: "growth" },
-  { title: "A Empresa", description: "Nossa história, as pessoas e o que nos move.", href: "/institucional#a-meme", icon: "planning" },
-  { title: "O Time", description: "Conheça os Memers que fazem acontecer.", href: "/institucional#o-time", icon: "design" },
-  { title: "Meme Social", description: "Design e comunicação para gerar impacto.", href: "/institucional#meme-social", icon: "growth" },
-  { title: "Startups", description: "Ideias da Meme que ganham vida própria.", href: "/institucional#startups", icon: "launch" },
-  { title: "Carreiras", description: "Venha crescer com a gente.", href: "/institucional#carreiras", icon: "app" },
+  { title: "Prêmios", description: "reconhecimento em design gráfico, web developing e branding.", href: "/institucional#premios", icon: "growth" },
+  { title: "A Empresa", description: "quase uma década de história com conquistas e muitos desafios.", href: "/institucional#a-meme", icon: "planning" },
+  { title: "O Time", description: "uma equipe formada por pessoas incríveis e preparadas.", href: "/institucional#o-time", icon: "design" },
+  { title: "Meme Social", description: "ajudamos em diversas ações pontuais de design e comunicação.", href: "/institucional#meme-social", icon: "growth" },
+  { title: "Startup's", description: "expertise no lançamento de novas empresas e novas ideias.", href: "/institucional#startups", icon: "launch" },
+  { title: "Carreiras", description: "venha fazer parte da agência e bora crescer conosco.", href: "/institucional#carreiras", icon: "app" },
 ];
 
 function FooterList({ items }: { items: typeof solutions }) {
@@ -45,7 +46,7 @@ export function ModernFooter() {
       <div className="mh-footer-top">
         <div className="mh-footer-brand">
           <Link href="/" aria-label="Meme Digital — página inicial"><Image src="/wp-content/uploads/2024/07/logotipo-completo-1-2.png" alt="Meme Digital" width={174} height={53} /></Link>
-          <p>Somos uma agência MARTECH de marketing e tecnologia dedicada a criar boas experiências digitais e impulsionar negócios B2B e B2C.</p>
+          <p>Somos uma agência MARTECH de marketing e tecnologia dedicada a proporcionar boas experiências de usuário e impulsionar altas taxas de conversão no B2B e B2C.</p>
           <h2>Contato</h2>
           <ul className="mh-footer-contact">
             <li><span aria-hidden="true">✆</span><a href="https://wa.me/5519997600063" target="_blank" rel="noreferrer">(19) 99760-0063</a></li>

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { caseProjects } from "@/components/case-projects";
+import { allCaseProjects } from "@/components/case-projects";
 
 export function SolutionCases() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -12,7 +12,7 @@ export function SolutionCases() {
   const wheelAt = useRef(0);
   const dragRef = useRef<{ x: number; left: number; moved: boolean } | null>(null);
   const suppressClick = useRef(false);
-  const items = caseProjects;
+  const items = allCaseProjects;
 
   function goTo(index: number, behavior: ScrollBehavior = "smooth") {
     const track = trackRef.current;

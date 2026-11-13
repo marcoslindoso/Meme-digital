@@ -79,3 +79,17 @@
 .site-case-credits a:hover{text-decoration:underline}
 @media(max-width:900px){.site-case-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.site-case-overview .case-detail-story,.site-case-outcome .case-detail-story{grid-template-columns:1fr 1fr}.site-case-overview .case-detail-story>span,.site-case-outcome .case-detail-story>span{grid-column:1/-1}.site-case-credits{grid-template-columns:1fr 1fr}.site-case-credits a{grid-column:1/-1}}
 @media(max-width:620px){.site-case-banner{min-height:560px}.site-case-banner-shade{background:linear-gradient(0deg,rgba(9,24,44,.92),rgba(9,24,44,.35))}.site-case-banner h1{font-size:clamp(3.4rem,14vw,5.6rem)}.site-case-banner-content{padding-bottom:64px}.site-case-meta{grid-template-columns:1fr 1fr;gap:20px;padding-top:28px}.site-case-overview .case-detail-story,.site-case-outcome .case-detail-story{grid-template-columns:1fr}.site-case-gallery-label{align-items:flex-start;flex-direction:column;gap:6px}.site-case-credits{padding-bottom:55px}}
+.case-detail-original{padding:80px 0 110px;background:#f8f9fc;color:#19385b}
+.case-detail-original h2{margin:14px 0 20px;font-size:clamp(2.5rem,4vw,4rem);letter-spacing:-.05em}
+.case-detail-original>.mh-shell>p{max-width:850px;color:#63758d;font-size:1.05rem;line-height:1.8}
+.case-detail-original-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:50px 65px;padding:70px 0 0;color:#19385b}
+.case-detail-original-grid article{border-top:1px solid #d9e1ed;padding-top:20px}
+.case-detail-original-grid h3{margin:0 0 14px;font-size:clamp(1.4rem,2vw,2rem);letter-spacing:-.04em}
+.case-detail-original-grid p{margin:0 0 16px;color:#63758d;font-size:1rem;line-height:1.8}
+.case-detail-original-credits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:70px;padding-top:30px;border-top:1px solid #d9e1ed}
+.case-detail-original-credits h2{grid-column:1/-1;margin:0 0 10px;font-size:1.6rem}
+.case-detail-original-credits div{display:flex;flex-direction:column;gap:7px}
+.case-detail-original-credits span{color:#63758d;font-size:.75rem;text-transform:uppercase}
+.case-detail-original-credits strong{font-size:.95rem}
+@media(max-width:700px){.case-detail-original-grid{grid-template-columns:1fr;gap:25px;padding-top:45px}.case-detail-original{padding:65px 0}}
+@media(max-width:700px){.case-detail-original-credits{grid-template-columns:repeat(2,minmax(0,1fr))}}

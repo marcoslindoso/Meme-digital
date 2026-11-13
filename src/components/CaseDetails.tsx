@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CaseProject } from "@/components/case-projects";
 import { siteCaseStories } from "@/components/site-case-stories";
+import originalCaseCopy from "@/data/original-case-copy.json";
 
 const folder = "/wp-content/uploads/2024/08/";
 
@@ -63,6 +64,7 @@ function CaseNavigation({ previous, next }: { previous: CaseProject; next: CaseP
 }
 
 export function CaseDetails({ project, previous, next }: { project: CaseProject; previous: CaseProject; next: CaseProject }) {
+  const original = (originalCaseCopy as Record<string, { intro: string; credits: { role: string; names: string[] }[]; sections: { title: string; paragraphs: string[] }[] }>)[project.slug];
   if (project.mobileImage && project.website) {
     const domain = new URL(project.website).hostname.replace(/^www\./, "");
     const story = siteCaseStories[project.slug];
@@ -87,6 +89,7 @@ export function CaseDetails({ project, previous, next }: { project: CaseProject;
         <article className="case-detail-story"><span>A solução</span><h2>{story.solutionTitle}</h2><div><p>{story.solution}</p><p>{story.outcome}</p></div></article>
         <div className="site-case-credits"><div><span>Cliente</span><strong>{story.client}</strong></div><div><span>Créditos</span><strong>{story.credit}</strong></div><a href={project.website} target="_blank" rel="noreferrer">Conhecer o site completo ↗</a></div>
       </div></section>
+      {original && <section className="case-detail-original"><div className="mh-shell"><span className="mh-eyebrow">O projeto</span><h2>{project.title}</h2><p>{original.intro}</p><div className="case-detail-original-grid">{original.sections.map((section) => <article key={section.title}><h3>{section.title}</h3>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</article>)}</div></div></section>}
       <CaseNavigation previous={previous} next={next} />
     </>;
   }
@@ -96,9 +99,10 @@ export function CaseDetails({ project, previous, next }: { project: CaseProject;
     <section className="site-case-banner" aria-labelledby="case-title"><Image className="site-case-banner-image" src={project.image} alt="" fill priority sizes="100vw" /><div className="site-case-banner-shade" /><div className="mh-shell site-case-banner-content"><Link className="case-detail-back" href="/cases">← Todos os cases</Link><div><span className="mh-eyebrow">Case · {project.category}</span><h1 id="case-title">{project.title}</h1><p>{project.intro}</p></div></div></section>
     <section className="case-detail-body"><div className="mh-shell">
       <div className="case-detail-meta"><div><span>Cliente</span><strong>{project.title}</strong></div><div><span>Área</span><strong>{project.category}</strong></div><div><span>Projeto</span><strong>{project.project}</strong></div></div>
-      <article className="case-detail-story"><span>O desafio</span><h2>Uma ideia com um propósito claro.</h2><p>{detail.challenge}</p></article>
+      <article className="case-detail-story"><span>O projeto</span><h2>{project.title}</h2><p>{original?.intro ?? detail.challenge}</p></article>
       <div className="case-detail-images"><div><Image src={detail.images[0]} alt={`Detalhe do projeto ${project.title}`} fill sizes="(max-width: 700px) 100vw, 50vw" /></div><div><Image src={detail.images[1]} alt={`Aplicação do projeto ${project.title}`} fill sizes="(max-width: 700px) 100vw, 50vw" /></div></div>
-      <article className="case-detail-story case-detail-story-end"><span>A solução</span><h2>Estratégia que ganha forma.</h2><p>{detail.approach}</p></article>
+      {original ? <div className="case-detail-original-grid">{original.sections.map((section) => <article key={section.title}><h3>{section.title}</h3>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</article>)}</div> : <article className="case-detail-story case-detail-story-end"><span>A solução</span><h2>Estratégia que ganha forma.</h2><p>{detail.approach}</p></article>}
+      {original && original.credits.length > 0 && <div className="case-detail-original-credits"><h2>Créditos</h2>{original.credits.map((credit) => <div key={credit.role}><span>{credit.role}</span><strong>{credit.names.join(", ")}</strong></div>)}</div>}
     </div></section>
     <CaseNavigation previous={previous} next={next} />
   </>;

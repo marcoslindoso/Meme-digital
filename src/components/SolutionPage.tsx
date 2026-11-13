@@ -9,6 +9,7 @@ import { SolutionSwitcher } from "@/components/SolutionSwitcher";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { CasesScroller } from "@/components/CasesScroller";
 import { getOfferingCopy } from "@/components/solution-copy";
+import { originalSolutionCopy } from "@/components/original-solution-copy";
 import { SolutionCases } from "@/components/SolutionCases";
 import { CaseDetails } from "@/components/CaseDetails";
 import { InstitutionalPage } from "@/components/InstitutionalPage";
@@ -16,11 +17,26 @@ import { allCaseProjects, caseProjects, legacyCaseProjects } from "@/components/
 
 const solutions = {
   agencia: { label: "Estratégia & growth", title: "Agência", summary: "Nossa agência é especializada em impulsionar a presença online com estratégias de marketing e tecnologia feitas para aumentar ROI e LTV.", image: "/assets/editorial/photo-1556761175-b413da4baf72.webp", featureImage: "/assets/editorial/photo-1522071820081-009f0129c71c.webp", featureTitle: "Growth with Meme", featureDescription: "Estratégia, criatividade e tecnologia trabalhando juntas para proporcionar boas experiências e altas taxas de conversão.", services: [{ title: "SEO", text: "Conteúdo, técnica e palavras-chave para conquistar visibilidade orgânica e tráfego qualificado." }, { title: "Performance", text: "Estratégias de mídia e conversão para transformar investimento em crescimento consistente." }, { title: "Growth Hacking", text: "Testes, inovação e escala para identificar as oportunidades que aceleram o negócio." }, { title: "Digital Planning", text: "Planejamento conectado à realidade da empresa, do primeiro insight à execução." }, { title: "Copywriter", text: "Mensagens claras que traduzem valor e aproximam sua marca das pessoas certas." }, { title: "Automação de Marketing", text: "Jornadas que organizam relacionamento, dados e oportunidades comerciais." }] },
-  "tech-web": { label: "Tecnologia & desenvolvimento", title: "Tech & Web", summary: "Criamos e-commerces, sites, aplicativos e integrações para tornar sua operação digital mais forte, atual e funcional.", image: "/assets/editorial/photo-1488590528505-98d2b5aba04b.webp", featureImage: "/assets/editorial/photo-1516321318423-f06f85e504b3.webp", featureTitle: "Estamos na era digital", featureDescription: "Conhecimento, atualização constante e tecnologia aplicada para gerar resultados relevantes para as marcas.", services: [{ title: "E-commerce", text: "Lojas integradas a VTEX, Linx, Tray, Nuvemshop, WooCommerce e outras plataformas." }, { title: "Apps para iOS e Android", text: "Aplicativos em React Native, Node.js, Flutter Flow, Java e tecnologias adequadas ao seu desafio." }, { title: "Web", text: "Sites institucionais, landing pages e páginas de venda com estratégia e boa experiência." }, { title: "Manutenções", text: "Evolução contínua para sites, lojas e apps sempre funcionais e seguros." }] },
+  "tech-web": { label: "Tecnologia & desenvolvimento", title: "Tech & Web", summary: "Criamos e-commerces, sites, aplicativos e integrações para tornar sua operação digital mais forte, atual e funcional.", image: "/assets/editorial/photo-1488590528505-98d2b5aba04b.webp", featureImage: "/assets/editorial/photo-1516321318423-f06f85e504b3.webp", featureTitle: "Estamos na era Digital", featureDescription: "Conhecimento, atualização constante e tecnologia aplicada para gerar resultados relevantes para as marcas.", services: [{ title: "E-commerce", text: "Lojas integradas a VTEX, Linx, Tray, Nuvemshop, WooCommerce e outras plataformas." }, { title: "App Development for iOS e Android", text: "Aplicativos em React Native, Node.js, Flutter Flow, Java e tecnologias adequadas ao seu desafio." }, { title: "Web", text: "Sites institucionais, landing pages e páginas de venda com estratégia e boa experiência." }, { title: "Manutenções Web, Loja e App", text: "Evolução contínua para sites, lojas e apps sempre funcionais e seguros." }] },
   design: { label: "Marca & experiência", title: "Design", summary: "Soluções criativas que elevam a conexão entre sua marca e seus clientes, com identidade, clareza e experiências memoráveis.", image: "/assets/editorial/photo-1558655146-9f40138edfeb.webp", featureImage: "/assets/editorial/photo-1561070791-2526d30994b5.webp", featureTitle: "UX / UI", featureDescription: "Experiências centradas nas pessoas para humanizar produtos, softwares, aplicativos e interfaces digitais.", services: [{ title: "E-branding / Naming", text: "Brand books, nomes e um DNA visual único para tornar sua marca reconhecível." }, { title: "UX / UI", text: "Interfaces envolventes, claras e fáceis de usar em cada ponto de contato." }, { title: "Creative Design", text: "Peças criativas e refinadas que colocam sua marca em evidência." }] },
-  "performance-ads": { label: "Mídia & dados", title: "Performance Ads", summary: "Mídia paga para gerar tráfego, leads e vendas, com formatos e segmentações adequados aos objetivos do seu negócio.", image: "/assets/editorial/photo-1556761175-5973dc0f32e7.webp", featureImage: "/assets/editorial/photo-1551288049-bebda4e38f71.webp", featureTitle: "Para se destacar no digital", featureDescription: "Relatórios, analytics, dashboards e análise de dados para maximizar conversões e encontrar oportunidades reais.", services: [{ title: "Meta Ads", text: "Campanhas segmentadas para Facebook e Instagram, com formatos orientados a objetivos." }, { title: "Google Ads", text: "Pesquisa, Shopping, Display, YouTube e outras frentes para alcançar quem procura." }, { title: "LinkedIn Ads", text: "Mídia B2B para conversar com profissionais e decisores qualificados." }, { title: "Mídia Nativa", text: "Taboola, Outbrain e MGID para distribuir conteúdo com contexto e relevância." }, { title: "Waze / Amazon Ads", text: "Presença onde o público decide para onde ir e o que comprar." }] },
+  "performance-ads": { label: "Mídia & dados", title: "Performance Ads", summary: "Mídia paga para gerar tráfego, leads e vendas, com formatos e segmentações adequados aos objetivos do seu negócio.", image: "/assets/editorial/photo-1556761175-5973dc0f32e7.webp", featureImage: "/assets/editorial/photo-1551288049-bebda4e38f71.webp", featureTitle: "Para se destacar no digital", featureDescription: "Relatórios, analytics, dashboards e análise de dados para maximizar conversões e encontrar oportunidades reais.", services: [{ title: "Meta Ads", text: "Campanhas segmentadas para Facebook e Instagram, com formatos orientados a objetivos." }, { title: "Google Ads (group)", text: "Pesquisa, Shopping, Display, YouTube e outras frentes para alcançar quem procura." }, { title: "Linkedin Ads", text: "Mídia B2B para conversar com profissionais e decisores qualificados." }, { title: "Taboola / Outbrain / MGID", text: "Mídia nativa para distribuir conteúdo com contexto e relevância." }, { title: "Waze / Amazon Ads", text: "Presença onde o público decide para onde ir e o que comprar." }, { title: "GPT Ads (ChatGPT)", text: "Publicidade contextual durante conversas com pessoas que pesquisam soluções." }] },
   "produtos-digitais": { label: "Lançamento & escala", title: "Produtos Digitais", summary: "Transformamos habilidades e conhecimento em produtos digitais, com jornadas de venda fluidas e oportunidades de escala.", image: "/assets/editorial/photo-1556740758-90de374c12ad.webp", featureImage: "/assets/editorial/photo-1522202176988-66273c2fd55f.webp", featureTitle: "Equipe e ferramentas para infoprodutos", featureDescription: "Estratégia, tecnologia e experiência para transformar ideias em e-books, cursos, mentorias e lançamentos rentáveis.", services: [{ title: "Agência de Lançamentos", text: "Estruturas perpétuas e lançamentos para manter a oferta ativa e aumentar o alcance." }, { title: "Infoprodutos / Afiliados", text: "Coproduções, cursos, mentorias e plataformas como Hotmart, Kiwify, Eduzz e mais." }, { title: "Influencer Digital", text: "Estratégias para transformar audiência, influência e relacionamento em negócio." }] },
   metaverso: { label: "Experiências imersivas", title: "Metaverso", summary: "Realidade aumentada, realidade virtual e experiências interativas para aproximar tecnologia, pessoas e novas oportunidades.", image: "/logos/Retangulo-33-4.png", featureImage: "/logos/Prancheta-2b.webp", featureTitle: "Realidade aumentada × realidade virtual", featureDescription: "Tecnologias que ampliam o mundo real e constroem ambientes imersivos para vendas, treinamento, entretenimento e educação.", services: [{ title: "Realidade Aumentada (AR)", text: "Elementos virtuais, objetos 3D, vídeos, games e links que passam a fazer parte do ambiente real." }, { title: "Realidade Virtual (VR)", text: "Ambientes digitais envolventes para criar interações, treinamentos e experiências fora do comum." }] },
+  "ia-engenharia-de-harness": {
+    label: "Inteligência artificial aplicada",
+    title: "IA e Engenharia de Harness",
+    summary: "Planejamos agentes de IA que trabalham com as informações e ferramentas do seu negócio. Cada fluxo nasce com objetivos claros, limites de ação e formas de avaliar o resultado.",
+    image: "/assets/editorial/photo-1551434678-e076c223a692.webp",
+    featureImage: "/assets/editorial/photo-1518770660439-4636190af475.webp",
+    featureTitle: "IA útil precisa de um ambiente bem projetado",
+    featureDescription: "Engenharia de harness é o desenho do contexto, das ferramentas e dos ciclos de feedback que ajudam um agente a executar tarefas com consistência.",
+    services: [
+      { title: "Estratégia e oportunidades de IA", text: "Mapeamos processos, dados e objetivos para escolher onde a IA pode gerar valor e como medir cada aplicação." },
+      { title: "Agentes e automações", text: "Desenhamos fluxos para pesquisa, atendimento e operações, com integrações às ferramentas que sua equipe já usa." },
+      { title: "Engenharia de Harness", text: "Organizamos instruções, contexto, acesso a ferramentas, aprovações e registro das ações para orientar o trabalho dos agentes." },
+      { title: "Avaliação e evolução", text: "Criamos testes e revisões para identificar falhas, acompanhar a qualidade e melhorar os fluxos ao longo do tempo." },
+    ],
+  },
 } as const;
 
 const clientLogos = ["Background-2-2.jpg", "Background-3-2.jpg", "Background-4-2.jpg", "Background-5-2.jpg", "Background-6-2.jpg", "Background-7-2.jpg", "Background-8-2.jpg", "Background-9-2.jpg", "Background-10-2.jpg", "Background-11-2.jpg", "Background-12-2.jpg", "Background-13-2.jpg"];
@@ -30,9 +46,10 @@ const offeringIcons: Record<SolutionSlug, OfferingIconName[]> = {
   agencia: ["seo", "performance", "growth", "planning", "copy", "automation"],
   "tech-web": ["commerce", "app", "web", "automation"],
   design: ["design", "web", "copy"],
-  "performance-ads": ["performance", "seo", "growth", "copy", "commerce"],
+  "performance-ads": ["performance", "seo", "growth", "copy", "commerce", "performance"],
   "produtos-digitais": ["launch", "commerce", "app"],
   metaverso: ["vr", "design"],
+  "ia-engenharia-de-harness": ["planning", "automation", "web", "performance"],
 };
 
 const offeringImages: Record<SolutionSlug, string[]> = {
@@ -55,6 +72,23 @@ const offeringImages: Record<SolutionSlug, string[]> = {
     "photo-1522071820081-009f0129c71c",
   ],
   metaverso: ["photo-1593508512255-86ab42a8e620", "photo-1518770660439-4636190af475"],
+  "ia-engenharia-de-harness": [
+    "photo-1454165804606-c3d57bc86b40", "photo-1551434678-e076c223a692",
+    "photo-1518770660439-4636190af475", "photo-1551288049-bebda4e38f71",
+  ],
+};
+
+const harnessCopy = {
+  intro: "A inteligência artificial pode apoiar tarefas reais quando entende o contexto da empresa e sabe quais ferramentas usar. Unimos estratégia, desenvolvimento e avaliação para criar agentes e automações alinhados aos processos da sua equipe.",
+  featureIntro: "Um agente precisa de mais do que um modelo: precisa de informações certas, ferramentas conectadas, regras claras e retorno sobre cada execução. Projetamos esse ambiente para transformar experimentos em fluxos úteis no dia a dia.",
+  detailTitle: "Da oportunidade à operação",
+  detail: "Começamos pelo problema e pelas pessoas envolvidas. Depois definimos tarefas, fontes de informação, integrações e pontos de aprovação. Testamos cenários reais, analisamos falhas e ajustamos o fluxo antes de ampliar o uso.",
+  offerings: {
+    "Estratégia e oportunidades de IA": "Identificamos tarefas repetitivas, decisões que dependem de informação e pontos de atrito na jornada do cliente. Priorizamos casos de uso por impacto, viabilidade e qualidade dos dados disponíveis.",
+    "Agentes e automações": "Criamos agentes para apoiar pesquisa, triagem, produção de conteúdo e operações digitais. Conectamos cada fluxo aos sistemas necessários e definimos quando a equipe deve revisar ou assumir a tarefa.",
+    "Engenharia de Harness": "Estruturamos instruções, conhecimento, ferramentas, permissões, aprovações e registros de execução. Assim, cada agente encontra o contexto de que precisa e trabalha dentro dos limites definidos para a tarefa.",
+    "Avaliação e evolução": "Montamos exemplos e critérios de avaliação para verificar qualidade, consistência e erros. Com os resultados em mãos, refinamos instruções, integrações e etapas do processo continuamente.",
+  },
 };
 
 export function isSolutionSlug(slug: string): slug is SolutionSlug {
@@ -63,26 +97,27 @@ export function isSolutionSlug(slug: string): slug is SolutionSlug {
 
 export function SolutionPage({ slug }: { slug: SolutionSlug }) {
   const solution = solutions[slug];
+  const original = originalSolutionCopy[slug] ?? (slug === "ia-engenharia-de-harness" ? harnessCopy : undefined);
   return <div className="modern-site solution-page">
     <ModernHeader activeSolution={slug} />
     <main id="conteudo">
       <section className="sp-hero">
         <div className="mh-shell sp-hero-grid">
-          <div className="sp-copy"><span className="mh-eyebrow">{solution.label}</span><h1>{solution.title} para <em>fazer acontecer.</em></h1><p>{solution.summary}</p><a className="mh-button mh-button-primary" href="#contato">Fale com um especialista <span>↗</span></a></div>
+          <div className="sp-copy"><span className="mh-eyebrow">{solution.label}</span><h1>{solution.title}</h1><p>{original?.intro ?? solution.summary}</p><a className="mh-button mh-button-primary" href="#contato">Fale com um especialista <span>↗</span></a></div>
           <div className="sp-image"><Image src={solution.image} alt={`Solução ${solution.title} da Meme Digital`} fill priority sizes="(max-width: 900px) 100vw, 50vw" /><span>Meme Digital · Marketing + Tech</span></div>
         </div>
       </section>
       <section className="sp-brand-rail"><LogoCarousel logos={clientLogos} /></section>
-      <section className="sp-feature"><div className="mh-shell sp-feature-grid"><div className="sp-feature-image"><Image src={solution.featureImage} alt={`Contexto para ${solution.title}`} fill sizes="(max-width: 900px) 100vw, 50vw" /></div><div><span className="mh-eyebrow">Meme Digital</span><h2>{solution.featureTitle}</h2><p>{solution.featureDescription}</p><Link className="mh-text-link" href="/#contato">Saiba mais <span>↗</span></Link></div></div></section>
+      <section className="sp-feature"><div className="mh-shell sp-feature-grid"><div className="sp-feature-image"><Image src={solution.featureImage} alt={`Contexto para ${solution.title}`} fill sizes="(max-width: 900px) 100vw, 50vw" /></div><div><span className="mh-eyebrow">Meme Digital</span><h2>{solution.featureTitle}</h2><p>{original?.featureIntro ?? solution.featureDescription}</p>{original && <><h3>{original.detailTitle}</h3><p>{original.detail}</p></>}<Link className="mh-text-link" href="/#contato">Fale com um especialista <span>↗</span></Link></div></div></section>
       <section className="sp-offerings"><div className="mh-shell">
-        <header className="mh-reveal"><span className="mh-eyebrow">{solution.title} · Soluções à disposição</span><h2>Especialidades que trabalham<br /><em>em um só time.</em></h2></header>
+        <header className="mh-reveal"><span className="mh-eyebrow">{solution.title} · Soluções à disposição</span><h2>Somos uma agência martech que une estratégia de negócios com <em>marketing e tecnologia.</em></h2></header>
         <SolutionSwitcher active={slug} />
         <InteractiveOfferings
           solution={solution.title}
           variant="generic"
           items={solution.services.map((service, index) => ({
             ...service,
-            text: getOfferingCopy(slug, service.title, service.text),
+            text: original?.offerings[service.title] ?? getOfferingCopy(slug, service.title, service.text),
             icon: offeringIcons[slug][index] ?? "growth",
             image: offeringImages[slug][index]
               ? `/assets/editorial/${offeringImages[slug][index]}.webp`
@@ -104,7 +139,7 @@ const hubs = {
   institucional: { label: "Institucional", title: "Uma agência martech para conectar pessoas e negócios.", description: "Somos uma equipe de estratégia, criação e tecnologia que trabalha de ponta a ponta para construir experiências digitais relevantes." },
 } as const;
 
-const caseCards = caseProjects;
+const caseCards = allCaseProjects;
 
 const insightCards = [
   "Quanto custa uma agência de marketing digital em SP? 2026",

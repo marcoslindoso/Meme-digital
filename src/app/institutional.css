@@ -133,8 +133,9 @@
 .ip-careers h2{margin-top:15px}
 .ip-careers h2 em{color:#ffe1eb}
 .ip-careers p{max-width:460px;color:#fff}
-.ip-careers .mh-button{margin-top:27px}
-.ip-careers-culture{display:inline-flex;gap:10px;margin:25px 0 0;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:5px;color:#fff;font-size:12px;font-weight:800}
+.ip-careers-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:27px}
+.ip-careers-actions .mh-button{margin:0;flex:none}
+.ip-careers-culture{display:inline-flex;align-items:center;gap:10px;margin:0;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:5px;color:#fff;font-size:12px;font-weight:800}
 .ip-contact{background:#f8faff;text-align:center}
 .ip-contact h2{max-width:850px;margin:16px auto 30px}
 @media(max-width:1000px){.ip-team-card{flex-basis:calc((100% - 40px)/3)}.ip-hero-grid,.ip-awards-layout{gap:42px}.ip-hero-copy h1{font-size:clamp(47px,6vw,65px)}}

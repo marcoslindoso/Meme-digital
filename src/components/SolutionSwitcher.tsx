@@ -7,6 +7,7 @@ const solutions = [
   { slug: "performance-ads", label: "Performance Ads" },
   { slug: "produtos-digitais", label: "Produtos Digitais" },
   { slug: "metaverso", label: "Metaverso" },
+  { slug: "ia-engenharia-de-harness", label: "IA e Engenharia de Harness" },
 ] as const;
 
 export function SolutionSwitcher({ active }: { active: string }) {

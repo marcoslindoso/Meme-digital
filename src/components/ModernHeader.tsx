@@ -6,12 +6,13 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const services = [
-  { name: "Agência", detail: "Estratégia, SEO e growth", href: "/solucoes/agencia", icon: "agency" },
-  { name: "Tech & Web", detail: "Sites, apps e e-commerce", href: "/solucoes/tech-web", icon: "web" },
-  { name: "Design", detail: "Branding, UX e interfaces", href: "/solucoes/design", icon: "design" },
-  { name: "Performance Ads", detail: "Mídia, dados e conversão", href: "/solucoes/performance-ads", icon: "performance" },
-  { name: "Produtos Digitais", detail: "Lançamentos e infoprodutos", href: "/solucoes/produtos-digitais", icon: "products" },
-  { name: "Metaverso", detail: "AR, VR e experiências", href: "/solucoes/metaverso", icon: "metaverse" },
+  { name: "Agência", detail: "Estratégias digitais e otimização", href: "/solucoes/agencia", icon: "agency" },
+  { name: "Tech & Web", detail: "E-commerce, apps e desenvolvimento web", href: "/solucoes/tech-web", icon: "web" },
+  { name: "Design", detail: "Mais conexão entre marca e clientes", href: "/solucoes/design", icon: "design" },
+  { name: "Performance Ads", detail: "Tráfego, leads e vendas", href: "/solucoes/performance-ads", icon: "performance" },
+  { name: "Produtos Digitais", detail: "Crie e lance seu infoproduto", href: "/solucoes/produtos-digitais", icon: "products" },
+  { name: "Metaverso", detail: "Experiências com realidade aumentada", href: "/solucoes/metaverso", icon: "metaverse" },
+  { name: "IA e Engenharia de Harness", detail: "Agentes de IA, contexto e avaliação", href: "/solucoes/ia-engenharia-de-harness", icon: "harness" },
 ];
 
 function ServiceIcon({ icon }: { icon: string }) {
@@ -23,6 +24,7 @@ function ServiceIcon({ icon }: { icon: string }) {
       {icon === "performance" && <><path d="M4 19h16M5 16l5-5 3 3 6-7M15 7h4v4" /><circle cx="5" cy="16" r="1" /></>}
       {icon === "products" && <><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 7h6M9 11h6M9 15h4" /></>}
       {icon === "metaverse" && <><path d="M4 9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-3l-2-2h-2l-2 2H6a2 2 0 0 1-2-2V9z" /><path d="M8 11h.01M16 11h.01M4 10H2M22 10h-2" /></>}
+      {icon === "harness" && <><rect x="8" y="8" width="8" height="8" rx="2" /><path d="M12 3v5m0 8v5M3 12h5m8 0h5M17 4l3 3m0-3-3 3M17 20l3-3m0 3-3-3" /><circle cx="12" cy="12" r="1.5" /></>}
     </svg>
   );
 }

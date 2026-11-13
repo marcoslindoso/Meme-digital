@@ -1,12 +1,12 @@
 // Copy específica de cada especialidade, alinhada às soluções da Meme Digital.
 const copy: Record<string, Record<string, string>> = {
   agencia: {
-    SEO: "Faça sua marca aparecer quando o cliente já procura uma solução. Unimos conteúdo útil, estrutura técnica e intenção de busca para transformar visitas orgânicas em conversas qualificadas.",
-    Performance: "Cada campanha precisa responder a uma meta de negócio. Planejamos mídia, criativos e páginas de destino, acompanhando os dados para investir com clareza e evoluir a conversão.",
-    "Growth Hacking": "Crescimento pede aprendizado constante. Criamos hipóteses, testamos jornadas e usamos os dados para encontrar oportunidades que façam sentido para a sua operação.",
-    "Digital Planning": "Antes de escolher canais, definimos a direção. Traduzimos objetivos, público e orçamento em um plano digital com prioridades claras e ações que podem ser ajustadas ao longo do caminho.",
-    Copywriter: "A mensagem certa torna a escolha mais simples. Escrevemos páginas, anúncios e conteúdos com a voz da marca, argumentos relevantes e chamadas que convidam à ação.",
-    "Automação de Marketing": "A conversa não termina no primeiro contato. Criamos fluxos e segmentações para nutrir relações, apoiar o time comercial e acompanhar cada oportunidade com mensagens no momento certo.",
+    SEO: "Search Engine Optimization (SEO) é fundamental para destacar sua presença online de maneira orgânica em sites de busca como Google, Bing e Yahoo. Ao otimizar conteúdo e palavras-chave, aumentamos a visibilidade e atraímos tráfego qualificado.",
+    Performance: "Aplicamos estratégias personalizadas e inovadoras para que sua marca não apenas participe, mas lidere o mercado online. Com foco em resultados, transformamos oportunidades estratégicas em crescimento e aumento nas vendas.",
+    "Growth Hacking": "Acelere o crescimento da sua empresa com estratégias de Growth Hacking. Utilizamos inovação, testes e escalonamento para impulsionar estratégias digitais e conquistar o mercado de forma inteligente.",
+    "Digital Planning": "O planejamento digital e de mídia é a espinha dorsal de uma estratégia eficaz online. Da definição de metas à execução tática, cada etapa é guiada por uma abordagem cuidadosa e orientada para resultados.",
+    Copywriter: "Transformamos ideias em palavras envolventes. Cada palavra é escolhida para cativar, persuadir e contar histórias que ressoam. O copywriter constrói a narrativa que inspira ação.",
+    "Automação de Marketing": "Simplifique e amplie o impacto da sua campanha. Automatize com plataformas como Leadlovers, RD Station, Ramper, Mautic, ActiveCampaign, Dinamize, E-notas, Voxuy e WhatsApp.",
   },
   "tech-web": {
     "E-commerce": "Sua loja precisa ser fácil de comprar e de operar. Projetamos navegação, catálogo, checkout e integrações à plataforma adequada para construir uma experiência de compra clara e preparada para crescer.",

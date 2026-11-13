@@ -10,12 +10,13 @@ import { ModernHeader } from "@/components/ModernHeader";
 import { ContactSteps } from "@/components/ContactSteps";
 
 const services = [
-  { title: "Agência", text: "Estratégia digital, SEO, growth, conteúdo e automação para transformar atenção em demanda.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/assets/editorial/photo-1552664730-d307ca884978.webp" },
-  { title: "Tech & Web", text: "Sites, e-commerces e aplicativos rápidos, acessíveis e preparados para crescer com o negócio.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "/assets/services/techweb.webp" },
-  { title: "Design", text: "Marcas, experiências e interfaces que aproximam pessoas e tornam cada interação memorável.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "/assets/services/design.webp" },
-  { title: "Performance Ads", text: "Mídia orientada por dados para atrair, converter e aprender continuamente com cada campanha.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "/assets/services/performance.webp" },
-  { title: "Produtos Digitais", text: "Estratégia, criação e lançamento de infoprodutos com uma jornada de venda bem construída.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "/assets/services/produtosdigitais.webp" },
-  { title: "Metaverso", text: "Realidade aumentada, realidade virtual e gamificação para marcas que querem criar o inesperado.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/assets/services/metaverso.webp" },
+  { title: "Agência", text: "Desenvolvimento de estratégias digitais e otimização para transformar sua marca com marketing, tecnologia e performance.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/assets/editorial/photo-1552664730-d307ca884978.webp" },
+  { title: "Tech & Web", text: "Martech e e-commerce: desenvolvimento tecnológico e web design para impulsionar sua jornada digital.", href: "/solucoes/tech-web/", tags: ["Web", "Apps", "E-commerce"], icon: "⌘", image: "/assets/services/techweb.webp" },
+  { title: "Design", text: "Design criativo e soluções visuais impactantes para sua marca brilhar online.", href: "/solucoes/design/", tags: ["Branding", "UX/UI", "Creative"], icon: "◇", image: "/assets/services/design.webp" },
+  { title: "Performance Ads", text: "Anúncios estratégicos para atrair leads qualificados, impulsionar vendas e maximizar sua visibilidade online.", href: "/solucoes/performance-ads/", tags: ["Google", "Meta", "Dados"], icon: "◉", image: "/assets/services/performance.webp" },
+  { title: "Produtos Digitais", text: "E-books, cursos, mentorias e mais para monetizar sua expertise online.", href: "/solucoes/produtos-digitais/", tags: ["Lançamento", "Conteúdo", "Vendas"], icon: "↗", image: "/assets/services/produtosdigitais.webp" },
+  { title: "Metaverso", text: "Realidades virtuais e aumentadas para experiências digitais únicas.", href: "/solucoes/metaverso/", tags: ["AR", "VR", "Games"], icon: "◎", image: "/assets/services/metaverso.webp" },
+  { title: "IA e Engenharia de Harness", text: "Agentes de IA com contexto, ferramentas e validação para apoiar processos reais.", href: "/solucoes/ia-engenharia-de-harness/", tags: ["Agentes", "Automação", "Avaliação"], icon: "✳", image: "/assets/editorial/photo-1518770660439-4636190af475.webp" },
 ];
 
 const testimonials = [
@@ -46,7 +47,7 @@ export function ModernHome() {
             <div className="mh-hero-copy">
               <div className="mh-kicker"><span /> Agência de Marketing Digital em Campinas e São Paulo</div>
               <h1>Conectando pessoas e <em>lugares</em> de forma eficiente.</h1>
-              <p>Somos uma agência MARTECH de marketing digital e tecnologia dedicada a proporcionar boas experiências de usuário e impulsionar altas taxas de conversão no B2B e B2C.</p>
+              <p>Somos uma agência MARTECH de marketing digital e tecnologia dedicada a proporcionar boas experiências de usuário e impulsionar altas taxas de conversão no B2B e B2C. Conte conosco para transformar sua visão em resultados notáveis. Escolha a Meme Digital e alcance o extraordinário em cada projeto.</p>
               <div className="mh-hero-actions">
                 <a className="mh-button mh-button-primary" href="#contato">Fale com um especialista <span>↗</span></a>
                 <a className="mh-button mh-button-quiet" href="#solucoes">Explorar soluções <span>↓</span></a>
@@ -54,7 +55,7 @@ export function ModernHome() {
               <div className="mh-hero-proof">
                 <div><strong>+1000</strong><span>projetos realizados</span></div>
                 <div><strong>Desde 2015</strong><span>criando no digital</span></div>
-                <div><strong>6 frentes</strong><span>em um único time</span></div>
+                <div><strong>7 frentes</strong><span>em um único time</span></div>
               </div>
             </div>
 
@@ -77,8 +78,8 @@ export function ModernHome() {
         <section className="mh-section mh-services" id="solucoes">
           <div className="mh-shell">
             <header className="mh-section-head mh-reveal">
-              <div><span className="mh-eyebrow">O que fazemos</span><h2>Um ecossistema para<br /><em>fazer acontecer.</em></h2></div>
-              <p>Do primeiro insight à última linha de código, reunimos disciplinas que trabalham juntas — sem silos, sem ruído e com intenção.</p>
+              <div><span className="mh-eyebrow">O que fazemos</span><h2>Crie algo que inspire <em>as pessoas.</em></h2></div>
+              <p>Desenvolvimento web, design criativo e estratégias de performance para o sucesso online. Juntos, construímos a transformação digital.</p>
             </header>
             <div className="mh-service-tabs" aria-label="Frentes de atuação">
               {services.map((service) => <span key={service.title}>{service.title}</span>)}
@@ -117,7 +118,7 @@ export function ModernHome() {
             <div className="mh-feature-copy mh-reveal">
               <span className="mh-eyebrow">Estratégia de e-commerce</span>
               <h2>Venda no e-commerce e alcance <em>ganhos escaláveis.</em></h2>
-              <p>Transforme sua loja online em uma potência de e-commerce e leve sua operação para um novo nível de resultados, conversão e recorrência.</p>
+              <p>Transforme sua loja física em um poderoso e-commerce e eleve o seu negócio a patamares de faturamento extraordinários. Trabalhamos com VTEX, Tray, Nuvemshop, Linx, Wake, WooCommerce, Wapstore, MercadoShops e Shopify. Nossa expertise está em lojas virtuais eficazes e de qualidade, com performance, SEO, growth hacking, segurança na compra, UX/UI e design criativo.</p>
               <ul>
                 <li><span className="mh-feature-icon" aria-hidden>↗</span><div><strong>Comércio de alto desempenho</strong><small>UX, tecnologia e estratégia que aproximam a marca de quem compra.</small></div></li>
                 <li><span className="mh-feature-icon" aria-hidden>◎</span><div><strong>Dados que orientam decisões</strong><small>SEO, mídia e comportamento do usuário trabalhando juntos.</small></div></li>
@@ -132,11 +133,11 @@ export function ModernHome() {
           <div className="mh-shell">
             <article className="mh-story mh-reveal">
               <div className="mh-story-media"><Image src="/assets/editorial/photo-1516321318423-f06f85e504b3.webp" alt="Profissionais construindo uma experiência digital" fill sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchPriority="low" unoptimized /><span>Estratégia, dados e criação</span></div>
-              <div className="mh-story-copy"><span className="mh-eyebrow">Tecnologia com propósito</span><h2>Produtos digitais que transformam <em>boas ideias em ação.</em></h2><p>Unimos pesquisa, design e desenvolvimento para criar jornadas simples de usar e preparadas para escalar.</p><Link className="mh-text-link" href="/solucoes/tech-web/">Conheça Tech & Web <span>↗</span></Link></div>
+              <div className="mh-story-copy"><span className="mh-eyebrow">Aplicativos e experiências</span><h2>Desenvolvimento de apps, gamificação e <em>realidade aumentada.</em></h2><p>A Meme se destaca por seus serviços de desenvolvimento de aplicativos para iOS e Android, incluindo ReactJS, NodeJS, Flutter Flow e Java. Desenvolvemos projetos personalizados, de alto impacto e pensados para cada cliente. Também oferecemos realidade aumentada, AR/VR e gamificação para criar experiências imersivas e atraentes.</p><Link className="mh-text-link" href="/solucoes/metaverso/">Saiba mais <span>↗</span></Link></div>
             </article>
             <article className="mh-story mh-story-reversed mh-reveal">
               <div className="mh-story-media"><Image src="/assets/editorial/photo-1531482615713-2afd69097998.webp" alt="Equipe trabalhando em uma campanha digital" fill sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchPriority="low" unoptimized /><span>Performance que evolui</span></div>
-              <div className="mh-story-copy"><span className="mh-eyebrow">Crescimento contínuo</span><h2>Campanhas que aprendem, otimizam e <em>movem negócios.</em></h2><p>Com dados claros e criatividade aplicada, aproximamos marcas das pessoas certas em cada etapa da decisão.</p><Link className="mh-text-link" href="/solucoes/performance-ads/">Explorar Performance Ads <span>↗</span></Link></div>
+              <div className="mh-story-copy"><span className="mh-eyebrow">Produtos Digitais</span><h2>Maximizamos o lançamento de <em>infoprodutos em grande escala.</em></h2><p>Oferecemos serviços para infoprodutores, afiliados e lançamentos de produtos digitais. Criamos páginas de vendas, jornadas de compra e estratégias para transformar conhecimento em novas oportunidades de negócio.</p><Link className="mh-text-link" href="/solucoes/produtos-digitais/">Saiba mais <span>↗</span></Link></div>
             </article>
           </div>
         </section>
@@ -145,8 +146,10 @@ export function ModernHome() {
           <div className="mh-shell mh-awards-grid">
             <div className="mh-awards-copy mh-reveal">
               <span className="mh-eyebrow">Prêmios & conquistas</span>
-              <h2>Trabalho que gera resultado. <em>E reconhecimento.</em></h2>
-              <p>Projetos da Meme foram reconhecidos em design, web e branding nos principais festivais do interior paulista.</p>
+              <h2>Prêmios & <em>Conquistas.</em></h2>
+              <p>Agência premiada com o Troféu Ouro na categoria Design no maior festival do interior paulista, no Prêmio Recall de 2022. <Link href="/baralho-voluta-medical/">Veja o projeto premiado.</Link></p>
+              <p>Conquista de mais um troféu na categoria Web, também no maior festival do interior paulista, no Prêmio Recall de 2019. <Link href="/neto-ensina/">Veja o projeto premiado.</Link></p>
+              <p>Reconhecimento com o Galo de Bronze na categoria Branding – Design no Mídia Festival App de 2018. <Link href="/nur-eventos/">Veja o projeto premiado.</Link></p>
               <div className="mh-award-years"><div><strong>2018</strong><span>Branding · Bronze</span></div><div><strong>2019</strong><span>Web · Troféu</span></div><div><strong>2022</strong><span>Design · Ouro</span></div></div>
             </div>
             <AwardsSlider />
@@ -157,7 +160,7 @@ export function ModernHome() {
 
         <section className="mh-section mh-testimonials">
           <div className="mh-shell">
-            <header className="mh-testimonial-head mh-reveal"><div><span className="mh-eyebrow">Quem recomenda</span><h2>Boas relações deixam <em>boas histórias.</em></h2></div><div className="mh-rating"><strong>5.0</strong><span>★★★★★</span><small>com base em avaliações do Google</small></div></header>
+            <header className="mh-testimonial-head mh-reveal"><div><span className="mh-eyebrow">Quem recomenda o marketing digital da Meme</span><h2>+ de 1000 <em>projetos.</em></h2><p>Depoimentos</p></div><div className="mh-rating"><strong>5.0</strong><span>★★★★★</span><small>com base em avaliações do Google</small></div></header>
             <div className="mh-testimonial-grid">
               {testimonials.map((testimonial, index) => (
                 <article className="mh-google-review mh-reveal" style={{ "--delay": `${index * 80}ms` } as CSSProperties} key={testimonial.name}>
@@ -186,7 +189,7 @@ export function ModernHome() {
         <section className="mh-contact" id="contato">
           <div className="mh-contact-orb" aria-hidden />
           <div className="mh-shell mh-contact-grid">
-            <div className="mh-reveal"><span className="mh-eyebrow">Bora crescer?</span><h2>Seu próximo grande projeto pode começar com uma <em>boa conversa.</em></h2></div>
+            <div className="mh-reveal"><span className="mh-eyebrow">Encontre o ideal para seu negócio</span><h2>Complete as informações abaixo e <em>responderemos em breve.</em></h2></div>
             <ContactSteps />
           </div>
         </section>

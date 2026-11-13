@@ -34,6 +34,7 @@
 
 /* Páginas internas aparecem prontas; a home mantém seus reveals próprios. */
 .modern-site:not(.mh-home) .mh-reveal{opacity:1;transform:none;transition:none}
+@media (max-width: 900px) { .mh-mobile-panel { display: block; } }
 
 /* Formulário em etapas na penúltima seção da home. */
 .mh-contact-grid{grid-template-columns:.85fr 1.15fr;gap:clamp(38px,6vw,90px);align-items:center}
@@ -46,7 +47,9 @@
 .mh-contact-step h3{margin:0;font-size:clamp(23px,2vw,30px);letter-spacing:-.04em}
 .mh-contact-step>p{margin:0 0 5px;color:var(--mh-muted);font-size:13px;line-height:1.6}
 .mh-contact-step label{display:grid;gap:7px;font-size:12px;font-weight:750}
-.mh-contact-step input:not([type=radio]),.mh-contact-step select,.mh-contact-step textarea{width:100%;min-height:45px;border:1px solid #d6deea;border-radius:8px;padding:11px 13px;background:#f9faff;color:var(--mh-ink);font:500 13px "Meme Montserrat",sans-serif;outline:none;transition:border-color .2s,background .2s}
+.mh-contact-step input:not([type=radio]):not([type=checkbox]),.mh-contact-step select,.mh-contact-step textarea{width:100%;min-height:45px;border:1px solid #d6deea;border-radius:8px;padding:11px 13px;background:#f9faff;color:var(--mh-ink);font:500 13px "Meme Montserrat",sans-serif;outline:none;transition:border-color .2s,background .2s}
+.mh-contact-step>label:has(input[type=checkbox]){display:flex;align-items:flex-start;gap:9px;line-height:1.5;font-weight:500}
+.mh-contact-step input[type=checkbox]{width:16px;height:16px;flex:none;margin:1px 0 0;accent-color:var(--mh-purple)}
 .mh-contact-step textarea{resize:vertical;min-height:94px}
 .mh-contact-step input:focus,.mh-contact-step select:focus,.mh-contact-step textarea:focus{border-color:var(--mh-purple);background:#fff}
 .mh-contact-step fieldset{display:flex;gap:10px;margin:0;padding:0;border:0}

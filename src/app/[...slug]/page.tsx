@@ -12,7 +12,7 @@ import type { Metadata } from "next";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [...new Set([...getStaticWordPressRoutes(), ...caseProjects.map((project) => `/${project.slug}/`)])]
+  return [...new Set([...getStaticWordPressRoutes(), ...caseProjects.map((project) => `/${project.slug}/`), "/solucoes/ia-engenharia-de-harness/"])]
     .filter((route) => route !== "/")
     .map((route) => ({ slug: route.split("/").filter(Boolean) }));
 }
@@ -23,6 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: "Insights | Blog da Meme Digital",
     description: "Artigos sobre marketing, tecnologia, design, inteligência artificial e performance da Meme Digital.",
     alternates: { canonical: "/insights/" },
+  };
+  if (slug.length === 2 && slug[0] === "solucoes" && slug[1] === "ia-engenharia-de-harness") return {
+    title: "IA e Engenharia de Harness | Meme Digital",
+    description: "Agentes de IA, automações e engenharia de harness com contexto, ferramentas, limites de ação e avaliação contínua.",
+    alternates: { canonical: "/solucoes/ia-engenharia-de-harness/" },
   };
   const post = slug.length === 1 ? getBlogPost(slug[0]) : undefined;
   if (!post) return {};
