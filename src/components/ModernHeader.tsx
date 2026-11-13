@@ -63,11 +63,19 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
     setServicesOpen(false);
   };
 
+  const closePageMenus = (href: string) => {
+    closeMenus();
+    const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
+    if (normalize(window.location.pathname) === normalize(href)) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  };
+
   return (
     <header className={`mh-header${scrolled ? " is-scrolled" : ""}`}>
       <a className="mh-skip" href="#conteudo">Ir para o conteúdo</a>
       <div className="mh-header-inner">
-        <Link href="/" className="mh-logo" aria-label="Meme Digital — página inicial" onClick={closeMenus}>
+        <Link href="/" scroll={false} className="mh-logo" aria-label="Meme Digital — página inicial" onClick={() => closePageMenus("/")}>
           <Image
             src="/wp-content/uploads/2024/07/logotipo-completo-1-2.png"
             alt="Meme Digital"
@@ -93,7 +101,7 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
               </div>
               <div className="mh-mega-grid">
                 {services.map((service) => (
-                  <Link href={service.href} key={service.name} onClick={closeMenus} aria-current={service === activeService ? "page" : undefined} className={service === activeService ? "is-current" : undefined}>
+                  <Link href={service.href} scroll={false} key={service.name} onClick={() => closePageMenus(service.href)} aria-current={service === activeService ? "page" : undefined} className={service === activeService ? "is-current" : undefined}>
                     <span className="mh-mega-icon"><ServiceIcon icon={service.icon} /></span>
                     <div><strong>{service.name}</strong><small>{service.detail}</small></div>
                     {service === activeService ? <em className="mh-menu-current">Atual</em> : <i aria-hidden>↗</i>}
@@ -102,9 +110,9 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
               </div>
             </div>
           </div>
-          <Link href="/cases/">Cases</Link>
-          <Link href="/insights/">Insights</Link>
-          <Link href="/institucional/">Institucional</Link>
+          <Link href="/cases/" scroll={false} onClick={() => closePageMenus("/cases/")}>Cases</Link>
+          <Link href="/insights/" scroll={false} onClick={() => closePageMenus("/insights/")}>Insights</Link>
+          <Link href="/institucional/" scroll={false} onClick={() => closePageMenus("/institucional/")}>Institucional</Link>
         </nav>
 
         <Link className="mh-header-cta" href="/#contato" onClick={closeMenus}>Vamos conversar <span aria-hidden>↗</span></Link>
@@ -123,14 +131,14 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
         <nav aria-label="Navegação móvel">
           <span className="mh-eyebrow">Soluções{activeService ? ` · ${activeService.name}` : ""}</span>
           {services.map((service) => (
-            <Link href={service.href} key={service.name} onClick={closeMenus} aria-current={service === activeService ? "page" : undefined} className={service === activeService ? "is-current" : undefined}>
+            <Link href={service.href} scroll={false} key={service.name} onClick={() => closePageMenus(service.href)} aria-current={service === activeService ? "page" : undefined} className={service === activeService ? "is-current" : undefined}>
               <b className="mh-mobile-service-icon"><ServiceIcon icon={service.icon} /></b>{service.name}<span aria-hidden>↗</span>
             </Link>
           ))}
           <div className="mh-mobile-main-links">
-            <Link href="/cases/" onClick={closeMenus}>Cases</Link>
-            <Link href="/insights/" onClick={closeMenus}>Insights</Link>
-            <Link href="/institucional/" onClick={closeMenus}>Institucional</Link>
+            <Link href="/cases/" scroll={false} onClick={() => closePageMenus("/cases/")}>Cases</Link>
+            <Link href="/insights/" scroll={false} onClick={() => closePageMenus("/insights/")}>Insights</Link>
+            <Link href="/institucional/" scroll={false} onClick={() => closePageMenus("/institucional/")}>Institucional</Link>
           </div>
           <Link className="mh-button mh-button-primary" href="/#contato" onClick={closeMenus}>Fale com a Meme</Link>
         </nav>
