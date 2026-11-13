@@ -14,7 +14,7 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return [...new Set([...getStaticWordPressRoutes(), ...caseProjects.map((project) => `/${project.slug}/`), "/solucoes/ia-engenharia-de-harness/"])]
     .filter((route) => route !== "/")
-    .map((route) => ({ slug: route.split("/").filter(Boolean) }));
+    .map((route) => ({ slug: route.split("/").filter(Boolean).map((part) => decodeURIComponent(part)) }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {

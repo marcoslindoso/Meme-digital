@@ -126,7 +126,6 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         />
       </div></section>
       <SolutionCases />
-      <section className="sp-cta" id="contato"><div className="mh-shell"><span className="mh-eyebrow">Bora conversar?</span><h2>Seu próximo movimento começa com uma <em>boa estratégia.</em></h2><Link className="mh-button mh-button-light" href="/#contato">Falar com a Meme <span>↗</span></Link></div></section>
     </main>
     <ModernFooter />
     <ModernEffects />

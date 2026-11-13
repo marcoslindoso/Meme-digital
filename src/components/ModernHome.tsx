@@ -7,7 +7,6 @@ import { LogoCarousel } from "@/components/LogoCarousel";
 import { ModernFooter } from "@/components/ModernFooter";
 import { ModernGallery } from "@/components/ModernGallery";
 import { ModernHeader } from "@/components/ModernHeader";
-import { ContactSteps } from "@/components/ContactSteps";
 
 const services = [
   { title: "Agência", text: "Desenvolvimento de estratégias digitais e otimização para transformar sua marca com marketing, tecnologia e performance.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/assets/editorial/photo-1552664730-d307ca884978.webp" },
@@ -186,13 +185,6 @@ export function ModernHome() {
           </div>
         </section>
 
-        <section className="mh-contact" id="contato">
-          <div className="mh-contact-orb" aria-hidden />
-          <div className="mh-shell mh-contact-grid">
-            <div className="mh-reveal"><span className="mh-eyebrow">Encontre o ideal para seu negócio</span><h2>Complete as informações abaixo e <em>responderemos em breve.</em></h2></div>
-            <ContactSteps />
-          </div>
-        </section>
       </main>
       <ModernFooter />
       <ModernEffects />

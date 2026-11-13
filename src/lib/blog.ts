@@ -97,7 +97,7 @@ const posts: BlogPost[] = (content.posts as RawPost[]).map((raw) => {
 }).sort((a, b) => b.date.localeCompare(a.date));
 
 export function getBlogPosts() { return posts; }
-export function getBlogPost(slug: string) { return posts.find((post) => post.slug === slug); }
+export function getBlogPost(slug: string) { return posts.find((post) => decodeURIComponent(post.slug) === decodeURIComponent(slug)); }
 export function getBlogSummaries(): BlogSummary[] { return posts.map((post) => ({
   id: post.id,
   slug: post.slug,

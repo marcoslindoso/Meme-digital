@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { OfferingIcon, type OfferingIconName } from "@/components/OfferingIcon";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ContactSection } from "@/components/ContactSection";
 
 const solutions: { title: string; description: string; href: string; icon: OfferingIconName }[] = [
   { title: "Agência", description: "desenvolvimento de estratégias digitais e otimização", href: "/solucoes/agencia", icon: "growth" },
@@ -41,7 +42,7 @@ const socials = [
 ];
 
 export function ModernFooter() {
-  return <footer className="mh-footer" id="rodape">
+  return <><ContactSection /><footer className="mh-footer" id="rodape">
     <div className="mh-footer-inner">
       <div className="mh-footer-top">
         <div className="mh-footer-brand">
@@ -66,5 +67,5 @@ export function ModernFooter() {
       </div>
       <div className="mh-footer-bottom"><span>© {new Date().getFullYear()} Meme Digital · Todos os direitos reservados.</span><Link href="/insights">Insights ↗</Link></div>
     </div>
-  </footer>;
+  </footer></>;
 }

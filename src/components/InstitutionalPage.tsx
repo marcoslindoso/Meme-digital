@@ -52,7 +52,6 @@ export function InstitutionalPage() {
 
       <section className="ip-careers ip-section" id="carreiras"><div className="mh-shell ip-careers-grid"><div className="mh-reveal"><span className="mh-eyebrow">Carreiras</span><h2>Se torne <em>um Memer.</em></h2></div><div className="mh-reveal"><p>Buscamos talentos que compartilhem desse amor pelo que fazem e estejam sempre dispostos a aprender e crescer. Nossa equipe é nossa família. Somos escritores, artistas, empreendedores, designers, desenvolvedores, publicitários, diretores, fotógrafos e entusiastas de dados, imersos na tecnologia e em constante evolução.</p><p>Oferecemos um sólido plano de carreira para pessoas proativas que se identificam com nossos projetos e desejam se dedicar à Meme.</p><div className="ip-careers-actions"><a className="mh-button mh-button-light" href="mailto:contato@memedigital.com.br?subject=Quero%20ser%20um%20Memer" data-contact-trigger data-contact-topic="Carreiras">Junte-se a nós <span>↗</span></a><Link className="ip-careers-culture" href="/cultura-meme/">Conheça a cultura da Meme <span>↗</span></Link></div></div></div></section>
 
-      <section className="ip-contact ip-section" id="contato"><div className="mh-shell"><span className="mh-eyebrow">Vamos criar juntos?</span><h2>Boas relações começam com uma <em>boa conversa.</em></h2><Link className="mh-button mh-button-primary" href="/#contato">Fale com a Meme <span>↗</span></Link></div></section>
     </main>
     <ModernFooter />
     <ModernEffects />
