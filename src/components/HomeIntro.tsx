@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { flushSync } from "react-dom";
 import { ServiceIcon } from "@/components/ModernHeader";
 
 const titles = ["Marketing Digital", "Martech", "Tecnologia", "Performance", "Meme Digital"];
@@ -29,33 +30,43 @@ export function HomeIntro({ children }: { children: ReactNode }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const revealedRef = useRef(false);
   const enteringRef = useRef(false);
+  const titleIndexRef = useRef(0);
+  const cancelSwapRef = useRef<() => void>(() => {});
   const [titleIndex, setTitleIndex] = useState(0);
   const [swapping, setSwapping] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let index = 0;
     let timer = 0;
     let swapTimer = 0;
     const beginSwap = () => {
-      if (document.hidden || enteringRef.current || revealedRef.current) {
+      if (document.hidden || window.scrollY > 32 || enteringRef.current || revealedRef.current) {
         timer = window.setTimeout(beginSwap, 400);
         return;
       }
       setSwapping(true);
-      swapTimer = window.setTimeout(() => {
-        if (!enteringRef.current) {
-          index = (index + 1) % titles.length;
-          setTitleIndex(index);
+      swapTimer = window.setTimeout(function finishSwap() {
+        if (enteringRef.current || window.scrollY > 32) {
+          swapTimer = window.setTimeout(finishSwap, 100);
+          return;
         }
+        titleIndexRef.current = (titleIndexRef.current + 1) % titles.length;
+        setTitleIndex(titleIndexRef.current);
         setSwapping(false);
         timer = window.setTimeout(beginSwap, 3800);
       }, 2200);
+    };
+    cancelSwapRef.current = () => {
+      window.clearTimeout(swapTimer);
+      window.clearTimeout(timer);
+      setSwapping(false);
+      timer = window.setTimeout(beginSwap, 3800);
     };
     timer = window.setTimeout(beginSwap, 3800);
     return () => {
       window.clearTimeout(timer);
       window.clearTimeout(swapTimer);
+      cancelSwapRef.current = () => {};
     };
   }, []);
 
@@ -73,6 +84,20 @@ export function HomeIntro({ children }: { children: ReactNode }) {
       const progress = Math.min(1, Math.max(0, (window.scrollY - restingZone) / (window.innerHeight * 1.2 - restingZone)));
       const entering = progress > 0;
       if (entering && !enteringRef.current) {
+        const wallElement = intro.querySelector<SVGSVGElement>(".mh-intro-wall");
+        if (wallElement?.classList.contains("is-swapping")) {
+          const clip = intro.querySelector<SVGRectElement>(".mh-intro-clip-next");
+          const nextWidth = clip ? Number.parseFloat(getComputedStyle(clip).width) : 0;
+          const visibleIndex = nextWidth > wallElement.clientWidth / 2
+            ? (titleIndexRef.current + 1) % titles.length
+            : titleIndexRef.current;
+          // Settle the visible word before measuring its letter for the portal zoom.
+          flushSync(() => {
+            cancelSwapRef.current();
+            titleIndexRef.current = visibleIndex;
+            setTitleIndex(visibleIndex);
+          });
+        }
         intro.querySelectorAll<SVGTSpanElement>(".mh-intro-solid .mh-intro-letter").forEach((letter) => {
           letter.style.setProperty("--mh-intro-frozen-color", getComputedStyle(letter).color);
         });
