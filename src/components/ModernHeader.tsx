@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const services = [
@@ -15,7 +15,7 @@ const services = [
   { name: "IA e Engenharia de Harness", detail: "Agentes de IA, contexto e avaliação", href: "/solucoes/ia-engenharia-de-harness", icon: "harness" },
 ];
 
-function ServiceIcon({ icon }: { icon: string }) {
+export function ServiceIcon({ icon }: { icon: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {icon === "agency" && <><path d="M5 11v4M8 9v8M11 7l8-3v16l-8-3z" /><path d="M8 17l1 4h3l-1-4M21 9v6" /></>}
@@ -29,8 +29,10 @@ function ServiceIcon({ icon }: { icon: string }) {
   );
 }
 
-export function ModernHeader({ activeSolution, floating = false }: { activeSolution?: string; floating?: boolean }) {
+export function ModernHeader({ activeSolution, floating = true }: { activeSolution?: string; floating?: boolean }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentPath = pathname.replace(/\/+$/, "") || "/";
   const activeService = services.find((service) => service.href === `/solucoes/${activeSolution}`);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -86,12 +88,13 @@ export function ModernHeader({ activeSolution, floating = false }: { activeSolut
         </Link>
 
         <nav className="mh-desktop-nav" aria-label="Navegação principal">
-          {floating && <Link href="/" scroll={false} className="mh-nav-home" aria-current="page" onClick={() => closePageMenus("/")}>Início</Link>}
+          {floating && <Link href="/" scroll={false} className="mh-nav-home" aria-current={currentPath === "/" ? "page" : undefined} onClick={() => closePageMenus("/")}>Início</Link>}
           <div className="mh-services-trigger">
             <button
               type="button"
               aria-expanded={servicesOpen}
               aria-controls="mh-services-menu"
+              className={currentPath.startsWith("/solucoes") ? "is-current" : undefined}
               onClick={() => setServicesOpen((open) => !open)}
             >
               Soluções {activeService && <strong className="mh-nav-current">{activeService.name}</strong>} <svg className="mh-nav-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 3 5 5-5 5" /></svg>
@@ -111,9 +114,9 @@ export function ModernHeader({ activeSolution, floating = false }: { activeSolut
               </div>
             </div>
           </div>
-          <Link href="/cases/" scroll={false} onClick={() => closePageMenus("/cases/")}>Cases</Link>
-          <Link href="/insights/" scroll={false} onClick={() => closePageMenus("/insights/")}>Insights</Link>
-          <Link href="/institucional/" scroll={false} onClick={() => closePageMenus("/institucional/")}>Institucional</Link>
+          <Link href="/cases/" scroll={false} aria-current={currentPath.startsWith("/cases") ? "page" : undefined} onClick={() => closePageMenus("/cases/")}>Cases</Link>
+          <Link href="/insights/" scroll={false} aria-current={currentPath.startsWith("/insights") ? "page" : undefined} onClick={() => closePageMenus("/insights/")}>Insights</Link>
+          <Link href="/institucional/" scroll={false} aria-current={currentPath.startsWith("/institucional") ? "page" : undefined} onClick={() => closePageMenus("/institucional/")}>Institucional</Link>
         </nav>
 
         <Link className="mh-header-cta" href="/#contato" onClick={closeMenus}>Vamos conversar <span aria-hidden>↗</span></Link>

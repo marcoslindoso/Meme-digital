@@ -41,7 +41,7 @@ export function ModernHome() {
     <div className="modern-site mh-home">
       <ModernHeader floating />
       <main id="conteudo">
-        <HomeIntro />
+        <HomeIntro>
         <section className="mh-hero">
           <div className="mh-hero-glow" aria-hidden />
           <div className="mh-shell mh-hero-grid">
@@ -71,6 +71,7 @@ export function ModernHome() {
           </div>
         </section>
 
+        </HomeIntro>
         <section className="mh-client-strip" aria-label="Algumas marcas atendidas">
           <div className="mh-shell mh-client-heading"><span>Marcas que já caminharam com a Meme</span></div>
           <LogoCarousel logos={clientLogos} />
