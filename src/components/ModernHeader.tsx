@@ -29,7 +29,7 @@ function ServiceIcon({ icon }: { icon: string }) {
   );
 }
 
-export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
+export function ModernHeader({ activeSolution, floating = false }: { activeSolution?: string; floating?: boolean }) {
   const router = useRouter();
   const activeService = services.find((service) => service.href === `/solucoes/${activeSolution}`);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -72,7 +72,7 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
   };
 
   return (
-    <header className={`mh-header${scrolled ? " is-scrolled" : ""}`}>
+    <header className={`mh-header${floating ? " mh-header-floating" : ""}${scrolled ? " is-scrolled" : ""}`}>
       <a className="mh-skip" href="#conteudo">Ir para o conteúdo</a>
       <div className="mh-header-inner">
         <Link href="/" scroll={false} className="mh-logo" aria-label="Meme Digital — página inicial" onClick={() => closePageMenus("/")}>
@@ -86,6 +86,7 @@ export function ModernHeader({ activeSolution }: { activeSolution?: string }) {
         </Link>
 
         <nav className="mh-desktop-nav" aria-label="Navegação principal">
+          {floating && <Link href="/" scroll={false} className="mh-nav-home" aria-current="page" onClick={() => closePageMenus("/")}>Início</Link>}
           <div className="mh-services-trigger">
             <button
               type="button"

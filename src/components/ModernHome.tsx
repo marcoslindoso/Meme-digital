@@ -7,6 +7,7 @@ import { LogoCarousel } from "@/components/LogoCarousel";
 import { ModernFooter } from "@/components/ModernFooter";
 import { ModernGallery } from "@/components/ModernGallery";
 import { ModernHeader } from "@/components/ModernHeader";
+import { HomeIntro } from "@/components/HomeIntro";
 
 const services = [
   { title: "Agência", text: "Desenvolvimento de estratégias digitais e otimização para transformar sua marca com marketing, tecnologia e performance.", href: "/solucoes/agencia/", tags: ["SEO", "Growth", "Planning"], icon: "✦", image: "/assets/editorial/photo-1552664730-d307ca884978.webp" },
@@ -38,8 +39,9 @@ const insights = [
 export function ModernHome() {
   return (
     <div className="modern-site mh-home">
-      <ModernHeader />
+      <ModernHeader floating />
       <main id="conteudo">
+        <HomeIntro />
         <section className="mh-hero">
           <div className="mh-hero-glow" aria-hidden />
           <div className="mh-shell mh-hero-grid">
