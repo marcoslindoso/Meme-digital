@@ -1,0 +1,107 @@
+/* Visible HTML first; JavaScript arms only sections below the initial viewport. */
+.modern-site .mh-reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .modern-site [data-mh-enter][data-mh-enter-state="pending"] {
+    opacity: 0;
+    translate: 0 20px;
+  }
+
+  .modern-site [data-mh-enter][data-mh-enter-state="visible"] {
+    animation: mh-section-content 1.7s cubic-bezier(.22, .61, .36, 1) var(--mh-enter-delay, 0ms) both;
+  }
+
+  .modern-site [data-mh-enter="title"][data-mh-enter-state="visible"] {
+    animation-name: mh-section-title;
+    animation-duration: 1.7s;
+  }
+
+  .modern-site [data-mh-enter="image"][data-mh-enter-state="visible"] {
+    animation-name: mh-section-image;
+    animation-duration: 1.55s;
+  }
+
+  .modern-site [data-mh-enter="card"][data-mh-enter-state="visible"] {
+    animation-name: mh-section-card;
+    animation-duration: 1.05s;
+  }
+
+  /* Reveal the heading before its supporting copy, without splitting React text. */
+  .modern-site :is([data-mh-enter="content"], header[data-mh-enter="title"])[data-mh-enter-state="visible"] h2 {
+    animation: mh-heading-uncover 1.65s cubic-bezier(.22, .61, .36, 1) both;
+  }
+  .modern-site :is([data-mh-enter="content"], header[data-mh-enter="title"])[data-mh-enter-state="visible"] p {
+    animation: mh-copy-arrive 1s ease-out .3s both;
+  }
+  .modern-site [data-mh-enter="content"][data-mh-enter-state="visible"] :is(.mh-story-media, .agency-feature-image) img {
+    animation: mh-media-arrive 1.55s cubic-bezier(.22, .61, .36, 1) both;
+  }
+  .modern-site [data-mh-enter="card"][data-mh-enter-state="visible"] :is(.blog-feature-image, .blog-archive-image, .mh-insight-art) img {
+    animation: mh-media-arrive 1s ease-out var(--mh-enter-delay, 0ms) both;
+  }
+
+  /* Route entrance: image first, then label, masked title, copy and actions.
+     Keep the home portal and each carousel's own animation independent. */
+  .modern-site :is(.agency-hero, .sp-hero, .ip-hero, .cm-hero, .blog-hero, .blog-article-hero, .site-case-banner) .mh-eyebrow {
+    animation: mh-copy-arrive .6s ease-out .2s backwards;
+  }
+  .modern-site :is(.agency-hero, .sp-hero, .ip-hero, .cm-hero, .blog-hero, .blog-article-hero, .site-case-banner) h1,
+  .modern-site .case-carousel-heading h1 {
+    animation: mh-heading-uncover 1.7s cubic-bezier(.22, .61, .36, 1) .3s backwards;
+  }
+  .modern-site :is(.agency-hero, .sp-hero, .ip-hero, .cm-hero, .blog-hero, .blog-article-hero, .site-case-banner) p {
+    animation: mh-copy-arrive 1s ease-out .6s backwards;
+  }
+  .modern-site :is(.agency-actions, .agency-hero-note, .ip-hero-actions, .ip-hero-facts, .cm-hero-actions, .blog-hero-link, .blog-article-byline, .site-case-visit),
+  .modern-site .sp-copy > .mh-button {
+    animation: mh-copy-arrive .85s ease-out .8s backwards;
+  }
+  .modern-site :is(.agency-hero-photo, .sp-image, .ip-hero-photo, .cm-hero-image, .blog-article-cover) img,
+  .modern-site .site-case-banner-image {
+    animation: mh-media-arrive 1.65s cubic-bezier(.22, .61, .36, 1) .12s backwards;
+  }
+  .modern-site .site-case-banner-shade {
+    animation: mh-hero-shade 1s ease-out .12s backwards;
+  }
+}
+
+@keyframes mh-section-content {
+  from { opacity: 0; translate: 0 20px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes mh-section-title {
+  from { opacity: 0; translate: 0 20px; clip-path: inset(100% 0 -12%); }
+  to { opacity: 1; translate: 0 0; clip-path: inset(-12% 0); }
+}
+
+@keyframes mh-section-image {
+  from { opacity: 0; translate: -24px 0; scale: 1.025; clip-path: inset(6% 0 0); }
+  to { opacity: 1; translate: 0 0; scale: 1; clip-path: inset(0); }
+}
+
+@keyframes mh-section-card {
+  from { opacity: 0; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes mh-heading-uncover {
+  from { opacity: 0; translate: 0 28px; clip-path: inset(100% 0 -12%); }
+  to { opacity: 1; translate: 0 0; clip-path: inset(-12% 0); }
+}
+@keyframes mh-copy-arrive {
+  from { opacity: 0; translate: 0 12px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes mh-media-arrive {
+  from { opacity: 0; translate: -24px 0; scale: 1.04; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+@keyframes mh-hero-shade {
+  from { opacity: .25; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modern-site [data-mh-enter] { opacity: 1 !important; translate: none !important; animation: none !important; }
+}

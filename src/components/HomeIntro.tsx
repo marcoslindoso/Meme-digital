@@ -13,11 +13,7 @@ function Letters({ text, offset = 0 }: { text: string; offset?: number }) {
 
 function IntroLettering({ index, mask }: { index: number; mask: boolean }) {
   if (index === titles.length - 1) {
-    return <>
-      <image className="mh-intro-logo" href="/icon.svg" x="14%" y="35%" width="16%" height="28%" preserveAspectRatio="xMidYMid meet" filter={`url(#mh-intro-${mask ? "black" : "pink"})`} />
-      <text className="mh-intro-final-line-one" x="58%" y="47%" textAnchor="middle"><Letters text="MEME" /></text>
-      <text className="mh-intro-final-line-two" x="58%" y="65%" textAnchor="middle"><Letters text="DIGITAL" offset={2} /></text>
-    </>;
+    return <image className="mh-intro-logo" href="/wp-content/uploads/2024/07/logotipo-completo-1-2.png" x="18%" y="36%" width="64%" height="30%" preserveAspectRatio="xMidYMid meet" filter={`url(#mh-intro-${mask ? "black" : "pink"})`} />;
   }
   if (index === 0) {
     return <><text className="mh-intro-line-one" x="50%" y="44%" textAnchor="middle"><Letters text="Marketing" /></text><text className="mh-intro-line-two" x="50%" y="65%" textAnchor="middle"><Letters text="Digital" offset={3} /></text></>;
@@ -104,14 +100,20 @@ export function HomeIntro({ children }: { children: ReactNode }) {
         // Aim into a solid stroke, rather than the empty space between the two lines.
         intro.classList.add("is-entering");
         const wall = intro.querySelector<SVGSVGElement>(".mh-intro-wall");
-        const letter = intro.querySelector<SVGTSpanElement>(".mh-intro-solid .mh-intro-letter");
+        const letter = intro.querySelector<SVGGraphicsElement>(".mh-intro-solid .is-current .mh-intro-letter, .mh-intro-solid .is-current .mh-intro-logo");
         if (wall && letter) {
           const wallBox = wall.getBoundingClientRect();
           const box = letter.getBoundingClientRect();
           const stem = letter.textContent === "T" ? 0.5 : 0.17;
-          intro.style.setProperty("--mh-intro-origin-x", `${box.left - wallBox.left + box.width * stem}px`);
-          intro.style.setProperty("--mh-intro-origin-y", `${box.top - wallBox.top + box.height * 0.55}px`);
-          portalScale = Math.min(180, Math.max(48, window.innerWidth / Math.max(1, box.width * 0.13), window.innerHeight / Math.max(1, box.height * 0.45)) * 1.2);
+          const isLogo = letter.classList.contains("mh-intro-logo");
+          const logoFit = Math.min(box.width / 1366, box.height / 415);
+          const originX = isLogo ? (box.width - 1366 * logoFit) / 2 + 161 * logoFit : box.width * stem;
+          const originY = isLogo ? (box.height - 415 * logoFit) / 2 + 215 * logoFit : box.height * 0.55;
+          intro.style.setProperty("--mh-intro-origin-x", `${box.left - wallBox.left + originX}px`);
+          intro.style.setProperty("--mh-intro-origin-y", `${box.top - wallBox.top + originY}px`);
+          const strokeWidth = isLogo ? 150 * logoFit : box.width * 0.13;
+          const strokeHeight = isLogo ? 45 * logoFit : box.height * 0.45;
+          portalScale = Math.min(180, Math.max(48, window.innerWidth / Math.max(1, strokeWidth), window.innerHeight / Math.max(1, strokeHeight)) * 1.2);
         }
       } else if (!entering) {
         intro.classList.remove("is-entering");

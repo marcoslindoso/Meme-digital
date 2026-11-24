@@ -1,0 +1,36 @@
+.mh-header { view-transition-name: meme-header; }
+
+::view-transition { pointer-events: none; }
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+::view-transition-group(meme-header) { animation: none; z-index: 100; }
+::view-transition-old(meme-header) { display: none; }
+::view-transition-new(meme-header) { animation: none; }
+
+::view-transition-group(meme-page) { animation: none; }
+::view-transition-old(.mh-page-change),
+::view-transition-old(.mh-page-out) {
+  animation: mh-page-leave .24s ease-out both;
+  mix-blend-mode: normal;
+}
+::view-transition-new(.mh-page-change),
+::view-transition-new(.mh-page-in) {
+  animation: mh-page-arrive .65s cubic-bezier(.22, .61, .36, 1) both;
+  mix-blend-mode: normal;
+}
+
+@keyframes mh-page-leave {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-12px); }
+}
+@keyframes mh-page-arrive {
+  from { opacity: 0; transform: translateX(32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}

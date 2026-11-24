@@ -195,8 +195,6 @@
   .mh-intro-wall text { font-size: clamp(42px, 10.8vw, 75px); }
   .mh-intro-wall .mh-intro-line-one { transform: translateY(35px); }
   .mh-intro-wall .mh-intro-line-two { transform: translateY(-35px); }
-  .mh-intro-wall .mh-intro-final-line-one { transform: translateY(20px); }
-  .mh-intro-wall .mh-intro-final-line-two { transform: translateY(-35px); }
   .mh-intro-service-icon { width: 36px; border-radius: 12px; }
   .mh-intro-service-icon-0, .mh-intro-service-icon-1 { top: 24%; }
   .mh-intro-service-icon-2, .mh-intro-service-icon-3 { top: 51%; }

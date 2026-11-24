@@ -16,8 +16,11 @@ import "./blog.css";
 import "./footer.css";
 import "./language.css";
 import "./interaction-polish.css";
+import "./section-motion.css";
+import "./page-transition.css";
 import { ContactPopup } from "@/components/ContactPopup";
 import { RouteScrollReset } from "@/components/RouteScrollReset";
+import { PageTransition } from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://meme-digital.vercel.app"),
@@ -32,5 +35,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR" suppressHydrationWarning><body suppressHydrationWarning><RouteScrollReset />{children}<ContactPopup /></body></html>;
+  return <html lang="pt-BR" suppressHydrationWarning><body suppressHydrationWarning><RouteScrollReset /><PageTransition>{children}</PageTransition><ContactPopup /></body></html>;
 }
